@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Project_WIRP
 {
-    public partial class FDangKy : Form
+    public partial class FDangKyNguoiDung : Form
     {
-        public FDangKy()
+        public FDangKyNguoiDung()
         {
             InitializeComponent();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void rdoHienThi_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

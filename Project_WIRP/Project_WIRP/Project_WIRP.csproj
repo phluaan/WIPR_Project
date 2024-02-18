@@ -46,22 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FDangKy.cs">
+    <Compile Include="FDangKyNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FDangKy.Designer.cs">
-      <DependentUpon>FDangKy.cs</DependentUpon>
+    <Compile Include="FDangKyNguoiDung.Designer.cs">
+      <DependentUpon>FDangKyNguoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="FDangKyTho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FDangKyTho.Designer.cs">
+      <DependentUpon>FDangKyTho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDangNhap.Designer.cs">
+      <DependentUpon>FDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDoiThongTinNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDoiThongTinNguoiDung.Designer.cs">
+      <DependentUpon>FDoiThongTinNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FNguoiDung.Designer.cs">
+      <DependentUpon>FNguoiDung.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FDangKy.resx">
-      <DependentUpon>FDangKy.cs</DependentUpon>
+    <EmbeddedResource Include="FDangKyNguoiDung.resx">
+      <DependentUpon>FDangKyNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDangKyTho.resx">
+      <DependentUpon>FDangKyTho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDangNhap.resx">
+      <DependentUpon>FDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDoiThongTinNguoiDung.resx">
+      <DependentUpon>FDoiThongTinNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FNguoiDung.resx">
+      <DependentUpon>FNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
