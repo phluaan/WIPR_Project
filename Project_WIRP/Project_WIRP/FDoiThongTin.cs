@@ -10,17 +10,21 @@ using System.Windows.Forms;
 
 namespace Project_WIRP
 {
-    public partial class Form1 : Form
+    public partial class FDoiThongTin : Form
     {
-        FTho fTho = new FTho();
-        public Form1()
+        public FDoiThongTin()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDoiThongTin_Click_1(object sender, EventArgs e)
         {
-            fTho.ShowDialog();
+
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
