@@ -108,13 +108,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabLoiMoi = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.btnDoiThongTin = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabCongViecHienTai = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btnDoiThongTin = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabQuanLiBaiViet.SuspendLayout();
             this.tabDangBai.SuspendLayout();
             this.pnlDangBai.SuspendLayout();
@@ -198,7 +198,6 @@
             this.btnDangBai.TabIndex = 14;
             this.btnDangBai.Text = "ĐĂNG BÀI";
             this.btnDangBai.UseVisualStyleBackColor = false;
-            this.btnDangBai.Click += new System.EventHandler(this.btnDangBai_Click);
             // 
             // textBox2
             // 
@@ -941,6 +940,45 @@
             this.tabLoiMoi.TabIndex = 2;
             this.tabLoiMoi.Text = "LỜI MỜI";
             // 
+            // button8
+            // 
+            this.button8.AutoSize = true;
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.Window;
+            this.button8.Location = new System.Drawing.Point(668, 368);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(164, 30);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "THOÁT";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.AutoSize = true;
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.Window;
+            this.button7.Location = new System.Drawing.Point(213, 368);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(164, 30);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "XÁC NHẬN";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // btnDoiThongTin
+            // 
+            this.btnDoiThongTin.AutoSize = true;
+            this.btnDoiThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDoiThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoiThongTin.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDoiThongTin.Location = new System.Drawing.Point(443, 368);
+            this.btnDoiThongTin.Name = "btnDoiThongTin";
+            this.btnDoiThongTin.Size = new System.Drawing.Size(164, 30);
+            this.btnDoiThongTin.TabIndex = 14;
+            this.btnDoiThongTin.Text = "TỪ CHỐI";
+            this.btnDoiThongTin.UseVisualStyleBackColor = false;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -962,6 +1000,19 @@
             this.tabCongViecHienTai.TabIndex = 3;
             this.tabCongViecHienTai.Text = "CÔNG VIỆC HIỆN TẠI";
             // 
+            // button9
+            // 
+            this.button9.AutoSize = true;
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.Window;
+            this.button9.Location = new System.Drawing.Point(407, 377);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(164, 30);
+            this.button9.TabIndex = 15;
+            this.button9.Text = "TỪ CHỐI";
+            this.button9.UseVisualStyleBackColor = false;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -971,58 +1022,6 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(894, 252);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // btnDoiThongTin
-            // 
-            this.btnDoiThongTin.AutoSize = true;
-            this.btnDoiThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnDoiThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoiThongTin.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDoiThongTin.Location = new System.Drawing.Point(443, 368);
-            this.btnDoiThongTin.Name = "btnDoiThongTin";
-            this.btnDoiThongTin.Size = new System.Drawing.Size(164, 30);
-            this.btnDoiThongTin.TabIndex = 14;
-            this.btnDoiThongTin.Text = "TỪ CHỐI";
-            this.btnDoiThongTin.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.AutoSize = true;
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.Window;
-            this.button7.Location = new System.Drawing.Point(213, 368);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(164, 30);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "XÁC NHẬN";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.AutoSize = true;
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.Window;
-            this.button8.Location = new System.Drawing.Point(668, 368);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(164, 30);
-            this.button8.TabIndex = 16;
-            this.button8.Text = "THOÁT";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.AutoSize = true;
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.Window;
-            this.button9.Location = new System.Drawing.Point(417, 274);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(164, 30);
-            this.button9.TabIndex = 15;
-            this.button9.Text = "TỪ CHỐI";
-            this.button9.UseVisualStyleBackColor = false;
             // 
             // FQuanLiBaiViet
             // 

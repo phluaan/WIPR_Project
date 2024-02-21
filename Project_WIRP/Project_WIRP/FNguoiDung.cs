@@ -10,30 +10,34 @@ using System.Windows.Forms;
 
 namespace Project_WIRP
 {
-    public partial class FQuanLiBaiViet : Form
+    public partial class FNguoiDung : Form
     {
-        public FQuanLiBaiViet()
+        public FNguoiDung()
         {
             InitializeComponent();
         }
+        FDoiThongTin fdoithongtin = new FDoiThongTin();
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void rdoHienThi_CheckedChanged_1(object sender, EventArgs e)
+        private void btnThoat2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
-
-        private void btnThoat_Click_1(object sender, EventArgs e)
+        private void btnThoat3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnDangKy_Click(object sender, EventArgs e)
+        private void txtTimKiem_KeyUp(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void btnDoiThongTin_Click(object sender, EventArgs e)
+        {
+            fdoithongtin.ShowDialog();
         }
     }
 }
