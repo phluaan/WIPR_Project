@@ -16,15 +16,11 @@ namespace Project_WIRP
         {
             InitializeComponent();
         }
-        FDangKyNguoiDung fDangKyNguoiDung = new FDangKyNguoiDung();
-        FDangKyTho fDangKyTho = new FDangKyTho();
+        FDangKy fDangKy = new FDangKy();
         FNguoiDung fNguoiDung = new FNguoiDung();
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (rdoUser.Checked)
-                fDangKyNguoiDung.ShowDialog();
-            if (rdoTho.Checked)
-                fDangKyTho.ShowDialog();
+            fDangKy.ShowDialog();
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)

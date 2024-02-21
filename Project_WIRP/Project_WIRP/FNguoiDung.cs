@@ -15,14 +15,29 @@ namespace Project_WIRP
         public FNguoiDung()
         {
             InitializeComponent();
-            tabPage1.Text = "Thợ đang thuê";
-            tabPage2.Text = "Tìm thợ";
-            tabPage3.Text = "Lời mời đã gửi";
         }
-
+        FDoiThongTin fdoithongtin = new FDoiThongTin();
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void btnThoat2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnThoat3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtTimKiem_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void btnDoiThongTin_Click(object sender, EventArgs e)
+        {
+            fdoithongtin.ShowDialog();
         }
     }
 }
