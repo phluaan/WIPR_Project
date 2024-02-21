@@ -2,7 +2,6 @@ D:\WIPR_Project\WIPR_Project\Project_WIRP\Project_WIRP\bin\Debug\Project_WIRP.ex
 D:\WIPR_Project\WIPR_Project\Project_WIRP\Project_WIRP\bin\Debug\Project_WIRP.exe
 D:\WIPR_Project\WIPR_Project\Project_WIRP\Project_WIRP\bin\Debug\Project_WIRP.pdb
 D:\WIPR_Project\WIPR_Project\Project_WIRP\Project_WIRP\obj\Debug\Project_WIRP.csproj.AssemblyReference.cache
-D:\WIPR_Project\WIPR_Project\Project_WIRP\Project_WIRP\obj\Debug\Project_WIRP.FDangKy.resources
 D:\WIPR_Project\WIPR_Project\Project_WIRP\Project_WIRP\obj\Debug\Project_WIRP.FTho.resources
 D:\WIPR_Project\WIPR_Project\Project_WIRP\Project_WIRP\obj\Debug\Project_WIRP.Properties.Resources.resources
 D:\WIPR_Project\WIPR_Project\Project_WIRP\Project_WIRP\obj\Debug\Project_WIRP.csproj.GenerateResource.cache
