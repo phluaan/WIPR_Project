@@ -86,8 +86,8 @@
             this.pnlBackground2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBackground2.Location = new System.Drawing.Point(0, 0);
             this.pnlBackground2.Name = "pnlBackground2";
-            this.pnlBackground2.Size = new System.Drawing.Size(666, 423);
-            this.pnlBackground2.TabIndex = 3;
+            this.pnlBackground2.Size = new System.Drawing.Size(681, 418);
+            this.pnlBackground2.TabIndex = 4;
             // 
             // dtpNgaySinh
             // 
@@ -144,7 +144,6 @@
             this.rdoHienThi.TabStop = true;
             this.rdoHienThi.Text = "Hiển thị";
             this.rdoHienThi.UseVisualStyleBackColor = true;
-            this.rdoHienThi.CheckedChanged += new System.EventHandler(this.rdoHienThi_CheckedChanged);
             // 
             // txtNhapLaiMK
             // 
@@ -210,7 +209,6 @@
             this.btnDangKy.TabIndex = 13;
             this.btnDangKy.Text = "ĐỔI THÔNG TIN";
             this.btnDangKy.UseVisualStyleBackColor = false;
-            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
             // txtMK
             // 
@@ -328,7 +326,7 @@
             this.lblThongTin.AutoSize = true;
             this.lblThongTin.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblThongTin.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblThongTin.Location = new System.Drawing.Point(214, 25);
+            this.lblThongTin.Location = new System.Drawing.Point(221, 25);
             this.lblThongTin.Name = "lblThongTin";
             this.lblThongTin.Size = new System.Drawing.Size(220, 35);
             this.lblThongTin.TabIndex = 0;
@@ -338,11 +336,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 423);
+            this.ClientSize = new System.Drawing.Size(681, 418);
             this.Controls.Add(this.pnlBackground2);
             this.Name = "FDoiThongTin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ĐỔI THÔNG TIN";
+            this.Text = "FDoiThongTincs";
             this.pnlBackground2.ResumeLayout(false);
             this.pnlBackground2.PerformLayout();
             this.ResumeLayout(false);

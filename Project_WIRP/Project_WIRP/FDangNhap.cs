@@ -16,8 +16,9 @@ namespace Project_WIRP
         {
             InitializeComponent();
         }
-        FDangKy fDangKy = new FDangKy();
         FNguoiDung fNguoiDung = new FNguoiDung();
+        FDangKy fDangKy = new FDangKy();
+        FTho fTho = new FTho();
         private void btnDangKy_Click(object sender, EventArgs e)
         {
             fDangKy.ShowDialog();
@@ -28,7 +29,7 @@ namespace Project_WIRP
             if (rdoUser.Checked)
                 fNguoiDung.ShowDialog();
             if (rdoTho.Checked)
-                return;
+                fTho.ShowDialog();
         }
 
         private void rdoHienThi_CheckedChanged(object sender, EventArgs e)

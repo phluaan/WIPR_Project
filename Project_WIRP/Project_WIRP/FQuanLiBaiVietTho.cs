@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace Project_WIRP
 {
-    public partial class FDangKy : Form
+    public partial class FQuanLiBaiViet : Form
     {
-        public FDangKy()
+        public FQuanLiBaiViet()
         {
             InitializeComponent();
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void rdoHienThi_CheckedChanged(object sender, EventArgs e)
+        private void btnDangBai_Click(object sender, EventArgs e)
         {
 
         }

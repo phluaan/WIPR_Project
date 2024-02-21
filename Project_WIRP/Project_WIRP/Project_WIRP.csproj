@@ -70,16 +70,34 @@
     <Compile Include="FNguoiDung.Designer.cs">
       <DependentUpon>FNguoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="FQuanLiBaiViet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FQuanLiBaiViet.Designer.cs">
+      <DependentUpon>FQuanLiBaiViet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTho.Designer.cs">
+      <DependentUpon>FTho.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FDangKy.resx">
       <DependentUpon>FDangKy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FDangNhap.resx">
-      <DependentUpon>FDangNhap.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FDoiThongTin.resx">
       <DependentUpon>FDoiThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FQuanLiBaiViet.resx">
+      <DependentUpon>FQuanLiBaiViet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTho.resx">
+      <DependentUpon>FTho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDangNhap.resx">
+      <DependentUpon>FDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FNguoiDung.resx">
       <DependentUpon>FNguoiDung.cs</DependentUpon>
@@ -92,6 +110,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -105,6 +124,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background Profile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TheGioiViecLam-remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

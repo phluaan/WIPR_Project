@@ -10,21 +10,17 @@ using System.Windows.Forms;
 
 namespace Project_WIRP
 {
-    public partial class FDangKy : Form
+    public partial class Form1 : Form
     {
-        public FDangKy()
+        FTho fTho = new FTho();
+        public Form1()
         {
             InitializeComponent();
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void rdoHienThi_CheckedChanged(object sender, EventArgs e)
-        {
-
+            fTho.ShowDialog();
         }
     }
 }
