@@ -30,25 +30,25 @@
         {
             this.pnlBackground1 = new System.Windows.Forms.Panel();
             this.pnlBackground2 = new System.Windows.Forms.Panel();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnQuanLiBaiViet = new System.Windows.Forms.Button();
+            this.btnDoiThongTin = new System.Windows.Forms.Button();
+            this.txtMK = new System.Windows.Forms.TextBox();
+            this.txtTenTK = new System.Windows.Forms.TextBox();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtSDT = new System.Windows.Forms.TextBox();
+            this.txtHoVaTen = new System.Windows.Forms.TextBox();
+            this.lblDiaChi = new System.Windows.Forms.Label();
+            this.lblMatKhau = new System.Windows.Forms.Label();
+            this.lblTenTaiKhoan = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblSoDienThoai = new System.Windows.Forms.Label();
             this.lblHoVaTen = new System.Windows.Forms.Label();
             this.lblThongTin = new System.Windows.Forms.Label();
             this.lblTieuDe = new System.Windows.Forms.Label();
-            this.lblSoDienThoai = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblTenTaiKhoang = new System.Windows.Forms.Label();
-            this.lblMatKhau = new System.Windows.Forms.Label();
-            this.lblDiaChi = new System.Windows.Forms.Label();
-            this.txtHoVaTen = new System.Windows.Forms.TextBox();
-            this.txtSDT = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.txtTenTK = new System.Windows.Forms.TextBox();
-            this.txtMK = new System.Windows.Forms.TextBox();
-            this.btnDoiThongTin = new System.Windows.Forms.Button();
-            this.btnQuanLiBaiViet = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lblID = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlBackground1.SuspendLayout();
             this.pnlBackground2.SuspendLayout();
@@ -83,7 +83,7 @@
             this.pnlBackground2.Controls.Add(this.txtHoVaTen);
             this.pnlBackground2.Controls.Add(this.lblDiaChi);
             this.pnlBackground2.Controls.Add(this.lblMatKhau);
-            this.pnlBackground2.Controls.Add(this.lblTenTaiKhoang);
+            this.pnlBackground2.Controls.Add(this.lblTenTaiKhoan);
             this.pnlBackground2.Controls.Add(this.lblEmail);
             this.pnlBackground2.Controls.Add(this.lblSoDienThoai);
             this.pnlBackground2.Controls.Add(this.lblHoVaTen);
@@ -92,6 +92,163 @@
             this.pnlBackground2.Name = "pnlBackground2";
             this.pnlBackground2.Size = new System.Drawing.Size(410, 530);
             this.pnlBackground2.TabIndex = 1;
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(31, 76);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(345, 22);
+            this.txtID.TabIndex = 17;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblID.Location = new System.Drawing.Point(28, 57);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(110, 16);
+            this.lblID.TabIndex = 16;
+            this.lblID.Text = "ID TÀI KHOẢN:";
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.AutoSize = true;
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnThoat.Location = new System.Drawing.Point(155, 479);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(94, 30);
+            this.btnThoat.TabIndex = 15;
+            this.btnThoat.Text = "THOÁT";
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnQuanLiBaiViet
+            // 
+            this.btnQuanLiBaiViet.AutoSize = true;
+            this.btnQuanLiBaiViet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnQuanLiBaiViet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuanLiBaiViet.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnQuanLiBaiViet.Location = new System.Drawing.Point(201, 443);
+            this.btnQuanLiBaiViet.Name = "btnQuanLiBaiViet";
+            this.btnQuanLiBaiViet.Size = new System.Drawing.Size(175, 30);
+            this.btnQuanLiBaiViet.TabIndex = 14;
+            this.btnQuanLiBaiViet.Text = "QUẢN LÍ BÀI VIẾT";
+            this.btnQuanLiBaiViet.UseVisualStyleBackColor = false;
+            this.btnQuanLiBaiViet.Click += new System.EventHandler(this.btnQuanLiBaiViet_Click);
+            // 
+            // btnDoiThongTin
+            // 
+            this.btnDoiThongTin.AutoSize = true;
+            this.btnDoiThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDoiThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoiThongTin.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDoiThongTin.Location = new System.Drawing.Point(15, 443);
+            this.btnDoiThongTin.Name = "btnDoiThongTin";
+            this.btnDoiThongTin.Size = new System.Drawing.Size(164, 30);
+            this.btnDoiThongTin.TabIndex = 13;
+            this.btnDoiThongTin.Text = "ĐỔI THÔNG TIN";
+            this.btnDoiThongTin.UseVisualStyleBackColor = false;
+            this.btnDoiThongTin.Click += new System.EventHandler(this.btnDoiThongTin_Click);
+            // 
+            // txtMK
+            // 
+            this.txtMK.Location = new System.Drawing.Point(31, 397);
+            this.txtMK.Name = "txtMK";
+            this.txtMK.Size = new System.Drawing.Size(345, 22);
+            this.txtMK.TabIndex = 12;
+            // 
+            // txtTenTK
+            // 
+            this.txtTenTK.Location = new System.Drawing.Point(31, 342);
+            this.txtTenTK.Name = "txtTenTK";
+            this.txtTenTK.Size = new System.Drawing.Size(345, 22);
+            this.txtTenTK.TabIndex = 11;
+            // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Location = new System.Drawing.Point(31, 289);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(345, 22);
+            this.txtDiaChi.TabIndex = 10;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(31, 234);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(345, 22);
+            this.txtEmail.TabIndex = 9;
+            // 
+            // txtSDT
+            // 
+            this.txtSDT.Location = new System.Drawing.Point(31, 181);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(345, 22);
+            this.txtSDT.TabIndex = 8;
+            // 
+            // txtHoVaTen
+            // 
+            this.txtHoVaTen.Location = new System.Drawing.Point(31, 125);
+            this.txtHoVaTen.Name = "txtHoVaTen";
+            this.txtHoVaTen.Size = new System.Drawing.Size(345, 22);
+            this.txtHoVaTen.TabIndex = 7;
+            // 
+            // lblDiaChi
+            // 
+            this.lblDiaChi.AutoSize = true;
+            this.lblDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiaChi.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblDiaChi.Location = new System.Drawing.Point(28, 270);
+            this.lblDiaChi.Name = "lblDiaChi";
+            this.lblDiaChi.Size = new System.Drawing.Size(64, 16);
+            this.lblDiaChi.TabIndex = 6;
+            this.lblDiaChi.Text = "ĐỊA CHỈ:";
+            // 
+            // lblMatKhau
+            // 
+            this.lblMatKhau.AutoSize = true;
+            this.lblMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMatKhau.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblMatKhau.Location = new System.Drawing.Point(28, 378);
+            this.lblMatKhau.Name = "lblMatKhau";
+            this.lblMatKhau.Size = new System.Drawing.Size(88, 16);
+            this.lblMatKhau.TabIndex = 5;
+            this.lblMatKhau.Text = "MẬT KHẨU:";
+            // 
+            // lblTenTaiKhoan
+            // 
+            this.lblTenTaiKhoan.AutoSize = true;
+            this.lblTenTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenTaiKhoan.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblTenTaiKhoan.Location = new System.Drawing.Point(28, 323);
+            this.lblTenTaiKhoan.Name = "lblTenTaiKhoan";
+            this.lblTenTaiKhoan.Size = new System.Drawing.Size(126, 16);
+            this.lblTenTaiKhoan.TabIndex = 4;
+            this.lblTenTaiKhoan.Text = "TÊN TÀI KHOẢN:";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblEmail.Location = new System.Drawing.Point(28, 215);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(55, 16);
+            this.lblEmail.TabIndex = 3;
+            this.lblEmail.Text = "EMAIL:";
+            // 
+            // lblSoDienThoai
+            // 
+            this.lblSoDienThoai.AutoSize = true;
+            this.lblSoDienThoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoDienThoai.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblSoDienThoai.Location = new System.Drawing.Point(28, 162);
+            this.lblSoDienThoai.Name = "lblSoDienThoai";
+            this.lblSoDienThoai.Size = new System.Drawing.Size(121, 16);
+            this.lblSoDienThoai.TabIndex = 2;
+            this.lblSoDienThoai.Text = "SỐ ĐIỆN THOẠI:";
             // 
             // lblHoVaTen
             // 
@@ -126,163 +283,6 @@
             this.lblTieuDe.Size = new System.Drawing.Size(942, 51);
             this.lblTieuDe.TabIndex = 0;
             this.lblTieuDe.Text = "PHẦN MỀM ỨNG DỤNG THẾ GIỚI VIỆC LÀM";
-            // 
-            // lblSoDienThoai
-            // 
-            this.lblSoDienThoai.AutoSize = true;
-            this.lblSoDienThoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoDienThoai.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblSoDienThoai.Location = new System.Drawing.Point(28, 162);
-            this.lblSoDienThoai.Name = "lblSoDienThoai";
-            this.lblSoDienThoai.Size = new System.Drawing.Size(121, 16);
-            this.lblSoDienThoai.TabIndex = 2;
-            this.lblSoDienThoai.Text = "SỐ ĐIỆN THOẠI:";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblEmail.Location = new System.Drawing.Point(28, 215);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(55, 16);
-            this.lblEmail.TabIndex = 3;
-            this.lblEmail.Text = "EMAIL:";
-            // 
-            // lblTenTaiKhoang
-            // 
-            this.lblTenTaiKhoang.AutoSize = true;
-            this.lblTenTaiKhoang.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenTaiKhoang.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTenTaiKhoang.Location = new System.Drawing.Point(28, 323);
-            this.lblTenTaiKhoang.Name = "lblTenTaiKhoang";
-            this.lblTenTaiKhoang.Size = new System.Drawing.Size(137, 16);
-            this.lblTenTaiKhoang.TabIndex = 4;
-            this.lblTenTaiKhoang.Text = "TÊN TÀI KHOẢNG:";
-            // 
-            // lblMatKhau
-            // 
-            this.lblMatKhau.AutoSize = true;
-            this.lblMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMatKhau.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblMatKhau.Location = new System.Drawing.Point(28, 378);
-            this.lblMatKhau.Name = "lblMatKhau";
-            this.lblMatKhau.Size = new System.Drawing.Size(88, 16);
-            this.lblMatKhau.TabIndex = 5;
-            this.lblMatKhau.Text = "MẬT KHẨU:";
-            // 
-            // lblDiaChi
-            // 
-            this.lblDiaChi.AutoSize = true;
-            this.lblDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiaChi.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblDiaChi.Location = new System.Drawing.Point(28, 270);
-            this.lblDiaChi.Name = "lblDiaChi";
-            this.lblDiaChi.Size = new System.Drawing.Size(64, 16);
-            this.lblDiaChi.TabIndex = 6;
-            this.lblDiaChi.Text = "ĐỊA CHỈ:";
-            // 
-            // txtHoVaTen
-            // 
-            this.txtHoVaTen.Location = new System.Drawing.Point(31, 125);
-            this.txtHoVaTen.Name = "txtHoVaTen";
-            this.txtHoVaTen.Size = new System.Drawing.Size(345, 22);
-            this.txtHoVaTen.TabIndex = 7;
-            // 
-            // txtSDT
-            // 
-            this.txtSDT.Location = new System.Drawing.Point(31, 181);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(345, 22);
-            this.txtSDT.TabIndex = 8;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(31, 234);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(345, 22);
-            this.txtEmail.TabIndex = 9;
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.Location = new System.Drawing.Point(31, 289);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(345, 22);
-            this.txtDiaChi.TabIndex = 10;
-            // 
-            // txtTenTK
-            // 
-            this.txtTenTK.Location = new System.Drawing.Point(31, 342);
-            this.txtTenTK.Name = "txtTenTK";
-            this.txtTenTK.Size = new System.Drawing.Size(345, 22);
-            this.txtTenTK.TabIndex = 11;
-            // 
-            // txtMK
-            // 
-            this.txtMK.Location = new System.Drawing.Point(31, 397);
-            this.txtMK.Name = "txtMK";
-            this.txtMK.Size = new System.Drawing.Size(345, 22);
-            this.txtMK.TabIndex = 12;
-            // 
-            // btnDoiThongTin
-            // 
-            this.btnDoiThongTin.AutoSize = true;
-            this.btnDoiThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnDoiThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoiThongTin.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDoiThongTin.Location = new System.Drawing.Point(15, 443);
-            this.btnDoiThongTin.Name = "btnDoiThongTin";
-            this.btnDoiThongTin.Size = new System.Drawing.Size(164, 30);
-            this.btnDoiThongTin.TabIndex = 13;
-            this.btnDoiThongTin.Text = "ĐỔI THÔNG TIN";
-            this.btnDoiThongTin.UseVisualStyleBackColor = false;
-            this.btnDoiThongTin.Click += new System.EventHandler(this.btnDoiThongTin_Click);
-            // 
-            // btnQuanLiBaiViet
-            // 
-            this.btnQuanLiBaiViet.AutoSize = true;
-            this.btnQuanLiBaiViet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnQuanLiBaiViet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuanLiBaiViet.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnQuanLiBaiViet.Location = new System.Drawing.Point(201, 443);
-            this.btnQuanLiBaiViet.Name = "btnQuanLiBaiViet";
-            this.btnQuanLiBaiViet.Size = new System.Drawing.Size(175, 30);
-            this.btnQuanLiBaiViet.TabIndex = 14;
-            this.btnQuanLiBaiViet.Text = "QUẢN LÍ BÀI VIẾT";
-            this.btnQuanLiBaiViet.UseVisualStyleBackColor = false;
-            this.btnQuanLiBaiViet.Click += new System.EventHandler(this.btnQuanLiBaiViet_Click);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.AutoSize = true;
-            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnThoat.Location = new System.Drawing.Point(155, 479);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(94, 30);
-            this.btnThoat.TabIndex = 15;
-            this.btnThoat.Text = "THOÁT";
-            this.btnThoat.UseVisualStyleBackColor = false;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(31, 76);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(345, 22);
-            this.txtID.TabIndex = 17;
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblID.Location = new System.Drawing.Point(28, 57);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(121, 16);
-            this.lblID.TabIndex = 16;
-            this.lblID.Text = "ID TÀI KHOẢNG:";
             // 
             // pictureBox1
             // 
@@ -320,7 +320,7 @@
         private System.Windows.Forms.Label lblHoVaTen;
         private System.Windows.Forms.Label lblThongTin;
         private System.Windows.Forms.Label lblMatKhau;
-        private System.Windows.Forms.Label lblTenTaiKhoang;
+        private System.Windows.Forms.Label lblTenTaiKhoan;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblSoDienThoai;
         private System.Windows.Forms.Label lblDiaChi;

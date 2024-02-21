@@ -41,7 +41,7 @@
             this.txtHoVaTen = new System.Windows.Forms.TextBox();
             this.lblDiaChi = new System.Windows.Forms.Label();
             this.lblMatKhau = new System.Windows.Forms.Label();
-            this.lblTenTaiKhoang = new System.Windows.Forms.Label();
+            this.lblTenTaiKhoan = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblSoDienThoai = new System.Windows.Forms.Label();
             this.lblHoVaTen = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.pnlBackground2.Controls.Add(this.txtHoVaTen);
             this.pnlBackground2.Controls.Add(this.lblDiaChi);
             this.pnlBackground2.Controls.Add(this.lblMatKhau);
-            this.pnlBackground2.Controls.Add(this.lblTenTaiKhoang);
+            this.pnlBackground2.Controls.Add(this.lblTenTaiKhoan);
             this.pnlBackground2.Controls.Add(this.lblEmail);
             this.pnlBackground2.Controls.Add(this.lblSoDienThoai);
             this.pnlBackground2.Controls.Add(this.lblHoVaTen);
@@ -89,9 +89,9 @@
             this.lblID.ForeColor = System.Drawing.SystemColors.Window;
             this.lblID.Location = new System.Drawing.Point(12, 59);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(121, 16);
+            this.lblID.Size = new System.Drawing.Size(110, 16);
             this.lblID.TabIndex = 16;
-            this.lblID.Text = "ID TÀI KHOẢNG:";
+            this.lblID.Text = "ID TÀI KHOẢN:";
             // 
             // btnThoat
             // 
@@ -185,16 +185,16 @@
             this.lblMatKhau.TabIndex = 5;
             this.lblMatKhau.Text = "MẬT KHẨU:";
             // 
-            // lblTenTaiKhoang
+            // lblTenTaiKhoan
             // 
-            this.lblTenTaiKhoang.AutoSize = true;
-            this.lblTenTaiKhoang.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenTaiKhoang.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTenTaiKhoang.Location = new System.Drawing.Point(12, 325);
-            this.lblTenTaiKhoang.Name = "lblTenTaiKhoang";
-            this.lblTenTaiKhoang.Size = new System.Drawing.Size(137, 16);
-            this.lblTenTaiKhoang.TabIndex = 4;
-            this.lblTenTaiKhoang.Text = "TÊN TÀI KHOẢNG:";
+            this.lblTenTaiKhoan.AutoSize = true;
+            this.lblTenTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenTaiKhoan.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblTenTaiKhoan.Location = new System.Drawing.Point(12, 325);
+            this.lblTenTaiKhoan.Name = "lblTenTaiKhoan";
+            this.lblTenTaiKhoan.Size = new System.Drawing.Size(126, 16);
+            this.lblTenTaiKhoan.TabIndex = 4;
+            this.lblTenTaiKhoan.Text = "TÊN TÀI KHOẢN:";
             // 
             // lblEmail
             // 
@@ -271,7 +271,7 @@
         private System.Windows.Forms.TextBox txtHoVaTen;
         private System.Windows.Forms.Label lblDiaChi;
         private System.Windows.Forms.Label lblMatKhau;
-        private System.Windows.Forms.Label lblTenTaiKhoang;
+        private System.Windows.Forms.Label lblTenTaiKhoan;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblSoDienThoai;
         private System.Windows.Forms.Label lblHoVaTen;
