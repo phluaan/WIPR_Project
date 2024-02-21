@@ -16,7 +16,6 @@ namespace Project_WIRP
         {
             InitializeComponent();
         }
-        FDoiThongTin fdoithongtin = new FDoiThongTin();
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -37,7 +36,6 @@ namespace Project_WIRP
 
         private void btnDoiThongTin_Click(object sender, EventArgs e)
         {
-            fdoithongtin.ShowDialog();
         }
     }
 }

@@ -16,11 +16,9 @@ namespace Project_WIRP
         {
             InitializeComponent();
         }
-        FDangKy fDangKy = new FDangKy();
         FNguoiDung fNguoiDung = new FNguoiDung();
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            fDangKy.ShowDialog();
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
