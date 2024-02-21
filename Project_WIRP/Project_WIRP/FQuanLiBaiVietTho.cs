@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Project_WIRP
 {
-    public partial class FQuanLiBaiViet : Form
+    public partial class FQuanLiBaiVietTho : Form
     {
-        public FQuanLiBaiViet()
+        public FQuanLiBaiVietTho()
         {
             InitializeComponent();
         }

@@ -12,8 +12,7 @@ namespace Project_WIRP
 {
     public partial class FTho : Form
     {
-        FDoiThongTin fDoiThongTin = new FDoiThongTin();
-        FQuanLiBaiViet fQuanLiBaiViet = new FQuanLiBaiViet();
+        FQuanLiBaiVietTho fQuanLiBaiViet = new FQuanLiBaiVietTho();
         public FTho()
         {
             InitializeComponent();
@@ -21,7 +20,7 @@ namespace Project_WIRP
 
         private void btnDoiThongTin_Click(object sender, EventArgs e)
         {
-            fDoiThongTin.ShowDialog();
+
         }
 
         private void btnQuanLiBaiViet_Click(object sender, EventArgs e)

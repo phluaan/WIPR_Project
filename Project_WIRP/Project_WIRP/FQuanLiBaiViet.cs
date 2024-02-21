@@ -18,6 +18,31 @@ namespace Project_WIRP
         }
 
         private void btnDangBai_Click(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void rdoHienThi_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (rdoHienThi.Checked)
+            {
+                txtMK.PasswordChar = '\0';
+                txtNhapLaiMK.PasswordChar = '\0';
+            }
+            else
+            {
+                txtMK.PasswordChar = '*';
+                txtNhapLaiMK.PasswordChar = '*';
+            }
+        }
+
+        private void btnThoat_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDangKy_Click(object sender, EventArgs e)
         {
 
         }

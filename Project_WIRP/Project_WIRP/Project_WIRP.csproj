@@ -46,23 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FDoiThongTin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FDoiThongTin.Designer.cs">
-      <DependentUpon>FDoiThongTin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FQuanLiBaiViet.cs">
+    <Compile Include="FQuanLiBaiVietTho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FQuanLiBaiViet.Designer.cs">
-      <DependentUpon>FQuanLiBaiViet.cs</DependentUpon>
+    <Compile Include="FQuanLiBaiVietTho.Designer.cs">
+      <DependentUpon>FQuanLiBaiVietTho.cs</DependentUpon>
     </Compile>
     <Compile Include="FTho.cs">
       <SubType>Form</SubType>
@@ -72,14 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FDoiThongTin.resx">
-      <DependentUpon>FDoiThongTin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FQuanLiBaiViet.resx">
-      <DependentUpon>FQuanLiBaiViet.cs</DependentUpon>
+    <EmbeddedResource Include="FQuanLiBaiVietTho.resx">
+      <DependentUpon>FQuanLiBaiVietTho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FTho.resx">
       <DependentUpon>FTho.cs</DependentUpon>
