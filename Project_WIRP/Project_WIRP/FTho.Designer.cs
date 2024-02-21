@@ -59,7 +59,7 @@
             this.pnlBackground1.Controls.Add(this.pictureBox1);
             this.pnlBackground1.Location = new System.Drawing.Point(1, 3);
             this.pnlBackground1.Name = "pnlBackground1";
-            this.pnlBackground1.Size = new System.Drawing.Size(1077, 528);
+            this.pnlBackground1.Size = new System.Drawing.Size(1077, 510);
             this.pnlBackground1.TabIndex = 0;
             // 
             // pnlBackground2
@@ -82,7 +82,7 @@
             this.pnlBackground2.Controls.Add(this.lblThongTin);
             this.pnlBackground2.Location = new System.Drawing.Point(20, 95);
             this.pnlBackground2.Name = "pnlBackground2";
-            this.pnlBackground2.Size = new System.Drawing.Size(410, 419);
+            this.pnlBackground2.Size = new System.Drawing.Size(410, 402);
             this.pnlBackground2.TabIndex = 1;
             // 
             // txtID
@@ -109,7 +109,7 @@
             this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnThoat.Location = new System.Drawing.Point(165, 370);
+            this.btnThoat.Location = new System.Drawing.Point(165, 363);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(94, 30);
             this.btnThoat.TabIndex = 15;
@@ -123,7 +123,7 @@
             this.btnQuanLiBaiViet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnQuanLiBaiViet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuanLiBaiViet.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnQuanLiBaiViet.Location = new System.Drawing.Point(211, 334);
+            this.btnQuanLiBaiViet.Location = new System.Drawing.Point(211, 327);
             this.btnQuanLiBaiViet.Name = "btnQuanLiBaiViet";
             this.btnQuanLiBaiViet.Size = new System.Drawing.Size(175, 30);
             this.btnQuanLiBaiViet.TabIndex = 14;
@@ -137,7 +137,7 @@
             this.btnDoiThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnDoiThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoiThongTin.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDoiThongTin.Location = new System.Drawing.Point(25, 334);
+            this.btnDoiThongTin.Location = new System.Drawing.Point(25, 327);
             this.btnDoiThongTin.Name = "btnDoiThongTin";
             this.btnDoiThongTin.Size = new System.Drawing.Size(164, 30);
             this.btnDoiThongTin.TabIndex = 13;
@@ -254,7 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 533);
+            this.ClientSize = new System.Drawing.Size(1071, 515);
             this.Controls.Add(this.pnlBackground1);
             this.Name = "FTho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

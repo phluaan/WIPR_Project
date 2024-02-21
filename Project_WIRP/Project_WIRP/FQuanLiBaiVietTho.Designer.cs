@@ -40,6 +40,8 @@
             this.lblLoaiDichVu = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabQuanLiBai = new System.Windows.Forms.TabPage();
+            this.tabLoiMoi = new System.Windows.Forms.TabPage();
+            this.tabCongViecHienTai = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -107,24 +109,22 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabLoiMoi = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.btnDoiThongTin = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabCongViecHienTai = new System.Windows.Forms.TabPage();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabQuanLiBaiViet.SuspendLayout();
             this.tabDangBai.SuspendLayout();
             this.pnlDangBai.SuspendLayout();
             this.tabQuanLiBai.SuspendLayout();
+            this.tabLoiMoi.SuspendLayout();
+            this.tabCongViecHienTai.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabLoiMoi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabCongViecHienTai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,7 +137,7 @@
             this.tabQuanLiBaiViet.Location = new System.Drawing.Point(0, 1);
             this.tabQuanLiBaiViet.Name = "tabQuanLiBaiViet";
             this.tabQuanLiBaiViet.SelectedIndex = 0;
-            this.tabQuanLiBaiViet.Size = new System.Drawing.Size(1006, 600);
+            this.tabQuanLiBaiViet.Size = new System.Drawing.Size(1006, 605);
             this.tabQuanLiBaiViet.TabIndex = 0;
             // 
             // tabDangBai
@@ -148,7 +148,7 @@
             this.tabDangBai.Location = new System.Drawing.Point(4, 25);
             this.tabDangBai.Name = "tabDangBai";
             this.tabDangBai.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDangBai.Size = new System.Drawing.Size(998, 571);
+            this.tabDangBai.Size = new System.Drawing.Size(998, 628);
             this.tabDangBai.TabIndex = 0;
             this.tabDangBai.Text = "ĐĂNG BÀI";
             // 
@@ -255,10 +255,34 @@
             this.tabQuanLiBai.Location = new System.Drawing.Point(4, 25);
             this.tabQuanLiBai.Name = "tabQuanLiBai";
             this.tabQuanLiBai.Padding = new System.Windows.Forms.Padding(3);
-            this.tabQuanLiBai.Size = new System.Drawing.Size(998, 571);
+            this.tabQuanLiBai.Size = new System.Drawing.Size(998, 576);
             this.tabQuanLiBai.TabIndex = 1;
             this.tabQuanLiBai.Text = "QUẢN LÍ BÀI ĐĂNG";
             this.tabQuanLiBai.UseVisualStyleBackColor = true;
+            // 
+            // tabLoiMoi
+            // 
+            this.tabLoiMoi.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tabLoiMoi.Controls.Add(this.button8);
+            this.tabLoiMoi.Controls.Add(this.button7);
+            this.tabLoiMoi.Controls.Add(this.btnDoiThongTin);
+            this.tabLoiMoi.Controls.Add(this.dataGridView1);
+            this.tabLoiMoi.Location = new System.Drawing.Point(4, 25);
+            this.tabLoiMoi.Name = "tabLoiMoi";
+            this.tabLoiMoi.Size = new System.Drawing.Size(998, 576);
+            this.tabLoiMoi.TabIndex = 2;
+            this.tabLoiMoi.Text = "LỜI MỜI";
+            // 
+            // tabCongViecHienTai
+            // 
+            this.tabCongViecHienTai.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tabCongViecHienTai.Controls.Add(this.button9);
+            this.tabCongViecHienTai.Controls.Add(this.dataGridView2);
+            this.tabCongViecHienTai.Location = new System.Drawing.Point(4, 25);
+            this.tabCongViecHienTai.Name = "tabCongViecHienTai";
+            this.tabCongViecHienTai.Size = new System.Drawing.Size(998, 576);
+            this.tabCongViecHienTai.TabIndex = 3;
+            this.tabCongViecHienTai.Text = "CÔNG VIỆC HIỆN TẠI";
             // 
             // panel3
             // 
@@ -289,7 +313,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 383);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(992, 190);
-            this.panel3.TabIndex = 5;
+            this.panel3.TabIndex = 8;
             // 
             // button5
             // 
@@ -518,7 +542,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 193);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(992, 190);
-            this.panel2.TabIndex = 4;
+            this.panel2.TabIndex = 7;
             // 
             // button3
             // 
@@ -737,7 +761,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(992, 190);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 6;
             // 
             // button2
             // 
@@ -928,29 +952,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "\r\nHỌ VÀ TÊN:";
             // 
-            // tabLoiMoi
-            // 
-            this.tabLoiMoi.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tabLoiMoi.Controls.Add(this.button8);
-            this.tabLoiMoi.Controls.Add(this.button7);
-            this.tabLoiMoi.Controls.Add(this.btnDoiThongTin);
-            this.tabLoiMoi.Controls.Add(this.dataGridView1);
-            this.tabLoiMoi.Location = new System.Drawing.Point(4, 25);
-            this.tabLoiMoi.Name = "tabLoiMoi";
-            this.tabLoiMoi.Size = new System.Drawing.Size(998, 571);
-            this.tabLoiMoi.TabIndex = 2;
-            this.tabLoiMoi.Text = "LỜI MỜI";
-            // 
             // button8
             // 
             this.button8.AutoSize = true;
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.Window;
-            this.button8.Location = new System.Drawing.Point(673, 367);
+            this.button8.Location = new System.Drawing.Point(673, 347);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(164, 30);
-            this.button8.TabIndex = 20;
+            this.button8.TabIndex = 24;
             this.button8.Text = "THOÁT";
             this.button8.UseVisualStyleBackColor = false;
             // 
@@ -960,10 +971,10 @@
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.Window;
-            this.button7.Location = new System.Drawing.Point(218, 367);
+            this.button7.Location = new System.Drawing.Point(218, 347);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(164, 30);
-            this.button7.TabIndex = 19;
+            this.button7.TabIndex = 23;
             this.button7.Text = "XÁC NHẬN";
             this.button7.UseVisualStyleBackColor = false;
             // 
@@ -973,33 +984,22 @@
             this.btnDoiThongTin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnDoiThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoiThongTin.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDoiThongTin.Location = new System.Drawing.Point(448, 367);
+            this.btnDoiThongTin.Location = new System.Drawing.Point(448, 347);
             this.btnDoiThongTin.Name = "btnDoiThongTin";
             this.btnDoiThongTin.Size = new System.Drawing.Size(164, 30);
-            this.btnDoiThongTin.TabIndex = 18;
+            this.btnDoiThongTin.TabIndex = 22;
             this.btnDoiThongTin.Text = "TỪ CHỐI";
             this.btnDoiThongTin.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 39);
+            this.dataGridView1.Location = new System.Drawing.Point(46, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(893, 257);
-            this.dataGridView1.TabIndex = 17;
-            // 
-            // tabCongViecHienTai
-            // 
-            this.tabCongViecHienTai.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tabCongViecHienTai.Controls.Add(this.button9);
-            this.tabCongViecHienTai.Controls.Add(this.dataGridView2);
-            this.tabCongViecHienTai.Location = new System.Drawing.Point(4, 25);
-            this.tabCongViecHienTai.Name = "tabCongViecHienTai";
-            this.tabCongViecHienTai.Size = new System.Drawing.Size(998, 571);
-            this.tabCongViecHienTai.TabIndex = 3;
-            this.tabCongViecHienTai.Text = "CÔNG VIỆC HIỆN TẠI";
+            this.dataGridView1.TabIndex = 21;
             // 
             // button9
             // 
@@ -1007,28 +1007,28 @@
             this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.Window;
-            this.button9.Location = new System.Drawing.Point(399, 334);
+            this.button9.Location = new System.Drawing.Point(399, 332);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(164, 30);
-            this.button9.TabIndex = 17;
+            this.button9.TabIndex = 19;
             this.button9.Text = "TỪ CHỐI";
             this.button9.UseVisualStyleBackColor = false;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(42, 27);
+            this.dataGridView2.Location = new System.Drawing.Point(42, 25);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(894, 252);
-            this.dataGridView2.TabIndex = 16;
+            this.dataGridView2.TabIndex = 18;
             // 
             // FQuanLiBaiVietTho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 602);
+            this.ClientSize = new System.Drawing.Size(1005, 603);
             this.Controls.Add(this.tabQuanLiBaiViet);
             this.Name = "FQuanLiBaiVietTho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1039,17 +1039,17 @@
             this.pnlDangBai.ResumeLayout(false);
             this.pnlDangBai.PerformLayout();
             this.tabQuanLiBai.ResumeLayout(false);
+            this.tabLoiMoi.ResumeLayout(false);
+            this.tabLoiMoi.PerformLayout();
+            this.tabCongViecHienTai.ResumeLayout(false);
+            this.tabCongViecHienTai.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabLoiMoi.ResumeLayout(false);
-            this.tabLoiMoi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabCongViecHienTai.ResumeLayout(false);
-            this.tabCongViecHienTai.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
