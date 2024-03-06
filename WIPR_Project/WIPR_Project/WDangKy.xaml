@@ -1,0 +1,29 @@
+﻿<Window x:Class="WIPR_Project.FDangKy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WIPR_Project"
+        mc:Ignorable="d"
+        Title="FDangKy" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="txtIDTaiKhoan" HorizontalAlignment="Left" Margin="131,121,0,0" TextWrapping="Wrap" Text="ID tài khoản" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtHoVaTen" HorizontalAlignment="Left" Margin="131,162,0,0" TextWrapping="Wrap" Text="Họ và tên" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtSĐT" HorizontalAlignment="Left" Margin="131,0,0,0" TextWrapping="Wrap" Text="Số điện thoại" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="131,259,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtDiaChi" HorizontalAlignment="Left" Margin="291,121,0,0" TextWrapping="Wrap" Text="Địa chỉ" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtTenTaiKhoan" HorizontalAlignment="Left" Margin="291,0,0,0" TextWrapping="Wrap" Text="Tên tài khoản" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="txtMatKhau" HorizontalAlignment="Left" Margin="291,259,0,0" TextWrapping="Wrap" Text="Mật khẩu" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtNhapLaiMatKhau" HorizontalAlignment="Left" Margin="291,307,0,0" TextWrapping="Wrap" Text="Nhập lại mật khẩu" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnDangKy" Content="Đăng ký" HorizontalAlignment="Left" Margin="211,356,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnThoat" Content="Thoát" HorizontalAlignment="Left" Margin="291,356,0,0" VerticalAlignment="Top"/>
+        <Label Content="Đăng ký" HorizontalAlignment="Left" Margin="253,68,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="291,159,0,0" VerticalAlignment="Top" Width="120" Text="Ngày sinh"/>
+        <ComboBox x:Name="cbbGioiTinh" HorizontalAlignment="Left" Margin="131,305,0,0" VerticalAlignment="Top" Width="120" Text="Giới tính">
+            <Button ContentStringFormat=""/>
+            <Button/>
+            <Button/>
+        </ComboBox>
+
+    </Grid>
+</Window>
