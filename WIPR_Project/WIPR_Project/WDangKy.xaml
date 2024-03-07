@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WIPR_Project"
         mc:Ignorable="d"
-        Title="FDangKy" Height="450" Width="800">
-    <Grid>
+        Title="FDangKy" Height="450" Width="687">
+    <Grid HorizontalAlignment="Left" Width="649">
         <TextBox x:Name="txtIDTaiKhoan" HorizontalAlignment="Left" Margin="131,121,0,0" TextWrapping="Wrap" Text="ID tài khoản" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtHoVaTen" HorizontalAlignment="Left" Margin="131,162,0,0" TextWrapping="Wrap" Text="Họ và tên" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtSĐT" HorizontalAlignment="Left" Margin="131,0,0,0" TextWrapping="Wrap" Text="Số điện thoại" VerticalAlignment="Center" Width="120"/>

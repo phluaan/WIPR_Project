@@ -20,3 +20,11 @@ F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Projec
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDangNhap.baml
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDoiThongTin.baml
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WNguoiDung.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.csproj.CopyComplete
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\App.baml
