@@ -23,16 +23,11 @@ namespace WIPR_Project
         {
             InitializeComponent();
             var converter = new BrushConverter();
-            ObservableCollection<Member> members = new ObservableCollection<Member>();
+            ObservableCollection<NguoiDung>  ndung = new ObservableCollection<NguoiDung>();
 
-            members.Add(new Member { Number = "1", Character = "A", BgColor = (Brush)converter.ConvertFromString("#1098ad"), Name = "Luan", Position = "123", Email = "asdasd", Phone = "123" });
-            members.Add(new Member { Number = "2", Character = "B", BgColor = (Brush)converter.ConvertFromString("#1e88e5"), Name = "asdasd", Position = "1234", Email = "fgh", Phone = "123" });
-            members.Add(new Member { Number = "3", Character = "C", BgColor = (Brush)converter.ConvertFromString("#ff8f00"), Name = "sfsf", Position = "5766", Email = "hk", Phone = "123" });
-            members.Add(new Member { Number = "4", Character = "D", BgColor = (Brush)converter.ConvertFromString("#ff5252"), Name = "fghf", Position = "56756", Email = "gh", Phone = "121" });
-            members.Add(new Member { Number = "5", Character = "E", BgColor = (Brush)converter.ConvertFromString("#0ca678"), Name = "errt", Position = "234234", Email = "dh", Phone = "12" });
-            members.Add(new Member { Number = "6", Character = "F", BgColor = (Brush)converter.ConvertFromString("#6741d9"), Name = "qew", Position = "90890", Email = "gr", Phone = "23" });
-            members.Add(new Member { Number = "7", Character = "G", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "kh", Position = "234", Email = "hk", Phone = "12" });
-            membersDataGrid.ItemsSource = members;
+
+            ndung.Add(new NguoiDung { Id ="0", TaiKhoan="0", MatKhau="0",HoTen="Luan", NgaySinh=DateTime.Now, Email = "asdasd", SDT = "123" , GioiTinh = "Nam",DiaChi = "KT" });
+            thosDataGrid.ItemsSource = ndung;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -42,6 +37,7 @@ namespace WIPR_Project
                 this.DragMove();
             }
         }
+
         private bool IsMaximized = false;
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -63,15 +59,38 @@ namespace WIPR_Project
             }
         }
 
-    }
-    public class Member
-    {
-        public string Character { get; set; }
-        public string Number { get; set; }
-        public string Name { get; set; }
-        public string Position { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public Brush BgColor { get; set; }
+        private void btnThoat_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnTimTho_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnThoDangThue_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLoiMoiDaGui_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEye_Click(object sender, RoutedEventArgs e)
+        {
+            UCBaiViet ucBaiViet = new UCBaiViet();
+            thosDataGrid.Visibility = Visibility.Hidden;
+            gThongTinChiTiet.Visibility = Visibility.Visible;
+            gThongTinChiTiet.Children.Add(ucBaiViet);
+            ucBaiViet.btnThoat.Click += btnThoatBaiViet;
+        }
+        private void btnThoatBaiViet(object sender, RoutedEventArgs e)
+        {
+            thosDataGrid.Visibility = Visibility.Visible;
+            gThongTinChiTiet.Visibility= Visibility.Hidden;
+        }
     }
 }

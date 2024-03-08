@@ -16,23 +16,18 @@ using System.Windows.Shapes;
 namespace WIPR_Project
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UCBaiViet.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UCBaiViet : UserControl
     {
-        public MainWindow()
+        public UCBaiViet()
         {
             InitializeComponent();
         }
+
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-        }
 
-        private void btnDangNhap_Click(object sender, RoutedEventArgs e)
-        {
-            WNguoiDung wNguoiDung = new WNguoiDung();
-            wNguoiDung.ShowDialog();
         }
     }
 }

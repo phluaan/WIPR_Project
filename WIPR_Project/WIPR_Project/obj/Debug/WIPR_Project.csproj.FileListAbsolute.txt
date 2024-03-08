@@ -28,3 +28,5 @@ F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Projec
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Material.xml
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.csproj.CopyComplete
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\App.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCBaiViet.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCBaiViet.baml

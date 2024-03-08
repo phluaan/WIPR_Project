@@ -61,7 +61,7 @@
             <Setter Property="Margin" Value="20 2 20 0"/>
         </Style>
 
-        <Style x:Key="textboxSearch" TargetType="TextBox">
+        <Style x:Key="textboxSearch" TargetType="TextBoxBase">
             <Setter Property="Background" Value="#ffffff"/>
             <Setter Property="Foreground" Value="#b0b9c6"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -71,7 +71,7 @@
             <Setter Property="Margin" Value="0 10"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="TextBoxBase">
+                    <ControlTemplate TargetType="TextBox">
                         <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"
                                 BorderThickness="1" BorderBrush="#e0e6ed">
                             <ScrollViewer x:Name="PART_ContextHost" Focusable="False" HorizontalScrollBarVisibility="Hidden"

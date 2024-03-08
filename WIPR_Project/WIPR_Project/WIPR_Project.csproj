@@ -65,12 +65,20 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="NguoiDung.cs" />
+    <Compile Include="UCBaiViet.xaml.cs">
+      <DependentUpon>UCBaiViet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WDoiThongTin.xaml.cs">
       <DependentUpon>WDoiThongTin.xaml</DependentUpon>
     </Compile>
     <Compile Include="WNguoiDung.xaml.cs">
       <DependentUpon>WNguoiDung.xaml</DependentUpon>
     </Compile>
+    <Page Include="UCBaiViet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WDangKy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
