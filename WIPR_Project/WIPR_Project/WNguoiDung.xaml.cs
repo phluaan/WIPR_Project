@@ -18,18 +18,12 @@ namespace WIPR_Project
 {
     public partial class WNguoiDung : Window
     {
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
+        SqlConnection conn = new SqlConnection(Properties.Settings.Default.cnnStr);
         public WNguoiDung()
         {
             InitializeComponent();
-            var converter = new BrushConverter();
-            ObservableCollection<NguoiDung>  ndung = new ObservableCollection<NguoiDung>();
-
-
-            ndung.Add(new NguoiDung { Id ="0", TaiKhoan="0", MatKhau="0",HoTen="Luan", NgaySinh=DateTime.Now, Email = "asdasd", SDT = "123" , GioiTinh = "Nam",DiaChi = "KT" });
-            thosDataGrid.ItemsSource = ndung;
         }
-
+        public string IdNguoiDungHienTai;
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(e.ChangedButton == MouseButton.Left)
@@ -57,6 +51,7 @@ namespace WIPR_Project
                     IsMaximized = true;
                 }
             }
+            
         }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
@@ -64,33 +59,126 @@ namespace WIPR_Project
             this.Close();
         }
 
-        private void btnTimTho_Click(object sender, RoutedEventArgs e)
+
+        private void btnTools_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnThoDangThue_Click(object sender, RoutedEventArgs e)
+        private void WNguoiDung_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                conn.Open();
+                string sqlSTR = "SELECT * FROM QLyBaiViet";
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
 
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
+                    uCKhoiCoBan.IdBaiVietHienTai = reader["Id"].ToString();
+                    uCKhoiCoBan.txbHoTen.Text = reader["HoTen"].ToString();
+                    uCKhoiCoBan.txbKhuVuc.Text = reader["DiaChi"].ToString();
+                    uCKhoiCoBan.txbDichVu.Text = reader["DichVu"].ToString();
+                    uCKhoiCoBan.txbKinhNghiem.Text = reader["KinhNghiem"].ToString();
+                    uCKhoiCoBan.txbMucGia.Text = reader["MucGia"].ToString();
+
+                    uCKhoiCoBan.Height = 400;
+                    uCKhoiCoBan.Width = 350;
+                    uCKhoiCoBan.Margin = new Thickness(5);
+
+                    uCKhoiCoBan.IdNguoiDungHienTai = IdNguoiDungHienTai;
+                    wpnlThongTin.Children.Add(uCKhoiCoBan);
+
+                }
+                reader.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Lỗi: " + exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        private void btnLoiMoiDaGui_Click(object sender, RoutedEventArgs e)
+        private void cbbKhuVuc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (cbbKhuVuc.SelectedIndex != 0)
+            {
+                string selectedOption = (cbbKhuVuc.SelectedItem as ComboBoxItem).Content.ToString();
+                string sqlSTR = $"SELECT * FROM QLyBaiViet WHERE DiaChi = N'{selectedOption}'";
+                ThucThi(sqlSTR);
+            }
 
         }
-
-        private void btnEye_Click(object sender, RoutedEventArgs e)
+        private void cbbKinhNghiem_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UCBaiViet ucBaiViet = new UCBaiViet();
-            thosDataGrid.Visibility = Visibility.Hidden;
-            gThongTinChiTiet.Visibility = Visibility.Visible;
-            gThongTinChiTiet.Children.Add(ucBaiViet);
-            ucBaiViet.btnThoat.Click += btnThoatBaiViet;
+            if (cbbKinhNghiem.SelectedIndex != 0)
+            {
+                string selectedOption = (cbbKinhNghiem.SelectedItem as ComboBoxItem).Content.ToString();
+                string sqlSTR = $"SELECT * FROM QLyBaiViet WHERE KinhNghiem = N'{selectedOption}'";
+                ThucThi(sqlSTR);
+            }
         }
-        private void btnThoatBaiViet(object sender, RoutedEventArgs e)
+        private void cbbMucGia_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            thosDataGrid.Visibility = Visibility.Visible;
-            gThongTinChiTiet.Visibility= Visibility.Hidden;
+            if (cbbMucGia.SelectedIndex != 0)
+            {
+                string selectedOption = (cbbMucGia.SelectedItem as ComboBoxItem).Content.ToString();
+                string sqlSTR = $"SELECT * FROM QLyBaiViet WHERE MucGia = N'{selectedOption}'";
+                ThucThi(sqlSTR);
+            }
+        }
+
+        private void cbbDichVu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbbDichVu.SelectedIndex != 0)
+            {
+                string selectedOption = (cbbDichVu.SelectedItem as ComboBoxItem).Content.ToString();
+                string sqlSTR = $"SELECT * FROM QLyBaiViet WHERE DichVu = N'{selectedOption}'";
+                ThucThi(sqlSTR);
+            }
+        }
+        private void ThucThi(string sqlSTR)
+        {
+            try
+            {
+                wpnlThongTin.Children.Clear();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
+                    uCKhoiCoBan.IdBaiVietHienTai = reader["Id"].ToString();
+                    uCKhoiCoBan.txbHoTen.Text = reader["HoTen"].ToString();
+                    uCKhoiCoBan.txbKhuVuc.Text = reader["DiaChi"].ToString();
+                    uCKhoiCoBan.txbDichVu.Text = reader["DichVu"].ToString();
+                    uCKhoiCoBan.txbKinhNghiem.Text = reader["KinhNghiem"].ToString();
+                    uCKhoiCoBan.txbMucGia.Text = reader["MucGia"].ToString();
+
+                    uCKhoiCoBan.Height = 400;
+                    uCKhoiCoBan.Width = 350;
+                    uCKhoiCoBan.Margin = new Thickness(5);
+                    wpnlThongTin.Children.Add(uCKhoiCoBan);
+                }
+                reader.Close();
+            }
+
+
+
+            catch (Exception exc)
+            {
+                MessageBox.Show("Lỗi: " + exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

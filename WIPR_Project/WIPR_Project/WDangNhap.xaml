@@ -5,22 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WIPR_Project"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid RenderTransformOrigin="0.5,0.5">
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform Angle="-0.289"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Grid.RenderTransform>
-        <TextBox x:Name="txtTaiKhoan" HorizontalAlignment="Left" Margin="292,177,0,0" TextWrapping="Wrap" Text="Tài khoản" VerticalAlignment="Top" Width="204" Height="20"/>
-        <TextBox x:Name="txtMatKhau" HorizontalAlignment="Left" Margin="292,237,0,0" TextWrapping="Wrap" Text="Mật khẩu" VerticalAlignment="Top" Width="204" Height="20"/>
-        <Button x:Name="btnDangNhap" Content="Đăng nhập" HorizontalAlignment="Left" Margin="345,290,0,0" VerticalAlignment="Top" Width="84" Click="btnDangNhap_Click"/>
-        <Button x:Name="btnDangKy" Content="Đăng ký" HorizontalAlignment="Left" Margin="345,323,0,0" VerticalAlignment="Top" Width="84"/>
-        <Button x:Name="btnThoat" Content="Thoát" HorizontalAlignment="Left" Margin="345,362,0,0" VerticalAlignment="Top" Width="84" Click="btnThoat_Click"/>
-        <Label Content="Đăng nhập" HorizontalAlignment="Left" Margin="354,126,0,0" VerticalAlignment="Top"/>
-
+        Title="MainWindow" Height="300" Width="300">
+    <Grid>
+        <Button Margin="20,40,168,193" Content="Tho" Click="Button_Click"/>
+        <Button Margin="150,40,38,193" Content="Nguoi Dung" Click="Button_Click_1"/>
     </Grid>
 </Window>

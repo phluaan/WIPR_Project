@@ -28,5 +28,89 @@ F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Projec
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Material.xml
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.csproj.CopyComplete
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\App.baml
-F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCBaiViet.g.cs
-F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCBaiViet.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WTho.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WTho.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCKhoiCoBan.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WTrangChu.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCKhoiCoBan.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WTrangChu.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignColors.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.Wpf.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\Microsoft.Xaml.Behaviors.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignColors.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.Wpf.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\Microsoft.Xaml.Behaviors.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\ControlzEx.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.MahApps.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\ControlzEx.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\ControlzEx.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.MahApps.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDangBai.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDangBai.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WBaiViet.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WBaiViet.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\System.Data.SqlClient.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\System.Data.SqlClient.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\WIPR_Project.exe.config
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\WIPR_Project.exe
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\WIPR_Project.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\ControlzEx.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignColors.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.MahApps.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.Wpf.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\Microsoft.Xaml.Behaviors.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\System.Data.SqlClient.dll
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\ControlzEx.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\ControlzEx.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignColors.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.MahApps.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\MaterialDesignThemes.Wpf.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\Microsoft.Xaml.Behaviors.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\bin\Debug\System.Data.SqlClient.xml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.csproj.AssemblyReference.cache
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.csproj.SuggestedBindingRedirects.cache
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WNguoiDung.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\App.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCKhoiCoBan.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WBaiViet.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDangBai.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDangKy.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDangNhap.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDoiThongTin.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WNguoiDung.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WTho.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WTrangChu.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\App.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project_MarkupCompile.cache
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project_MarkupCompile.lref
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCKhoiCoBan.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WBaiViet.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDangBai.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDangKy.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDangNhap.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDoiThongTin.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WTho.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WTrangChu.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.g.resources
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.Properties.Resources.resources
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.csproj.GenerateResource.cache
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.csproj.CoreCompileInputs.cache
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.csproj.CopyComplete
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.exe
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.pdb

@@ -24,15 +24,34 @@ namespace WIPR_Project
         {
             InitializeComponent();
         }
-        private void btnThoat_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            WTho wTho = new WTho();
+            wTho.IdThoHienTai = "0";
+            wTho.ShowDialog();
         }
-
-        private void btnDangNhap_Click(object sender, RoutedEventArgs e)
+        
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             WNguoiDung wNguoiDung = new WNguoiDung();
+            wNguoiDung.IdNguoiDungHienTai = "0";
             wNguoiDung.ShowDialog();
         }
+        /*private void btnThoat_Click(object sender, RoutedEventArgs e)
+{
+this.Close();
+}
+
+private void btnDangNhap_Click(object sender, RoutedEventArgs e)
+{
+WNguoiDung wNguoiDung = new WNguoiDung();
+wNguoiDung.ShowDialog();
+}
+
+private void btnDangKy_Click(object sender, RoutedEventArgs e)
+{
+WTho wTho = new WTho();
+wTho.ShowDialog();
+}*/
     }
 }

@@ -1,0 +1,62 @@
+﻿<Window x:Class="WIPR_Project.WBaiViet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:WIPR_Project"
+        mc:Ignorable="d" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        AllowsTransparency="True"
+        Title="WBaiViet" Height="720" Width="830" Loaded="Window_Loaded">
+    <Border Background="White" CornerRadius="30" Height="700" MouseDown="Border_MouseDown" BorderBrush="Black" BorderThickness="2">
+        <Grid>
+            <Border Width="156" Padding="3" Background="White" CornerRadius="100"
+                            DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="0,20,0,529">
+                <Ellipse>
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Images/avatar.jpg" Stretch="UniformToFill"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Border>
+            <TextBlock HorizontalAlignment="Left" Margin="70,160,0,0" FontSize="18"  TextWrapping="Wrap" Text="Họ và tên:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbHoTen" HorizontalAlignment="Left" Margin="170,160,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Đỗ Phú Luân" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="70,200,0,0" FontSize="18"  TextWrapping="Wrap" Text="Ngày sinh:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbNgaySinh" HorizontalAlignment="Left" Margin="170,200,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="08/11/2004" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="70,240,0,0" FontSize="18"  TextWrapping="Wrap" Text="Giới tính:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbGioiTinh" HorizontalAlignment="Left" Margin="170,240,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Nam" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="520,200,0,0" FontSize="18"  TextWrapping="Wrap" Text="Địa chỉ:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbDiaChi" HorizontalAlignment="Left" Margin="635,200,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Kon Tum" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="70,280,0,0" FontSize="18"  TextWrapping="Wrap" Text="SĐT:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbSDT" HorizontalAlignment="Left" Margin="170,280,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="0862267674" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="70,326,0,0" FontSize="18"  TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbEmail" HorizontalAlignment="Left" Margin="170,324,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="E22110372@student.hcmute.edu.vn" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="520,160,0,0" FontSize="18"  TextWrapping="Wrap" Text="Dịch vụ:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbDichVu" HorizontalAlignment="Left" Margin="635,160,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Gia sư" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="520,240,0,0" FontSize="18"  TextWrapping="Wrap" Text="Mức lương:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbMucGia" HorizontalAlignment="Left" Margin="635,240,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="0 - 5M" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="520,280,0,0" FontSize="18"  TextWrapping="Wrap" Text="Đánh giá:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbDanhGia" HorizontalAlignment="Left" Margin="643,280,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="4 sao" VerticalAlignment="Top"/>
+            <Button x:Name="btnThue" Style="{StaticResource menuButton}" Background="#002E5D" Margin="558,398,166,273" Width="NaN" Height="25" Click="btnThue_Click">
+                <StackPanel Orientation="Horizontal" Width="96">
+                    <Icon:PackIconMaterial Kind="Send" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Thuê" Width="34"/>
+                </StackPanel>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="30,410,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Nhận xét:" VerticalAlignment="Top"/>
+
+            <Border Background="Wheat" CornerRadius="20" Height="200" Width="750" Margin="40,450,50,50" >
+                <ScrollViewer>
+
+                </ScrollViewer>
+            </Border>
+            <TextBlock HorizontalAlignment="Left" Margin="520,326,0,0" FontSize="18"  TextWrapping="Wrap" Text="Kinh nghiệm" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbKinhNghiem" HorizontalAlignment="Left" Margin="643,323,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="4 năm" VerticalAlignment="Top"/>
+            <Button x:Name="btnThoat" Style="{StaticResource menuButton}" Background="#002E5D" Margin="675,398,49,273" Width="NaN" Height="25" Click="btnThoat_Click">
+                <StackPanel Orientation="Horizontal" Width="96">
+                    <Icon:PackIconMaterial Kind="ExitRun" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Thoát" Width="34"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>
