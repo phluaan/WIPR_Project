@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using System.Windows.Controls;
+
 namespace WIPR_Project
 {
     internal class DBConnection
@@ -24,29 +26,120 @@ namespace WIPR_Project
             }
             catch (Exception exc)
             {
-                MessageBox.Show("that bai " + exc);
+                MessageBox.Show("that bai (ThucThi)" + exc);
             }
             finally
             {
                 conn.Close();
             }
         }
-        public int GetNextId(string getMaxIdQuery)
+        public object GetNextId(string getMaxIdQuery)
         {
-            SqlCommand getMaxId = new SqlCommand(getMaxIdQuery, conn);
-            object maxIdResult = getMaxId.ExecuteScalar();
-            int nextId = 0;
-            if (maxIdResult != DBNull.Value)
+            try
             {
-                int maxId = Convert.ToInt32(maxIdResult);
-                nextId = maxId + 1;
+                conn.Open();
+                SqlCommand getMaxId = new SqlCommand(getMaxIdQuery, conn);
+                return getMaxId.ExecuteScalar();
             }
-            return nextId;
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (GetNextId) " + exc);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
-        public SqlDataReader DuLieuTruyXuat(string sqlSTR)
+        public DoiTuong TruyXuatDoiTuong(string sqlSTR)
         {
-            SqlCommand cmd = new SqlCommand(sqlSTR, conn);
-            return cmd.ExecuteReader();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    DoiTuong doiTuong = new DoiTuong(reader["Id"].ToString(), reader["TaiKhoan"].ToString(), reader["MatKhau"].ToString(),
+                        reader["HoTen"].ToString(), reader["NgaySinh"].ToString(), reader["Email"].ToString(), reader["SDT"].ToString(),
+                        reader["GioiTinh"].ToString(), reader["DiaChi"].ToString());
+                    reader.Close();
+                    return doiTuong;
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi truy xuất iddoituong");
+                    return null;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (DuLieuTruyXuat)" + exc);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public BaiViet TruyXuatBaiViet(string sqlSTR)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    BaiViet baiViet = new BaiViet(reader["Id"].ToString(), reader["IdTho"].ToString(), reader["DichVu"].ToString(), reader["KinhNghiem"].ToString(),
+                        reader["MucGia"].ToString(), reader["HoTen"].ToString(), reader["NgaySinh"].ToString(), reader["Email"].ToString(), reader["SDT"].ToString(),
+                        reader["GioiTinh"].ToString(), reader["DiaChi"].ToString());
+                    reader.Close();
+                    return baiViet;
+                }
+                else
+                {
+                    //MessageBox.Show("Lỗi truy xuất idBaiViet");
+                    return null;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (DuLieuTruyXuat)" + exc);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public List<BaiViet> TruyXuatDSBaiViet(string sqlSTR)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<BaiViet> baiVietList = new List<BaiViet>();
+                while (reader.Read())
+                {
+                    BaiViet baiViet = new BaiViet(reader["Id"].ToString(), reader["IdTho"].ToString(), reader["DichVu"].ToString(), reader["KinhNghiem"].ToString(),
+                        reader["MucGia"].ToString(), reader["HoTen"].ToString(), reader["NgaySinh"].ToString(), reader["Email"].ToString(), reader["SDT"].ToString(),
+                        reader["GioiTinh"].ToString(), reader["DiaChi"].ToString());
+                    baiVietList.Add(baiViet);
+                }
+                reader.Close();
+                return baiVietList;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (DuLieuTruyXuat)" + exc);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

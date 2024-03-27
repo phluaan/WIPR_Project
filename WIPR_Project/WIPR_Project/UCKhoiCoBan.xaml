@@ -8,66 +8,66 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="350">
     <Border Background="White" CornerRadius="30" >
-        <Grid>
-            <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
-        DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="30,30,0,300">
-                <Ellipse>
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Images/avatar.jpg" Stretch="UniformToFill"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-            </Border>
-            <TextBlock Text="Name:" Margin="-40,0,0,300" Height="20" Width="50" FontSize="14">
+        <Border BorderThickness="3" BorderBrush="Black" CornerRadius="30">
+            <Grid>
+                <Border Width="82" Padding="3" Background="White" CornerRadius="100"
+DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="30,30,0,280">
+                    <Ellipse>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Images/avatar.jpg" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+                <TextBlock Text="Name:" Margin="-40,0,0,300" Height="20" Width="50" FontSize="14">
 
-            </TextBlock>
-            <TextBlock x:Name="txbHoTen" Text="Huỳnh Minh Mẫn" Margin="150,0,0,300" Height="20" Width="120" FontWeight="Bold" FontSize="14">
+                </TextBlock>
+                <TextBlock x:Name="txbHoTen" Text="Huỳnh Minh Mẫn" Margin="150,0,0,300" Height="20" Width="120" FontWeight="Bold" FontSize="14">
 
-            </TextBlock>
-            <TextBlock Text="Service:" Margin="-40,50,0,300" Height="20" Width="50" FontSize="14">
+                </TextBlock>
+                <TextBlock Text="Service:" Margin="-40,50,0,300" Height="20" Width="50" FontSize="14">
 
-            </TextBlock>
-            <TextBlock x:Name="txbDichVu" Text="Thợ sửa ống nước" Margin="150,50,0,300" Height="20" Width="120" FontWeight="Bold" FontSize="14">
+                </TextBlock>
+                <TextBlock x:Name="txbDichVu" Text="Thợ sửa ống nước" Margin="150,50,0,300" Height="20" Width="120" FontWeight="Bold" FontSize="14">
 
-            </TextBlock>
-            <TextBlock Text="Years of experience:"  Height="20" FontSize="14" Margin="50,120,175,260"/>
-            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Height="30" Width="250" Margin="50,145,50,225">
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="0" Color="Blue" Opacity="1" BlurRadius="2"/>
-                </Border.Effect>
-                <TextBlock x:Name="txbKinhNghiem" Text="5 năm" Margin="10,5,10,0" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
-            </Border>
+                </TextBlock>
+                <TextBlock Text="Years of experience:" FontSize="14" Margin="50,120,175,250"/>
+                <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Margin="50,145,50,220">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="Blue" Opacity="1" BlurRadius="2"/>
+                    </Border.Effect>
+                    <TextBlock x:Name="txbKinhNghiem" Text="5 năm" Margin="10,5,10,3" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
+                </Border>
 
-            <TextBlock Text="Erea:" Margin="50,180,250,200" Height="20" Width="50" FontSize="14">
+                <TextBlock Text="Erea:" Margin="50,180,245,195" FontSize="14"/>
+                <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Margin="50,200,50,165">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="Blue" Opacity="1" BlurRadius="2"/>
+                    </Border.Effect>
+                    <TextBlock x:Name="txbKhuVuc" Text="TP.HCM" Margin="10,5,10,0" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
+                </Border>
 
-            </TextBlock>
-            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Height="30" Width="250" Margin="50,200,50,170">
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="0" Color="Blue" Opacity="1" BlurRadius="2"/>
-                </Border.Effect>
-                <TextBlock x:Name="txbKhuVuc" Text="TP.HCM" Margin="10,5,10,0" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
-            </Border>
+                <TextBlock Text="Hiring rate:" FontSize="14" Margin="50,230,225,140"/>
+                <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Margin="50,250,50,115">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="Blue" Opacity="1" BlurRadius="2"/>
+                    </Border.Effect>
+                    <TextBlock x:Name="txbMucGia" Text="200M - 500M" Margin="10,5,10,0" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
+                </Border>
 
-            <TextBlock Text="Hiring rate:"  Height="20" FontSize="14" Margin="50,235,230,145"/>
-            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Height="30" Width="250" Margin="50,250,50,110">
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="0" Color="Blue" Opacity="1" BlurRadius="2"/>
-                </Border.Effect>
-                <TextBlock x:Name="txbMucGia" Text="200M - 500M" Margin="10,5,10,0" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
-            </Border>
-
-            <TextBlock Text="Star rating: "  Height="20" FontSize="14" Margin="50,285,235,85"/>
-            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Height="30" Width="250" Margin="50,305,50,56">
-                <Border.Effect>
-                    <DropShadowEffect ShadowDepth="0" Color="Blue" Opacity="1" BlurRadius="2"/>
-                </Border.Effect>
-                <TextBlock x:Name="txbDanhGia" Text="4.7 *" Margin="10,5,10,0" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
-            </Border>
-            <Button x:Name="btnXemChiTiet" Style="{StaticResource menuButton}" Background="#002E5D" Click="btnXemChiTiet_Click" Margin="100,365,100,10" Width="150" Height="25">
-                <StackPanel Orientation="Horizontal" Width="140">
-                    <Icon:PackIconMaterial Kind="CardAccountDetails" Style="{StaticResource menuButtonIcon}"/>
-                    <TextBlock Text="Xem chi tiết" Width="100"/>
-                </StackPanel>
-            </Button>
-        </Grid>
+                <TextBlock Text="Star rating: " FontSize="14" Margin="50,280,225,90"/>
+                <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Margin="50,300,50,65">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="Blue" Opacity="1" BlurRadius="2"/>
+                    </Border.Effect>
+                    <TextBlock x:Name="txbDanhGia" Text="4.7 *" Margin="10,5,10,0" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
+                </Border>
+                <Button x:Name="btnXemChiTiet" Style="{StaticResource menuButton}" Background="#002E5D" Click="btnXemChiTiet_Click" Margin="100,350,95,10" Width="150" Height="25">
+                    <StackPanel Orientation="Horizontal" Width="140">
+                        <Icon:PackIconMaterial Kind="CardAccountDetails" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Xem chi tiết" Width="100"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Border>
     </Border>
 </UserControl>

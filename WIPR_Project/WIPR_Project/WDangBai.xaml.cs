@@ -39,52 +39,11 @@ namespace WIPR_Project
 
         private void btnDangBai_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                conn.Open();
-                string getMaxIdQuery = "SELECT MAX(CAST(Id AS INT)) FROM QLyBaiViet";
-                SqlCommand getMaxIdBaiViet = new SqlCommand(getMaxIdQuery, conn);
-                object maxIdResult = getMaxIdBaiViet.ExecuteScalar();
-                int nextId = 0;
-                if (maxIdResult != DBNull.Value)
-                {
-                    int maxId = Convert.ToInt32(maxIdResult);
-                    nextId = maxId + 1;
-                }
-
-                string sqlSTR_Tho = string.Format("SELECT * FROM QlyTho WHERE Id = {0}", IdThoDangNhap);
-                SqlCommand cmd_Tho = new SqlCommand(sqlSTR_Tho, conn);
-                SqlDataReader reader = cmd_Tho.ExecuteReader();
-                if (reader.Read())
-                {
-                    string HoTen = reader["HoTen"].ToString();
-                    string NgaySinh = reader["NgaySinh"].ToString();
-                    string Email = reader["Email"].ToString();
-                    string SDT = reader["SDT"].ToString();
-                    string GioiTinh = reader["GioiTinh"].ToString();
-                    string DiaChi = reader["DiaChi"].ToString();
-                    reader.Close();
-                    string DichVu = (cbbDichVu.SelectedItem as ComboBoxItem)?.Content?.ToString();
-                    string KinhNghiem = (cbbKinhNghiem.SelectedItem as ComboBoxItem)?.Content?.ToString();
-                    string MucGia = (cbbMucGia.SelectedItem as ComboBoxItem)?.Content?.ToString();
-
-                    string sqlSTR = string.Format("INSERT INTO QLyBaiViet (Id, IdTho, DichVu, KinhNghiem, MucGia, HoTen, NgaySinh, Email, SDT, GioiTinh, DiaChi) " +
-                        "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')",
-                        nextId.ToString(), IdThoDangNhap, DichVu, KinhNghiem, MucGia, HoTen, NgaySinh, Email, SDT, GioiTinh, DiaChi);
-
-                    SqlCommand cmd = new SqlCommand(sqlSTR, conn);
-                    if (cmd.ExecuteNonQuery() > 0)
-                    MessageBox.Show("Thành công");
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show("that bai " + exc);
-            }
-            finally
-            {
-                conn.Close();
-            }
+            DoiTuong tho = thoDAO.TruyXuat("QlyTho", IdThoDangNhap);
+            BaiViet baiViet = new BaiViet(thoDAO.IdTiepTheo("QlyBaiViet").ToString(), IdThoDangNhap, (cbbDichVu.SelectedItem as ComboBoxItem)?.Content?.ToString(),
+                    (cbbKinhNghiem.SelectedItem as ComboBoxItem)?.Content?.ToString(), (cbbMucGia.SelectedItem as ComboBoxItem)?.Content?.ToString(),
+                    tho.HoTen, tho.NgaySinh, tho.Email, tho.SDT, tho.GioiTinh, tho.DiaChi);
+            thoDAO.ThemBaiDang(baiViet);
         }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)

@@ -12,7 +12,7 @@ namespace WIPR_Project
         private string taiKhoan;
         private string matKhau;
         private string hoTen;
-        private DateTime ngaySinh;
+        private string ngaySinh;
         private string email;
         private string sDT;
         private string gioiTinh;
@@ -38,7 +38,7 @@ namespace WIPR_Project
             get { return hoTen; }
             set { hoTen = value; }
         }
-        public DateTime NgaySinh
+        public string NgaySinh
         {
             get { return ngaySinh; }
             set { ngaySinh = value; }
@@ -68,7 +68,8 @@ namespace WIPR_Project
         {
 
         }
-        public DoiTuong(string id, string taiKhoan, string matKhau, string hoTen, DateTime ngaySinh, string email, string sDT, string gioiTinh, string diaChi)
+
+        public DoiTuong(string id, string taiKhoan, string matKhau, string hoTen, string ngaySinh, string email, string sDT, string gioiTinh, string diaChi)
         {
             this.id = id;
             this.taiKhoan = taiKhoan;

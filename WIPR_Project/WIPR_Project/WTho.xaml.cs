@@ -29,7 +29,7 @@ namespace WIPR_Project
         }
         public string IdThoHienTai;
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.cnnStr);
-
+        ThoDAO thoDAO = new ThoDAO();
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -82,43 +82,34 @@ namespace WIPR_Project
             dgridLoiMoi.Visibility = Visibility.Collapsed;
 
         }
-
+        private int userControlCount = 0;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            try
+            int TongSoBaiViet = thoDAO.IdTiepTheo("QlyBaiViet");
+            for (int i = 0; i < TongSoBaiViet; i++)
             {
-                conn.Open();
-                string sqlSTR = "SELECT * FROM QLyBaiViet";
-                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                BaiViet baiViet = thoDAO.TruyXuat("Id = " + i.ToString());
+                if (baiViet == null) continue;
+                UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
+                uCKhoiCoBan.IdBaiVietHienTai = baiViet.Id;
+                uCKhoiCoBan.txbHoTen.Text = baiViet.HoTen;
+                uCKhoiCoBan.txbKhuVuc.Text = baiViet.DiaChi;
+                uCKhoiCoBan.txbDichVu.Text = baiViet.DichVu;
+                uCKhoiCoBan.txbKinhNghiem.Text = baiViet.KinhNghiem;
+                uCKhoiCoBan.txbMucGia.Text = baiViet.MucGia;
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                uCKhoiCoBan.Height = 400;
+                uCKhoiCoBan.Width = 350;
+                uCKhoiCoBan.Margin = new Thickness(5);
+                uCKhoiCoBan.IdNguoiDungHienTai = IdThoHienTai; //Thợ đang có thể thuê thợ
+                if (userControlCount < 6)
                 {
-                    UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
-                    uCKhoiCoBan.IdBaiVietHienTai = reader["Id"].ToString();
-                    uCKhoiCoBan.txbHoTen.Text = reader["HoTen"].ToString();
-                    uCKhoiCoBan.txbKhuVuc.Text = reader["DiaChi"].ToString();
-                    uCKhoiCoBan.txbDichVu.Text = reader["DichVu"].ToString();
-                    uCKhoiCoBan.txbKinhNghiem.Text = reader["KinhNghiem"].ToString();
-                    uCKhoiCoBan.txbMucGia.Text = reader["MucGia"].ToString();
-
-                    uCKhoiCoBan.Height = 400;
-                    uCKhoiCoBan.Width = 350;
-                    uCKhoiCoBan.Margin = new Thickness(5);
                     wpnlThongTin.Children.Add(uCKhoiCoBan);
-
+                    userControlCount++;
                 }
-                reader.Close();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show("Lỗi: " + exc.Message);
-            }
-            finally
-            {
-                conn.Close();
             }
 
+            //Lời mời tạm thời chưa hướng đối tượng vì cần design gridLoiMoi
             conn.Open();
             string query = "SELECT * FROM LoiMoi";
             SqlCommand command = new SqlCommand(query, conn);
@@ -135,40 +126,14 @@ namespace WIPR_Project
             {
                 var selectedLoiMoi = dgridLoiMoi.SelectedItem as DataRowView;
                 string idNguoiDung = selectedLoiMoi["IdNguoiDung"].ToString();
-                try
-                {
-                    conn.Open();
+                int idThue = thoDAO.IdTiepTheo("QlyThue");
+                thoDAO.XacNhanThue(idThue.ToString(), idNguoiDung, IdThoHienTai);
 
-                    string getMaxIdQuery = "SELECT MAX(CAST(Id AS INT)) FROM QlyThue";
-                    SqlCommand getMaxId = new SqlCommand(getMaxIdQuery, conn);
-                    object maxIdResult = getMaxId.ExecuteScalar();
-                    int nextId = 0;
-                    if (maxIdResult != DBNull.Value)
-                    {
-                        int maxId = Convert.ToInt32(maxIdResult);
-                        nextId = maxId + 1;
-                    }
+                string idloimoi = selectedLoiMoi["Id"].ToString();
+                thoDAO.Xoa("LoiMoi", idloimoi);
 
-                    string sqlSTR = string.Format("INSERT INTO QlyThue (Id, IdNguoiDung, IdTho) " +
-                        "VALUES ('{0}', '{1}', '{2}')",
-                        nextId.ToString(), idNguoiDung, IdThoHienTai);
-
-                    SqlCommand cmd = new SqlCommand(sqlSTR, conn);
-                    if (cmd.ExecuteNonQuery() > 0)
-                        MessageBox.Show("Thành công");
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show("that bai " + exc);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            else
-            {
-                MessageBox.Show("");
+                //dgridLoiMoi.Items.Clear();
+                //Window_Loaded(sender, e);
             }
         }
 
@@ -177,29 +142,9 @@ namespace WIPR_Project
             if (dgridLoiMoi.SelectedItem != null)
             {
                 var selectedLoiMoi = dgridLoiMoi.SelectedItem as DataRowView;
-                string idLoiMoi = selectedLoiMoi["Id"].ToString();
-                try
-                {
-                    conn.Open();
-                    string sqlSTR = string.Format("DELETE FROM LoiMoi WHERE Id = '{0}'", idLoiMoi);
-                    SqlCommand cmd = new SqlCommand(sqlSTR, conn);
-                    if (cmd.ExecuteNonQuery() > 0)
-                        MessageBox.Show("thanh cong");
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show("that bai " + exc);
-                }
-                finally
-                {
-                    conn.Close();
-                }
+                string idloimoi = selectedLoiMoi["Id"].ToString();
+                thoDAO.Xoa("LoiMoi", idloimoi);
             }
-            else
-            {
-                MessageBox.Show("");
-            }
-
         }
 
         private void btnChiTiet_Click(object sender, RoutedEventArgs e)
@@ -207,12 +152,10 @@ namespace WIPR_Project
             if (dgridLoiMoi.SelectedItem != null)
             {
                 var selectedLoiMoi = dgridLoiMoi.SelectedItem as DataRowView;
-                string idBaiViet = selectedLoiMoi["Id"].ToString();
-                MessageBox.Show($"Chi tiết của bài viết có IdBaiViet = {idBaiViet}");
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn một hàng để xem chi tiết.");
+                string idBaiViet = selectedLoiMoi["IdBaiViet"].ToString();
+                WBaiViet wBaiViet = new WBaiViet();
+                wBaiViet.IdBaiVietChiTiet = idBaiViet;
+                wBaiViet.ShowDialog();
             }
         }
         private void cbbKhuVuc_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -282,6 +225,99 @@ namespace WIPR_Project
 
 
 
+            catch (Exception exc)
+            {
+                MessageBox.Show("Lỗi: " + exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        private int Index = 0;
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                if (Index > 0)
+                {
+                    Index -= 6;
+                }
+                else return;
+                conn.Open();
+                int currentIndexMax = Index + 6;
+                wpnlThongTin.Children.Clear();
+
+                string sqlSTR = "SELECT * FROM QLyBaiViet";
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                int currentIndex = 0;
+                while (reader.Read())
+                {
+                    UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
+                    uCKhoiCoBan.IdBaiVietHienTai = reader["Id"].ToString();
+                    uCKhoiCoBan.txbHoTen.Text = reader["HoTen"].ToString();
+                    uCKhoiCoBan.txbKhuVuc.Text = reader["DiaChi"].ToString();
+                    uCKhoiCoBan.txbDichVu.Text = reader["DichVu"].ToString();
+                    uCKhoiCoBan.txbKinhNghiem.Text = reader["KinhNghiem"].ToString();
+                    uCKhoiCoBan.txbMucGia.Text = reader["MucGia"].ToString();
+
+                    uCKhoiCoBan.Height = 400;
+                    uCKhoiCoBan.Width = 350;
+                    uCKhoiCoBan.Margin = new Thickness(5);
+                    if (currentIndex >= Index && currentIndex < currentIndexMax)
+                    {
+                        wpnlThongTin.Children.Add(uCKhoiCoBan);
+                    }
+                    currentIndex++;
+                }
+                reader.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Lỗi: " + exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Index += 6;
+                wpnlThongTin.Children.Clear();
+                conn.Open();
+                string sqlSTR = "SELECT * FROM QLyBaiViet";
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                int currentIndex = 0;
+                while (reader.Read())
+                {
+                    UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
+                    uCKhoiCoBan.IdBaiVietHienTai = reader["Id"].ToString();
+                    uCKhoiCoBan.txbHoTen.Text = reader["HoTen"].ToString();
+                    uCKhoiCoBan.txbKhuVuc.Text = reader["DiaChi"].ToString();
+                    uCKhoiCoBan.txbDichVu.Text = reader["DichVu"].ToString();
+                    uCKhoiCoBan.txbKinhNghiem.Text = reader["KinhNghiem"].ToString();
+                    uCKhoiCoBan.txbMucGia.Text = reader["MucGia"].ToString();
+
+                    uCKhoiCoBan.Height = 400;
+                    uCKhoiCoBan.Width = 350;
+                    uCKhoiCoBan.Margin = new Thickness(5);
+                    if (currentIndex >= Index && currentIndex < Index + 6)
+                    {
+                        wpnlThongTin.Children.Add(uCKhoiCoBan);
+                    }
+                    currentIndex++;
+                }
+                reader.Close();
+            }
             catch (Exception exc)
             {
                 MessageBox.Show("Lỗi: " + exc.Message);

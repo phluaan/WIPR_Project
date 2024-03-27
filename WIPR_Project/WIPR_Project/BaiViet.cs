@@ -14,7 +14,7 @@ namespace WIPR_Project
         private string kinhNghiem;
         private string mucGia;
         private string hoTen;
-        private DateTime ngaySinh;
+        private string ngaySinh;
         private string email;
         private string sDT;
         private string gioiTinh;
@@ -51,7 +51,7 @@ namespace WIPR_Project
             get { return hoTen; }
             set { hoTen = value; }
         }
-        public DateTime NgaySinh
+        public string NgaySinh
         {
             get { return ngaySinh; }
             set { ngaySinh = value; }
@@ -80,7 +80,7 @@ namespace WIPR_Project
         {
 
         }
-        public BaiViet(string id, string idTho, string dichVu, string kinhNghiem, string mucGia, string hoTen, DateTime ngaySinh, string email, string sDT, string gioiTinh, string diaChi)
+        public BaiViet(string id, string idTho, string dichVu, string kinhNghiem, string mucGia, string hoTen, string ngaySinh, string email, string sDT, string gioiTinh, string diaChi)
         {
             this.id = id;
             this.idTho = idTho;
@@ -93,6 +93,14 @@ namespace WIPR_Project
             this.sDT = sDT;
             this.gioiTinh = gioiTinh;
             this.diaChi = diaChi;
+        }
+        public BaiViet(string id, string idTho, string dichVu, string kinhNghiem, string mucGia)
+        {
+            this.id = id;
+            this.idTho = idTho;
+            this.dichVu = dichVu;
+            this.kinhNghiem = kinhNghiem;
+            this.mucGia = mucGia;
         }
     }
 }

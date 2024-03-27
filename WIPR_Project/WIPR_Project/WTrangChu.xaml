@@ -32,7 +32,7 @@
             </Button>
             <TextBlock Text="Hotline 0862267674" FontSize="16" FontWeight="SemiBold" 
                 HorizontalAlignment="Right" Foreground="White" Margin="0,13,50,13" Grid.Column="1"/>
-            <Button x:Name="btnLogin" Style="{StaticResource topButton}" Margin="0,10,15,10" Grid.Column="1" Foreground="White" HorizontalAlignment="Right" Click="btnLogin_Click">
+            <Button x:Name="btnExit" Style="{StaticResource topButton}" Margin="0,10,15,10" Grid.Column="1" Foreground="White" HorizontalAlignment="Right" Click="btnExit_Click">
                 <Icon:PackIconMaterial Kind="Login"/>
             </Button>
         </Grid>
@@ -41,17 +41,17 @@
                 <Image Margin="0,0,0,0" Source="/Images/anhnencaicay.jpg" Stretch="UniformToFill" Opacity="0.9"/>
                 <TextBlock Text="OFFICIAL" FontSize="48" FontWeight="Bold" Foreground="White" Margin="40,50,750,500" Height="60" Width="300" FontFamily="Bodoni MT Black"/>
                 <TextBlock Text="Thế giới việc làm" FontSize="48" FontWeight="Bold" Foreground="White" Margin="40,130,600,400" Height="60" FontFamily="Bodoni MT Black"/>
-                <Border CornerRadius="20" Margin="566,88,34,62" Opacity="0.95">
+                <Border x:Name="bdMain" CornerRadius="20" Margin="566,88,34,62" Opacity="0.95">
                     <Border CornerRadius="40" Background="#99000000" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="400">
-                        <StackPanel Margin="20">
+                        <StackPanel x:Name="stkpanelDangNhap" Margin="20">
                             <TextBlock Text="Đăng nhập" FontSize="40" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
                             <TextBlock Text="Tài khoản:" Foreground="White" FontSize="20"/>
                             <TextBox Background="#80000000" Opacity="0.7" Margin="0 10 0 10" Height="30"/>
                             <TextBlock Text="Mật khẩu:" Foreground="White" FontSize="20"/>
                             <PasswordBox Background="#80000000" Opacity="0.7"  Margin="0 10 0 10" Height="30"/>
-                            <Button Content="Login" FontSize="20" Background="#FF4343E2" Foreground="White" Height="35" Width="290" Margin="0,20"/>
+                            <Button x:Name="btnLogin" Content="Login" FontSize="20" Background="#FF4343E2" Foreground="White" Height="35" Width="290" Margin="0,20" Click="btnLogin_Click"/>
                             <TextBlock Text="Chưa có tài khoản?" Foreground="White" FontSize="16" Width="140"/>
-                            <Button Content="REGISTER" FontSize="20" Background="#99000000" Opacity="0.95" Foreground="White" Height="30" Width="100" Margin="0,5"/>
+                            <Button x:Name="btnRegister" Content="REGISTER" FontSize="20" Background="#99000000" Opacity="0.95" Foreground="White" Height="30" Width="100" Margin="0,5" Click="btnRegister_Click"/>
                         </StackPanel>
                     </Border>
                 </Border>
