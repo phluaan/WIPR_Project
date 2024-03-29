@@ -162,8 +162,8 @@ namespace WIPR_Project
                 uCKhoiCoBan.txbKinhNghiem.Text = baiViet.KinhNghiem;
                 uCKhoiCoBan.txbMucGia.Text = baiViet.MucGia;
 
-                uCKhoiCoBan.Height = 400;
-                uCKhoiCoBan.Width = 350;
+                uCKhoiCoBan.Height = 330;
+                uCKhoiCoBan.Width = 250;
                 uCKhoiCoBan.Margin = new Thickness(5);
                 uCKhoiCoBan.IdDoiTuonggHienTai = IdThoHienTai;
                 uCKhoiCoBan.doiTuongHT = "QlyYeuCau";

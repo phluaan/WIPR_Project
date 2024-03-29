@@ -21,13 +21,13 @@ namespace WIPR_Project
                     bviet.Id, bviet.IdDoiTuong, bviet.DichVu, bviet.KinhNghiem, bviet.MucGia, bviet.HoTen, bviet.NgaySinh, bviet.Email, bviet.SDT, bviet.GioiTinh, bviet.DiaChi, type, id);
             dBConnection.ThucThi(sqlSTR);
         }
-        public void GuiLoiMoi(DoiTuong doiTuong, string IdLoiMoi, string IdNguoiDangBai, string IdBaiViet, string TrangThai)
+        public void GuiLoiMoi(DoiTuong doiTuong, string IdLoiMoi, string IdNguoiDangBai, string IdBaiViet, string TrangThai, string formattedDate)
         {
-            string idTho = TrangThai == "NguoiDungThueTho" ? IdNguoiDangBai : doiTuong.Id;
-            string idnguoidung = TrangThai == "NguoiDungThueTho" ? doiTuong.Id : IdNguoiDangBai;
-            string sqlSTR = string.Format("INSERT INTO LoiMoi (Id,IdTho,IdNguoiDung,IdBaiViet,HoTen,NgaySinh,Email,SDT,GioiTinh,DiaChi) " +
-                    "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')",
-                    IdLoiMoi, idTho, idnguoidung, IdBaiViet, doiTuong.HoTen, doiTuong.NgaySinh, doiTuong.Email, doiTuong.SDT, doiTuong.GioiTinh, doiTuong.DiaChi);
+            string idTho = TrangThai == "Thue" ? IdNguoiDangBai : doiTuong.Id;
+            string idnguoidung = TrangThai == "Thue" ? doiTuong.Id : IdNguoiDangBai;
+            string sqlSTR = string.Format("INSERT INTO LoiMoi (Id,IdTho,IdNguoiDung,IdBaiViet,HoTen,NgaySinh,Email,SDT,GioiTinh,DiaChi,TrangThai,NgayLamViec) " +
+                    "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",
+                    IdLoiMoi, idTho, idnguoidung, IdBaiViet, doiTuong.HoTen, doiTuong.NgaySinh, doiTuong.Email, doiTuong.SDT, doiTuong.GioiTinh, doiTuong.DiaChi, TrangThai, formattedDate);
             dBConnection.ThucThi(sqlSTR);
         }
         public void XacNhanThue(string idtieptheo, string idnguoithue, string idtho)

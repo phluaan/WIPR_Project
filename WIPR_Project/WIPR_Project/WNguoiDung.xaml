@@ -42,7 +42,7 @@
                         </Ellipse>
                     </Border>
                     <!--Menu Tiles-->
-                    <TextBlock Text="Đỗ Phú Luân" Foreground="White" FontSize="18" FontWeight="SemiBold"
+                    <TextBlock Text="Huỳnh Minh Mẫn" Foreground="White" FontSize="18" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
                     <TextBlock Text="Người dùng" Foreground="White" FontSize="14" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center"/>

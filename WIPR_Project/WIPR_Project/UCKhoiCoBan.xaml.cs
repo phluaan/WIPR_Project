@@ -33,7 +33,6 @@ namespace WIPR_Project
             wBaiViet.IdBaiVietChiTiet = IdBaiVietHienTai;
             wBaiViet.IdDoiTuonggHienTai = IdDoiTuonggHienTai;
             wBaiViet.doiTuongHT = doiTuongHT;
-
             wBaiViet.ShowDialog();
         }
     }
