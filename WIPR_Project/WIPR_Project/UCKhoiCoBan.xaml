@@ -55,7 +55,7 @@ DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="30,30,0,280">
                 </Border>
 
                 <TextBlock Text="Star rating: " FontSize="14" Margin="50,280,225,90"/>
-                <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Margin="50,300,50,65">
+                <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Margin="137,93,50,272">
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="0" Color="Blue" Opacity="1" BlurRadius="2"/>
                     </Border.Effect>

@@ -9,7 +9,7 @@
         AllowsTransparency="True"
         Title="WBaiViet" Height="720" Width="830" Loaded="Window_Loaded">
     <Border Background="White" CornerRadius="30" Height="700" MouseDown="Border_MouseDown" BorderBrush="Black" BorderThickness="2">
-        <Grid>
+        <Grid x:Name="gridBaiviet">
             <Border Width="156" Padding="3" Background="White" CornerRadius="100"
                             DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="0,20,0,529">
                 <Ellipse>
@@ -39,7 +39,7 @@
             <Button x:Name="btnThue" Style="{StaticResource menuButton}" Background="#002E5D" Margin="558,398,166,273" Width="NaN" Height="25" Click="btnThue_Click">
                 <StackPanel Orientation="Horizontal" Width="96">
                     <Icon:PackIconMaterial Kind="Send" Style="{StaticResource menuButtonIcon}"/>
-                    <TextBlock Text="Thuê" Width="34"/>
+                    <TextBlock Name="txtbThue"  Text="Thuê" Width="34"/>
                 </StackPanel>
             </Button>
             <TextBlock HorizontalAlignment="Left" Margin="30,410,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Nhận xét:" VerticalAlignment="Top"/>
@@ -55,6 +55,12 @@
                 <StackPanel Orientation="Horizontal" Width="96">
                     <Icon:PackIconMaterial Kind="ExitRun" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Text="Thoát" Width="34"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnCal" Style="{StaticResource menuButton}" Background="#002E5D" Margin="348,368,376,303" Width="NaN" Height="25" Click="btnCal_Click" >
+                <StackPanel Orientation="Horizontal" Width="96">
+                    <Icon:PackIconMaterial Kind="Calendar" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="" Width="34"/>
                 </StackPanel>
             </Button>
         </Grid>

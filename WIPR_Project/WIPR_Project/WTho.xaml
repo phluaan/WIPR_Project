@@ -68,7 +68,7 @@
                         <Button Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Magnify" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Bài yêu cầu"/>
+                                <TextBlock Text="Bài đăng khác"/>
                             </StackPanel>
                         </Button>
                         <Button Style="{StaticResource menuButton}">
@@ -145,36 +145,36 @@
 
                 </StackPanel>
                 <WrapPanel Grid.Row="3">
-                    <ComboBox x:Name="cbbKhuVuc" Style="{DynamicResource theComboBox}" Height="25" SelectedIndex="0" Margin="5" SelectionChanged="cbbKhuVuc_SelectionChanged">
+                    <ComboBox x:Name="cbbKhuVuc"  Style="{DynamicResource theComboBox}" Height="25"  Margin="5" SelectionChanged="cbbKhuVuc_SelectionChanged">
 
-                        <ComboBoxItem Content="Khu vuc"/>
-                        <ComboBoxItem Content="Tp. Ho Chi Minh" />
-                        <ComboBoxItem Content="Soc Trang" />
-                        <ComboBoxItem Content="Kon Tum" />
-                        <ComboBoxItem Content="China" />
-                        <ComboBoxItem Content="VN" />
+                        <ComboBoxItem Tag="" Content="Khu vuc"/>
+                        <ComboBoxItem Tag="DiaChi = 'Tp. Ho Chi Minh'" Content="Tp. Ho Chi Minh" />
+                        <ComboBoxItem Tag="DiaChi = 'Soc Trang'"  Content="Soc Trang" />
+                        <ComboBoxItem Tag="DiaChi = 'Kon Tum'" Content="Kon Tum" />
+                        <ComboBoxItem Tag="DiaChi = 'China'" Content="China" />
+                        <ComboBoxItem Tag="DiaChi = 'VN'" Content="VN" />
                     </ComboBox>
-                    <ComboBox x:Name="cbbKinhNghiem" Style="{DynamicResource theComboBox}" Height="25" SelectedIndex="0" Margin="5" SelectionChanged="cbbKinhNghiem_SelectionChanged">
-                        <ComboBoxItem Content="Kinh nghiem"/>
-                        <ComboBoxItem Content="Duoi 1 nam" />
-                        <ComboBoxItem Content="1 nam" />
-                        <ComboBoxItem Content="2 nam" />
-                        <ComboBoxItem Content="3 nam" />
-                        <ComboBoxItem Content="4 nam" />
+                    <ComboBox x:Name="cbbKinhNghiem" Style="{DynamicResource theComboBox}" Height="25" Margin="5" SelectionChanged="cbbKinhNghiem_SelectionChanged">
+                        <ComboBoxItem Tag="" Content="Kinh nghiem"/>
+                        <ComboBoxItem Tag="KinhNghiem = 'Duoi 1 nam'" Content="Duoi 1 nam" />
+                        <ComboBoxItem Tag="KinhNghiem = '1 nam'" Content="1 nam" />
+                        <ComboBoxItem Tag="KinhNghiem = '2 nam'" Content="2 nam" />
+                        <ComboBoxItem Tag="KinhNghiem = '3 nam'" Content="3 nam" />
+                        <ComboBoxItem Tag="KinhNghiem = '4 nam'" Content="4 nam" />
                     </ComboBox>
-                    <ComboBox x:Name="cbbMucGia" Style="{DynamicResource theComboBox}" Height="25" SelectedIndex="0" Margin="5" SelectionChanged="cbbMucGia_SelectionChanged">
-                        <ComboBoxItem Content="Muc gia"/>
-                        <ComboBoxItem Content="Duoi 1M" />
-                        <ComboBoxItem Content="Duoi 2M" />
-                        <ComboBoxItem Content="Duoi 3M" />
-                        <ComboBoxItem Content="Duoi 4M" />
-                        <ComboBoxItem Content="Duoi 5M" />
+                    <ComboBox x:Name="cbbMucGia" Style="{DynamicResource theComboBox}" Height="25"  Margin="5" SelectionChanged="cbbMucGia_SelectionChanged">
+                        <ComboBoxItem Tag="" Content="Muc gia"/>
+                        <ComboBoxItem  Tag="MucGia = 'Duoi 1M'" Content="Duoi 1M" />
+                        <ComboBoxItem  Tag="MucGia = 'Duoi 2M'" Content="Duoi 2M" />
+                        <ComboBoxItem  Tag="MucGia = 'Duoi 3M'" Content="Duoi 3M" />
+                        <ComboBoxItem  Tag="MucGia = 'Duoi 4M'" Content="Duoi 4M" />
+                        <ComboBoxItem  Tag="MucGia = 'Duoi 5M'" Content="Duoi 5M" />
                     </ComboBox>
-                    <ComboBox x:Name="cbbDichVu" Style="{DynamicResource theComboBox}" Height="25" SelectedIndex="0" Margin="5" SelectionChanged="cbbDichVu_SelectionChanged">
-                        <ComboBoxItem Content="Dich vu"/>
-                        <ComboBoxItem Content="Tho sua ong nuoc" />
-                        <ComboBoxItem Content="Gia su" />
-                        <ComboBoxItem Content="Tho sua dien" />
+                    <ComboBox x:Name="cbbDichVu" Style="{DynamicResource theComboBox}" Height="25"  Margin="5" SelectionChanged="cbbDichVu_SelectionChanged">
+                        <ComboBoxItem Tag="" Content="Dich vu"/>
+                        <ComboBoxItem  Tag="DichVu = 'Tho sua ong nuoc'" Content="Tho sua ong nuoc" />
+                        <ComboBoxItem  Tag="DichVu = 'Gia su'" Content="Gia su" />
+                        <ComboBoxItem  Tag="DichVu = 'Tho sua dien'" Content="Tho sua dien" />
                     </ComboBox>
 
                 </WrapPanel>

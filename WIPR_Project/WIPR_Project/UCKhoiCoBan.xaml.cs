@@ -25,12 +25,15 @@ namespace WIPR_Project
             InitializeComponent();
         }
         public string IdBaiVietHienTai;
-        public string IdNguoiDungHienTai;
+        public string IdDoiTuonggHienTai;
+        public string doiTuongHT;
         private void btnXemChiTiet_Click(object sender, RoutedEventArgs e)
         {
             WBaiViet wBaiViet = new WBaiViet();
             wBaiViet.IdBaiVietChiTiet = IdBaiVietHienTai;
-            wBaiViet.IdNguoiDungHienTai = IdNguoiDungHienTai;
+            wBaiViet.IdDoiTuonggHienTai = IdDoiTuonggHienTai;
+            wBaiViet.doiTuongHT = doiTuongHT;
+
             wBaiViet.ShowDialog();
         }
     }

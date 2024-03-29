@@ -25,9 +25,11 @@ namespace WIPR_Project
         {
             InitializeComponent();
         }
-        ThoDAO thoDAO = new ThoDAO();
+        DoiTuongDAO doiTuongDao = new DoiTuongDAO();
 
-        public string IdThoDangNhap;
+        public string idDoiTuongDangNhap;
+        public string doiTuongDangNhap;
+        public string baiDangDoiTuong;
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.cnnStr);
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -39,11 +41,11 @@ namespace WIPR_Project
 
         private void btnDangBai_Click(object sender, RoutedEventArgs e)
         {
-            DoiTuong tho = thoDAO.TruyXuat("QlyTho", IdThoDangNhap);
-            BaiViet baiViet = new BaiViet(thoDAO.IdTiepTheo("QlyBaiViet").ToString(), IdThoDangNhap, (cbbDichVu.SelectedItem as ComboBoxItem)?.Content?.ToString(),
+            DoiTuong doiTuong = doiTuongDao.TruyXuatDT(doiTuongDangNhap, idDoiTuongDangNhap);
+            BaiViet baiViet = new BaiViet(doiTuongDao.IdTiepTheo(baiDangDoiTuong).ToString(), idDoiTuongDangNhap, (cbbDichVu.SelectedItem as ComboBoxItem)?.Content?.ToString(),
                     (cbbKinhNghiem.SelectedItem as ComboBoxItem)?.Content?.ToString(), (cbbMucGia.SelectedItem as ComboBoxItem)?.Content?.ToString(),
-                    tho.HoTen, tho.NgaySinh, tho.Email, tho.SDT, tho.GioiTinh, tho.DiaChi);
-            thoDAO.ThemBaiDang(baiViet);
+                    doiTuong.HoTen, doiTuong.NgaySinh, doiTuong.Email, doiTuong.SDT, doiTuong.GioiTinh, doiTuong.DiaChi);
+            doiTuongDao.ThemBaiDang(baiViet, baiDangDoiTuong);
         }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)

@@ -83,10 +83,9 @@ namespace WIPR_Project
                 string mucgia = cbbMucGia.SelectedItem == null ? "" : (cbbMucGia.SelectedItem as ComboBoxItem).Tag.ToString();
                 string dichvu = cbbDichVu.SelectedItem == null ? "" : (cbbDichVu.SelectedItem as ComboBoxItem).Tag.ToString();
 
-                List<BaiViet> listBaiViet = nguoiDungDAO.TruyXuatDSBaiViet(khuvuc, kinhnghiem, mucgia, dichvu);
+                List<BaiViet> listBaiViet = nguoiDungDAO.TruyXuatDSBaiViet(khuvuc, kinhnghiem, mucgia, dichvu, "QlyBaiViet");
                 if (listBaiViet == null) return;
                 string maid = "";
-                List<UCKhoiCoBan> uCKhoiCoBans = new List<UCKhoiCoBan>();
                 foreach (BaiViet baiViet in listBaiViet)
                 {
                     UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
@@ -100,11 +99,11 @@ namespace WIPR_Project
                     uCKhoiCoBan.Height = 400;
                     uCKhoiCoBan.Width = 350;
                     uCKhoiCoBan.Margin = new Thickness(5);
-                    uCKhoiCoBan.IdNguoiDungHienTai = IdNguoiDungHienTai;
+                    uCKhoiCoBan.IdDoiTuonggHienTai = IdNguoiDungHienTai;
+                    uCKhoiCoBan.doiTuongHT = "QlyBaiViet";
                     maid += baiViet.Id + " ";
-                    uCKhoiCoBans.Add(uCKhoiCoBan);
                     wpnlThongTin.Children.Add(uCKhoiCoBan);
-            }
+                }
         }
         private void cbbKhuVuc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -122,6 +121,25 @@ namespace WIPR_Project
         private void cbbDichVu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Cbb_SelectionChanged(sender, e);
+        }
+
+        private void btnDangBai_Click(object sender, RoutedEventArgs e)
+        {
+            WDangBai wDangBai = new WDangBai();
+            wDangBai.idDoiTuongDangNhap = IdNguoiDungHienTai;
+            wDangBai.doiTuongDangNhap = "QlyNguoiDung";
+            wDangBai.baiDangDoiTuong = "QlyYeuCau";
+            wDangBai.ShowDialog();
+        }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

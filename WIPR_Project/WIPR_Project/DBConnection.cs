@@ -74,7 +74,7 @@ namespace WIPR_Project
             }
             catch (Exception exc)
             {
-                MessageBox.Show("that bai (DuLieuTruyXuat)" + exc);
+                MessageBox.Show("that bai (DuLieuTruyXuatDT)" + exc);
                 return null;
             }
             finally
@@ -82,7 +82,7 @@ namespace WIPR_Project
                 conn.Close();
             }
         }
-        public BaiViet TruyXuatBaiViet(string sqlSTR)
+        public BaiViet TruyXuatBaiViet(string sqlSTR, string id)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace WIPR_Project
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    BaiViet baiViet = new BaiViet(reader["Id"].ToString(), reader["IdTho"].ToString(), reader["DichVu"].ToString(), reader["KinhNghiem"].ToString(),
+                    BaiViet baiViet = new BaiViet(reader["Id"].ToString(), reader[id].ToString(), reader["DichVu"].ToString(), reader["KinhNghiem"].ToString(),
                         reader["MucGia"].ToString(), reader["HoTen"].ToString(), reader["NgaySinh"].ToString(), reader["Email"].ToString(), reader["SDT"].ToString(),
                         reader["GioiTinh"].ToString(), reader["DiaChi"].ToString());
                     reader.Close();
@@ -105,7 +105,7 @@ namespace WIPR_Project
             }
             catch (Exception exc)
             {
-                MessageBox.Show("that bai (DuLieuTruyXuat)" + exc);
+                MessageBox.Show("that bai (DuLieuTruyXuatBV)" + exc);
                 return null;
             }
             finally
@@ -113,7 +113,7 @@ namespace WIPR_Project
                 conn.Close();
             }
         }
-        public List<BaiViet> TruyXuatDSBaiViet(string sqlSTR)
+        public List<BaiViet> TruyXuatDSBaiViet(string sqlSTR, string id)
         {
             try
             {
@@ -123,7 +123,7 @@ namespace WIPR_Project
                 List<BaiViet> baiVietList = new List<BaiViet>();
                 while (reader.Read())
                 {
-                    BaiViet baiViet = new BaiViet(reader["Id"].ToString(), reader["IdTho"].ToString(), reader["DichVu"].ToString(), reader["KinhNghiem"].ToString(),
+                    BaiViet baiViet = new BaiViet(reader["Id"].ToString(), reader[id].ToString(), reader["DichVu"].ToString(), reader["KinhNghiem"].ToString(),
                         reader["MucGia"].ToString(), reader["HoTen"].ToString(), reader["NgaySinh"].ToString(), reader["Email"].ToString(), reader["SDT"].ToString(),
                         reader["GioiTinh"].ToString(), reader["DiaChi"].ToString());
                     baiVietList.Add(baiViet);

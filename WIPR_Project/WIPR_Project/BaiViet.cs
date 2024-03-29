@@ -9,7 +9,7 @@ namespace WIPR_Project
     public class BaiViet
     {
         private string id;
-        private string idTho;
+        private string idDoiTuong;
         private string dichVu;
         private string kinhNghiem;
         private string mucGia;
@@ -26,10 +26,10 @@ namespace WIPR_Project
             get { return id; }
             set { id = value; }
         }
-        public string IdTho
+        public string IdDoiTuong
         {
-            get { return idTho; }
-            set { idTho = value; }
+            get { return idDoiTuong; }
+            set { idDoiTuong = value; }
         }
         public string DichVu
         {
@@ -80,10 +80,10 @@ namespace WIPR_Project
         {
 
         }
-        public BaiViet(string id, string idTho, string dichVu, string kinhNghiem, string mucGia, string hoTen, string ngaySinh, string email, string sDT, string gioiTinh, string diaChi)
+        public BaiViet(string id, string idDoiTuong, string dichVu, string kinhNghiem, string mucGia, string hoTen, string ngaySinh, string email, string sDT, string gioiTinh, string diaChi)
         {
             this.id = id;
-            this.idTho = idTho;
+            this.idDoiTuong = idDoiTuong;
             this.dichVu = dichVu;
             this.kinhNghiem = kinhNghiem;
             this.mucGia = mucGia;
@@ -94,10 +94,10 @@ namespace WIPR_Project
             this.gioiTinh = gioiTinh;
             this.diaChi = diaChi;
         }
-        public BaiViet(string id, string idTho, string dichVu, string kinhNghiem, string mucGia)
+        public BaiViet(string id, string idDoiTuong, string dichVu, string kinhNghiem, string mucGia)
         {
             this.id = id;
-            this.idTho = idTho;
+            this.idDoiTuong = idDoiTuong;
             this.dichVu = dichVu;
             this.kinhNghiem = kinhNghiem;
             this.mucGia = mucGia;

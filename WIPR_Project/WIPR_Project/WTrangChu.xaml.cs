@@ -151,7 +151,7 @@ namespace WIPR_Project
         {
             WTho wTho = new WTho();
             wTho.IdThoHienTai = "0";
-            wTho.ShowDialog(); ;
+            wTho.ShowDialog();
         }
         private void btnNguoiDung_Click(object sender, RoutedEventArgs e)
         {

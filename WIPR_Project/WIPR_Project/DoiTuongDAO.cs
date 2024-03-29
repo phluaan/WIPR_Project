@@ -13,18 +13,21 @@ namespace WIPR_Project
     {
         DBConnection dBConnection = new DBConnection();
         protected string field;
-        public void ThemBaiDang(BaiViet bviet)
+        public void ThemBaiDang(BaiViet bviet, string type)
         {
-            string sqlSTR = string.Format("INSERT INTO QlyBaiViet (Id,IdTho,DichVu,KinhNghiem,MucGia,HoTen,NgaySinh,Email,SDT,GioiTinh,DiaChi) " +
+            string id = type == "QlyBaiViet" ? "IdTho" : "IdNguoiDung";
+            string sqlSTR = string.Format("INSERT INTO {11} (Id,{12},DichVu,KinhNghiem,MucGia,HoTen,NgaySinh,Email,SDT,GioiTinh,DiaChi) " +
                     "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')",
-                    bviet.Id,bviet.IdTho,bviet.DichVu, bviet.KinhNghiem,bviet.MucGia,bviet.HoTen,bviet.NgaySinh,bviet.Email,bviet.SDT,bviet.GioiTinh,bviet.DiaChi);
+                    bviet.Id, bviet.IdDoiTuong, bviet.DichVu, bviet.KinhNghiem, bviet.MucGia, bviet.HoTen, bviet.NgaySinh, bviet.Email, bviet.SDT, bviet.GioiTinh, bviet.DiaChi, type, id);
             dBConnection.ThucThi(sqlSTR);
         }
-        public void GuiLoiMoi(DoiTuong doiTuong, string IdLoiMoi, string IdTho, string IdBaiViet)
+        public void GuiLoiMoi(DoiTuong doiTuong, string IdLoiMoi, string IdNguoiDangBai, string IdBaiViet, string TrangThai)
         {
+            string idTho = TrangThai == "NguoiDungThueTho" ? IdNguoiDangBai : doiTuong.Id;
+            string idnguoidung = TrangThai == "NguoiDungThueTho" ? doiTuong.Id : IdNguoiDangBai;
             string sqlSTR = string.Format("INSERT INTO LoiMoi (Id,IdTho,IdNguoiDung,IdBaiViet,HoTen,NgaySinh,Email,SDT,GioiTinh,DiaChi) " +
                     "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')",
-                    IdLoiMoi, IdTho, doiTuong.Id, IdBaiViet, doiTuong.HoTen, doiTuong.NgaySinh, doiTuong.Email, doiTuong.SDT, doiTuong.GioiTinh, doiTuong.DiaChi);
+                    IdLoiMoi, idTho, idnguoidung, IdBaiViet, doiTuong.HoTen, doiTuong.NgaySinh, doiTuong.Email, doiTuong.SDT, doiTuong.GioiTinh, doiTuong.DiaChi);
             dBConnection.ThucThi(sqlSTR);
         }
         public void XacNhanThue(string idtieptheo, string idnguoithue, string idtho)
@@ -51,17 +54,18 @@ namespace WIPR_Project
             string sqlSTR = string.Format("DELETE FROM {0} WHERE Id = '{1}'", table, idxoa);
             dBConnection.ThucThi(sqlSTR);
         }
-        public DoiTuong TruyXuat(string table, string idtruyxuat)
+        public DoiTuong TruyXuatDT(string table, string idtruyxuat)
         {
             string sqlSTR = string.Format("SELECT * FROM {0} WHERE Id = {1}",table, idtruyxuat);
             return dBConnection.TruyXuatDoiTuong(sqlSTR);
         }
-        public BaiViet TruyXuat(string idtruyxuat)
+        public BaiViet TruyXuatBV(string idtruyxuat, string table)
         {
-            string sqlSTR = string.Format("SELECT * FROM QlyBaiViet WHERE {0}", idtruyxuat);
-            return dBConnection.TruyXuatBaiViet(sqlSTR);
+            string id = table == "QlyBaiViet" ? "IdTho" : "IdNguoiDung";
+            string sqlSTR = string.Format("SELECT * FROM {0} WHERE {1}",table, idtruyxuat);
+            return dBConnection.TruyXuatBaiViet(sqlSTR, id);
         }
-        public List<BaiViet> TruyXuatDSBaiViet(string khuvuc, string kinhnghiem, string mucgia, string dichvu)
+        public List<BaiViet> TruyXuatDSBaiViet(string khuvuc, string kinhnghiem, string mucgia, string dichvu, string table)
         {
             string stringSql = "";
             if (khuvuc != "" || kinhnghiem != "" || mucgia != "" || dichvu != "")
@@ -79,9 +83,9 @@ namespace WIPR_Project
                     stringSql += result;
                 }
             }
-
-            string sqlSTR = string.Format("SELECT * FROM QlyBaiViet {0}",stringSql);
-            return dBConnection.TruyXuatDSBaiViet(sqlSTR);
+            string id = table == "QlyBaiViet" ? "IdTho" : "IdNguoiDung";
+            string sqlSTR = string.Format("SELECT * FROM {0} {1}", table, stringSql);
+            return dBConnection.TruyXuatDSBaiViet(sqlSTR,id);
         }
     }
 }

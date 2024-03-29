@@ -67,10 +67,10 @@
                         <Button Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Magnify" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Tìm thợ"/>
+                                <TextBlock Text="Bài đăng khác"/>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Style="{StaticResource menuButton}" Name="btnDangBai" Click="btnDangBai_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="pen" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Đăng bài"/>
@@ -189,7 +189,7 @@
                 <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
                         CornerRadius="5" Padding="5" Background="White" Margin="0 10 10 10">
                     <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource pagingButton}">
+                        <Button x:Name="btnPrevious" Style="{StaticResource pagingButton}" Click="btnPrevious_Click">
                             <Icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}"/>
                         </Button>
                         <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
@@ -205,7 +205,7 @@
 
                         <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
 
-                        <Button Style="{StaticResource pagingButton}">
+                        <Button x:Name="btnNext" Style="{StaticResource pagingButton}" Click="btnNext_Click">
                             <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource pagingButtonIcon}"/>
                         </Button>
                     </StackPanel>
