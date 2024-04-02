@@ -3,70 +3,106 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:WIPR_Project"
         mc:Ignorable="d"
-        Title="WDangBai" Height="450" Width="430" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        AllowsTransparency="True" Background="White" BorderBrush="Black" BorderThickness="2">
-    <Grid MouseDown="Grid_MouseDown">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        Title="WDangBai" Height="430" Width="650" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent">
+    <Border MouseDown="Grid_MouseDown" BorderThickness="1.5" CornerRadius="10" Background="White" BorderBrush="Black">
+        <Grid>
+            <TextBlock Text="Tạo bài viết" FontSize="28" FontWeight="Bold" Foreground="#002E5D" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,5"/>
+            <Border BorderThickness="3" CornerRadius="15" Background="#F1F1F1" Height="330" Width="570">
+                <Grid>
+                    <ComboBox x:Name="cbbDichVu"
+                        Width="200" Height="55" BorderBrush="Black" BorderThickness="1"
+                        materialDesign:HintAssist.Hint="Dịch vụ" FontSize="16" 
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        ItemsSource="{Binding ShortStringList}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="50,22,314,0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="Gia sư" />
+                        <ComboBoxItem Content="Tho sua ong nuoc" />
+                        <ComboBoxItem Content="Tho sua dien" />
+                        <ComboBoxItem Content="Bao tri thiet bi" />
+                        <ComboBox.SelectedItem>
+                            <Binding
+                                Mode="TwoWay"
+                                Path="SelectedValidationOutlined"
+                                UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
 
-        <Grid Grid.Row="0" Margin="0,0,0,10">
-            <TextBlock Text="Tạo bài đăng" FontSize="20" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <Button Name="btnThoat" Margin="0" Style="{StaticResource topButton}" Width="25" Height="25" Click="btnThoat_Click" HorizontalAlignment="Right" VerticalAlignment="Top">
-                <Icon:PackIconMaterial Kind="ExitToApp" Width="15" Height="15" Foreground="Black"/>
-            </Button>
-        </Grid>
-        <Grid Margin="0,0,0,0" Grid.Row="2" Background="#eff2f7">
-            <Border Width="85" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20,15,0,290" >
-                <Ellipse>
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Images/avatar.jpg" Stretch="UniformToFill"/>
-                    </Ellipse.Fill>
-                </Ellipse>
+                    <ComboBox x:Name="cbbMucGia"
+                        Width="200" Height="55" BorderBrush="Black" BorderThickness="1"
+                        materialDesign:HintAssist.Hint="Mức Giá"  FontSize="16"
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        ItemsSource="{Binding ShortStringList}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="314,22,50,0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="Dưới 500k" />
+                        <ComboBoxItem Content="500k - 1 Triệu" />
+                        <ComboBoxItem Content="1 Triệu - 2 Triệu" />
+                        <ComboBoxItem Content="5 Triệu - 5 Triệu" />
+                        <ComboBoxItem Content="5 Triệu - 10 Triệu" />
+                        <ComboBox.SelectedItem>
+                            <Binding
+                                Mode="TwoWay"
+                                Path="SelectedValidationOutlined"
+                                UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+
+                    <ComboBox x:Name="cbbKinhNghiem" BorderBrush="Black" BorderThickness="1"
+                        Width="200" Height="55"
+                        materialDesign:HintAssist.Hint="Kinh nghiệm" FontSize="16" 
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        ItemsSource="{Binding ShortStringList}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="50,99,314,0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="Dưới 1 năm" />
+                        <ComboBoxItem Content="1 năm - 2 năm" />
+                        <ComboBoxItem Content="2 năm - 3 năm" />
+                        <ComboBoxItem Content="3 năm - 4 năm" />
+                        <ComboBoxItem Content="4 năm - 5 năm" />
+                        <ComboBoxItem Content="Trên 5 năm" />
+                        <ComboBox.SelectedItem>
+                            <Binding
+                                Mode="TwoWay"
+                                Path="SelectedValidationOutlined"
+                                UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                    <DatePicker x:Name="dpNgayLamViec"
+                        materialDesign:HintAssist.Hint="Ngày làm việc"  FontSize=" 16" 
+                        Style="{StaticResource MaterialDesignOutlinedDatePicker}" Margin="314,99,50,3" VerticalAlignment="Top" />
+
+                    <StackPanel Margin="30,162,30,20">
+                        <CheckBox Visibility="Hidden"
+                            x:Name="MaterialDesignOutlinedTextBoxTextCountComboBox" Background="#002E5D"
+                            Content="Hiển thị số lượng kí tự" 
+                            IsChecked="True"/>
+                        <TextBox x:Name="txtMoTa"
+                            Height="115" BorderBrush="Black" BorderThickness="1"
+                            materialDesign:HintAssist.Hint="Nhập mô tả công việc"
+                            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
+                            MaxLength="400"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto" />
+                    </StackPanel>
+                </Grid>
             </Border>
-
-            <TextBlock x:Name="txbName" FontSize="18" FontWeight="Bold" Text="Chim Sẻ" Margin="100,0,180,300" Height="30" Width="130"></TextBlock>
-            <TextBlock Text="Dịch vụ:" FontSize="16" Margin="20, 60, 350,200" Height="20" Width="60"></TextBlock>
-            <ComboBox x:Name="cbbDichVu" Style="{DynamicResource theComboBox}" SelectedIndex="0" Margin="140,109,136,243">
-
-                <ComboBoxItem Content="Dich vu"/>
-                <ComboBoxItem Content="Tho sua ong nuoc" />
-                <ComboBoxItem Content="Gia su" />
-                <ComboBoxItem Content="Tho sua dien" />
-            </ComboBox>
-            <ComboBox x:Name="cbbMucGia" Style="{DynamicResource theComboBox}" SelectedIndex="0" Margin="140,211,136,142">
-                <ComboBoxItem Content="Muc gia"/>
-                <ComboBoxItem Content="Duoi 1M" />
-                <ComboBoxItem Content="Duoi 2M" />
-                <ComboBoxItem Content="Duoi 3M" />
-                <ComboBoxItem Content="Duoi 4M" />
-                <ComboBoxItem Content="Duoi 5M" />
-            </ComboBox>
-            <TextBlock Text="Kinh nghiệm:" FontSize="16" Margin="20,158,315,204"/>
-
-            <TextBlock Text="Mức giá:" FontSize="16" Margin="20,140,310,110" Height="20"/>
-            <ComboBox x:Name="cbbKinhNghiem" Style="{DynamicResource theComboBox}" SelectedIndex="0" Margin="140,160,136,193">
-                <ComboBoxItem Content="Kinh nghiem"/>
-                <ComboBoxItem Content="Duoi 1 nam" />
-                <ComboBoxItem Content="1 nam" />
-                <ComboBoxItem Content="2 nam" />
-                <ComboBoxItem Content="3 nam" />
-                <ComboBoxItem Content="4 nam" />
-            </ComboBox>
-
-            <TextBlock Text="Ghi chú:" FontSize="16" Margin="20,220,310,110" Height="20"/>
-            <TextBox Height="70" Width="350" Margin="40,250,40,35"></TextBox>
-            <Button x:Name="btnDangBai" Style="{StaticResource menuButton}" Background="#002E5D" Click="btnDangBai_Click" Margin="140,351,136,10" Width="150" Height="25">
+            <Button x:Name="btnDangBai" Style="{StaticResource menuButton}" Background="#002E5D" Click="btnDangBai_Click"  Width="150" Height="25" Margin="248,380,249,22">
                 <StackPanel Orientation="Horizontal" Width="140">
                     <Icon:PackIconMaterial Kind="Pencil" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Text="Đăng bài" Width="100"/>
                 </StackPanel>
             </Button>
-        </Grid>
 
-    </Grid>
+            <Button Name="btnThoat" Margin="0" Style="{StaticResource topButton}" Width="25" Height="25" Click="btnThoat_Click" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Icon:PackIconMaterial Kind="ExitToApp" Width="15" Height="15" Foreground="Black"/>
+            </Button>
+        </Grid>
+    </Border>
 </Window>

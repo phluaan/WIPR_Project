@@ -30,14 +30,11 @@
 
                 <Icon:PackIconMaterial Kind="MapMarker" Style="{StaticResource menuButtonIcon}" Margin="40,100,0,0" VerticalAlignment="Top"/>
                 <TextBlock x:Name="txbKhuVuc" Text="TP. HCM"  Height="20" FontWeight="Bold" FontSize="14" Margin="93,97,91,207" HorizontalAlignment="Center"/>
+                <Rectangle Fill="Black" Height="1" Margin="30,134,28,189" Opacity="0.7" />
 
-                <Border Width="41" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="5,150,0,138" BorderThickness="1" BorderBrush="Black">
-                    <Icon:PackIconMaterial Kind="HammerWrench" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Top"  Height="31" Width="28" Margin="3,-2,0,0"/>
-                </Border>
+                <TextBlock x:Name="txbDichVu" Text="Thợ sửa ống nước" FontWeight="Bold" FontSize="20.5" Margin="0,140,0,155" HorizontalAlignment="Center"/>
 
-                <TextBlock x:Name="txbDichVu" Text="Thợ sửa ống nước" FontWeight="Bold" FontSize="20.5" Margin="50,155,15,140" HorizontalAlignment="Center"/>
-
-                <Border BorderThickness="2" Height="30" CornerRadius="10" Margin="15,209,125,85">
+                <Border BorderThickness="2" Height="30" CornerRadius="10" Margin="70,174,70,120">
                     <Border.BorderBrush>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="Black" Offset="0"/>
@@ -50,7 +47,7 @@
                     </Grid>
                 </Border>
 
-                <Border BorderThickness="2" Height="30" CornerRadius="10" Margin="128,209,12,85">
+                <Border BorderThickness="2" Height="30" CornerRadius="10" Margin="70,220,70,74">
                     <Border.BorderBrush>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="Black" Offset="0"/>
@@ -63,8 +60,8 @@
                     </Grid>
                 </Border>
 
-                <TextBlock Text="Đánh giá:" FontWeight="Bold" FontSize="20" Margin="35,255,110,40"/>
-                <TextBlock x:Name="txbDanhGia" Text="4.5" FontWeight="Bold" FontSize="20" Margin="135,255,75,40"/>
+                <TextBlock Text="Đánh giá:" FontWeight="Bold" FontSize="20" Margin="53,255,93,40"/>
+                <TextBlock x:Name="txbDanhGia" Text="4.5" FontWeight="Bold" FontSize="20" Margin="146,255,64,40"/>
                 <Icon:PackIconMaterial Kind="Star" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Top"  Height="26" Width="21" Margin="175,255,0,0" Foreground="#F4B218"/>
 
                 <Button x:Name="btnXemChiTiet" Style="{StaticResource menuButton}" Background="#002E5D" Click="btnXemChiTiet_Click" Width="150" Height="25" Margin="47,290,47,9">

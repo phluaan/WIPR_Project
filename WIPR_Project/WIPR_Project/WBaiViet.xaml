@@ -11,15 +11,15 @@
     <Border Background="White" CornerRadius="30" Height="700" MouseDown="Border_MouseDown" BorderBrush="Black" BorderThickness="2">
         <Grid x:Name="gridBaiviet">
             <Border Width="156" Padding="3" Background="White" CornerRadius="100"
-                            DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="0,20,0,529">
+                            DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="57,8,0,541">
                 <Ellipse>
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Images/avatar.jpg" Stretch="UniformToFill"/>
                     </Ellipse.Fill>
                 </Ellipse>
             </Border>
-            <TextBlock HorizontalAlignment="Left" Margin="70,160,0,0" FontSize="18"  TextWrapping="Wrap" Text="Họ và tên:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbHoTen" HorizontalAlignment="Left" Margin="170,160,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Đỗ Phú Luân" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="415,35,0,0" FontSize="18"  TextWrapping="Wrap" Text="Họ và tên:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbHoTen" HorizontalAlignment="Left" Margin="520,35,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Đỗ Phú Luân" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="70,200,0,0" FontSize="18"  TextWrapping="Wrap" Text="Ngày sinh:" VerticalAlignment="Top"/>
             <TextBlock x:Name="txbNgaySinh" HorizontalAlignment="Left" Margin="170,200,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="08/11/2004" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="70,240,0,0" FontSize="18"  TextWrapping="Wrap" Text="Giới tính:" VerticalAlignment="Top"/>

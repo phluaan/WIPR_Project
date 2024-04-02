@@ -1,7 +1,6 @@
 ﻿<Window x:Class="WIPR_Project.WNguoiDung"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent" Loaded="WNguoiDung_Loaded" >
@@ -9,7 +8,7 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
     </Window.Resources>
 
-    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" >
         <Grid>
 
             <Grid.ColumnDefinitions>
@@ -52,19 +51,19 @@
 
                     <!--Menu Buttons-->
                     <StackPanel DockPanel.Dock="Top">
-                        <Button Style="{StaticResource menuButton}" Name="btnTrangChu">
+                        <Button Style="{StaticResource menuButton}" Name="btnTrangChu" Click="btnTrangChu_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Trang chủ"/>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource menuButton}">
+                        <Button x:Name="btnTranngCaNhan" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Trang cá nhân"/>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource menuButton}">
+                        <Button x:Name="btnBaiDangKhac" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Magnify" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Bài đăng khác"/>
@@ -76,16 +75,16 @@
                                 <TextBlock Text="Đăng bài"/>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource menuButton}">
+                        <Button x:Name="btnTienDo" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="ProgressCheck" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Tiến độ"/>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource menuButton}">
+                        <Button x:Name="btnThoYeuThich" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal" Width="150">
-                                <Icon:PackIconMaterial Kind="ClipboardList" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Hóa đơn"/>
+                                <Icon:PackIconMaterial Kind="Heart" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Thợ yêu thích"/>
                             </StackPanel>
                         </Button>
 
@@ -149,7 +148,7 @@
                     </ComboBox>
                     <ComboBox x:Name="cbbKinhNghiem" Style="{DynamicResource theComboBox}" Height="25" Margin="5" SelectionChanged="cbbKinhNghiem_SelectionChanged">
                         <ComboBoxItem Tag="" Content="Kinh nghiem"/>
-                        <ComboBoxItem Tag="KinhNghiem = 'Duoi 1 nam'" Content="Duoi 1 nam" />
+                        <ComboBoxItem Tag="KinhNghiem = '1 nam'" Content="Duoi 1 nam" />
                         <ComboBoxItem Tag="KinhNghiem = '1 nam'" Content="1 nam" />
                         <ComboBoxItem Tag="KinhNghiem = '2 nam'" Content="2 nam" />
                         <ComboBoxItem Tag="KinhNghiem = '3 nam'" Content="3 nam" />

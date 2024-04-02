@@ -69,7 +69,7 @@ namespace WIPR_Project
             string table = doiTuongHT == "QlyBaiViet" ? "QlyTho" : "QlyNguoiDung";
             string trangThai = doiTuongHT == "QlyBaiViet" ? "Thue" : "Apply";
             DoiTuong doiTuong = doiTuongDAO.TruyXuatDT(table, IdDoiTuonggHienTai);
-            doiTuongDAO.GuiLoiMoi(doiTuong, doiTuongDAO.IdTiepTheo("LoiMoi").ToString(), idNguoiDangBai, IdBaiVietChiTiet, trangThai, selecDates.ToString());
+            doiTuongDAO.GuiLoiMoi(doiTuong, doiTuongDAO.IdTiepTheo("LoiMoi").ToString(), idNguoiDangBai, IdBaiVietChiTiet, trangThai, selecDates.ToString(), txbDichVu.Text);
 
         }
 

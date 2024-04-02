@@ -36,26 +36,7 @@ namespace WIPR_Project
         }
 
         private bool IsMaximized = false;
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ClickCount == 2)
-            {
-                if (IsMaximized)
-                {
-                    this.WindowState = WindowState.Normal;
-                    this.Width = 1080;
-                    this.Height = 720;
-                    IsMaximized = false;
-                }
-                else
-                {
-                    this.WindowState = WindowState.Maximized;
-                    
-                    IsMaximized = true;
-                }
-            }
-            
-        }
+        
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
@@ -138,6 +119,11 @@ namespace WIPR_Project
         }
 
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnTrangChu_Click(object sender, RoutedEventArgs e)
         {
 
         }

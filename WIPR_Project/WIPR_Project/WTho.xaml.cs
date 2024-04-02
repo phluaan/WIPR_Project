@@ -38,26 +38,7 @@ namespace WIPR_Project
             }
         }
 
-        private bool IsMaximized = false;
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ClickCount == 2)
-            {
-                if (IsMaximized)
-                {
-                    this.WindowState = WindowState.Normal;
-                    this.Width = 1080;
-                    this.Height = 720;
-                    IsMaximized = false;
-                }
-                else
-                {
-                    this.WindowState = WindowState.Maximized;
 
-                    IsMaximized = true;
-                }
-            }
-        }
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -109,8 +90,10 @@ namespace WIPR_Project
             {
                 var selectedLoiMoi = dgridLoiMoi.SelectedItem as DataRowView;
                 string idNguoiDung = selectedLoiMoi["IdNguoiDung"].ToString();
-                int idThue = thoDAO.IdTiepTheo("QlyThue");
-                thoDAO.XacNhanThue(idThue.ToString(), idNguoiDung, IdThoHienTai);
+                string ngayLamViec = selectedLoiMoi["NgayLamViec"].ToString();
+                string dichvu = selectedLoiMoi["DichVu"].ToString();
+                int idNgayLamViec = thoDAO.IdTiepTheo("QlyNgayLamViec");
+                thoDAO.XacNhanThue(idNgayLamViec.ToString(), idNguoiDung, IdThoHienTai, ngayLamViec, dichvu);
 
                 string idloimoi = selectedLoiMoi["Id"].ToString();
                 thoDAO.Xoa("LoiMoi", idloimoi);

@@ -11,7 +11,7 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
     </Window.Resources>
-    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" >
         <Grid>
             
             <Grid.ColumnDefinitions>
@@ -65,22 +65,22 @@
                                 <TextBlock Text="Trang cá nhân"/>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource menuButton}">
+                        <Button x:Name="btnBaiDangKhac" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Magnify" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Bài đăng khác"/>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource menuButton}">
+                        <Button x:Name="btnTienDo" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="ProgressCheck" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Tiến độ"/>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource menuButton}">
+                        <Button x:Name="btnLichLamViec" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal" Width="150">
-                                <Icon:PackIconMaterial Kind="ClipboardList" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Hóa đơn"/>
+                                <Icon:PackIconMaterial Kind="Calendar" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Lịch làm việc"/>
                             </StackPanel>
                         </Button>
                         <Button x:Name="btnDangBai" Style="{StaticResource menuButton}" Click="btnDangBai_Click">
@@ -91,7 +91,7 @@
                         </Button>
                         <Button x:Name="btnLoiMoi" Style="{StaticResource menuButton}" Click="btnLoiMoi_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
-                                <Icon:PackIconMaterial Kind="Pencil" Style="{StaticResource menuButtonIcon}"/>
+                                <Icon:PackIconMaterial Kind="Handshake" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Lời mời"/>
                             </StackPanel>
                         </Button>
@@ -156,7 +156,7 @@
                     </ComboBox>
                     <ComboBox x:Name="cbbKinhNghiem" Style="{DynamicResource theComboBox}" Height="25" Margin="5" SelectionChanged="cbbKinhNghiem_SelectionChanged">
                         <ComboBoxItem Tag="" Content="Kinh nghiem"/>
-                        <ComboBoxItem Tag="KinhNghiem = 'Duoi 1 nam'" Content="Duoi 1 nam" />
+                        <ComboBoxItem Tag="KinhNghiem = '1 nam'" Content="Duoi 1 nam" />
                         <ComboBoxItem Tag="KinhNghiem = '1 nam'" Content="1 nam" />
                         <ComboBoxItem Tag="KinhNghiem = '2 nam'" Content="2 nam" />
                         <ComboBoxItem Tag="KinhNghiem = '3 nam'" Content="3 nam" />
@@ -200,27 +200,15 @@
                             </DataGridCheckBoxColumn>
 
                             <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header="IdNguoiDung" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding IdNguoiDung}"/>
-                            <DataGridTextColumn Header="IdBaiViet" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding IdBaiViet}"/>
-
-                            <DataGridTemplateColumn Header="Họ và tên" IsReadOnly="True" Width="*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" >
-                                                <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
-                                            </Border>
-
-                                            <TextBlock Text="{Binding HoTen}"  VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                            
+                            <DataGridTextColumn Header="Họ tên" IsReadOnly="True" Width="*" Binding="{Binding HoTen}"/>
 
                             <DataGridTextColumn Header="Ngày sinh" IsReadOnly="True" Width="*" Binding="{Binding NgaySinh, StringFormat={}{0:dd/MM/yyyy}}"/>
                             <DataGridTextColumn Header="Email" IsReadOnly="True" Width="*" Binding="{Binding Email}"/>
                             <DataGridTextColumn Header="SĐT" IsReadOnly="True" Width="*" Binding="{Binding SDT}"/>
                             <DataGridTextColumn Header="Địa chỉ" IsReadOnly="True" Width="*" Binding="{Binding DiaChi}"/>
+                            <DataGridTextColumn Header="Dịch vụ" IsReadOnly="True" Width="*" Binding="{Binding DichVu}"/>
+                            <DataGridTextColumn Header="Ngày làm việc" IsReadOnly="True" Width="*" Binding="{Binding NgayLamViec}"/>
                             <DataGridTemplateColumn Header="Chi tiết" IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

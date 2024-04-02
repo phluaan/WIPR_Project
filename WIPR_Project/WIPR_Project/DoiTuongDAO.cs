@@ -21,20 +21,20 @@ namespace WIPR_Project
                     bviet.Id, bviet.IdDoiTuong, bviet.DichVu, bviet.KinhNghiem, bviet.MucGia, bviet.HoTen, bviet.NgaySinh, bviet.Email, bviet.SDT, bviet.GioiTinh, bviet.DiaChi, type, id);
             dBConnection.ThucThi(sqlSTR);
         }
-        public void GuiLoiMoi(DoiTuong doiTuong, string IdLoiMoi, string IdNguoiDangBai, string IdBaiViet, string TrangThai, string formattedDate)
+        public void GuiLoiMoi(DoiTuong doiTuong, string IdLoiMoi, string IdNguoiDangBai, string IdBaiViet, string TrangThai, string datelamviec, string DichVu)
         {
             string idTho = TrangThai == "Thue" ? IdNguoiDangBai : doiTuong.Id;
             string idnguoidung = TrangThai == "Thue" ? doiTuong.Id : IdNguoiDangBai;
-            string sqlSTR = string.Format("INSERT INTO LoiMoi (Id,IdTho,IdNguoiDung,IdBaiViet,HoTen,NgaySinh,Email,SDT,GioiTinh,DiaChi,TrangThai,NgayLamViec) " +
-                    "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",
-                    IdLoiMoi, idTho, idnguoidung, IdBaiViet, doiTuong.HoTen, doiTuong.NgaySinh, doiTuong.Email, doiTuong.SDT, doiTuong.GioiTinh, doiTuong.DiaChi, TrangThai, formattedDate);
+            string sqlSTR = string.Format("INSERT INTO LoiMoi (Id,IdTho,IdNguoiDung,IdBaiViet,HoTen,NgaySinh,Email,SDT,GioiTinh,DiaChi,TrangThai,NgayLamViec,DichVu) " +
+                    "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",
+                    IdLoiMoi, idTho, idnguoidung, IdBaiViet, doiTuong.HoTen, doiTuong.NgaySinh, doiTuong.Email, doiTuong.SDT, doiTuong.GioiTinh, doiTuong.DiaChi, TrangThai, datelamviec, DichVu);
             dBConnection.ThucThi(sqlSTR);
         }
-        public void XacNhanThue(string idtieptheo, string idnguoithue, string idtho)
+        public void XacNhanThue(string idtieptheo, string idnguoithue, string idtho, string ngaylamviec, string dichvu)
         {
-            string sqlSTR = string.Format("INSERT INTO QlyThue (Id, IdNguoiDung, IdTho) " +
-                        "VALUES ('{0}', '{1}', '{2}')",
-                       idtieptheo, idnguoithue, idtho);
+            string sqlSTR = string.Format("INSERT INTO QlyNgayLamViec (Id,NgayLamViec,IdTho,IdNguoiDung,TienDo,IdDanhGia,DichVu) " +
+                        "VALUES ('{0}', '{1}', '{2}','{3}','{4}','{5}','{6}')",
+                       idtieptheo,ngaylamviec, idtho, idnguoithue, "","",dichvu);
             dBConnection.ThucThi(sqlSTR);
         }
         public int IdTiepTheo(string table)

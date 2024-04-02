@@ -2,60 +2,42 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:WIPR_Project"
         mc:Ignorable="d"
-        Title="WTrangChu" Height="650" Width="1080" WindowStartupLocation="CenterScreen" Background="Transparent" 
+        Title="WTrangChu" Height="600" Width="1080" WindowStartupLocation="CenterScreen" Background="Transparent" 
         WindowStyle="None" AllowsTransparency="True">
-    <Grid Background="#eff2f7">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid Background="#002E5D">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource topButton}" Margin="10,10,0,10" Foreground="White" Width="45" Grid.ColumnSpan="2">
-                <Icon:PackIconMaterial Kind="Warehouse" Height="32" Width="36"/>
-            </Button>
-            <TextBlock Text="Home" FontSize="28" FontWeight="SemiBold" 
-                           HorizontalAlignment="Left" Foreground="White" Margin="60,5,0,5"/>
-            <Button Style="{StaticResource topButton}" Margin="0,10,225,10" Grid.Column="1" Foreground="White" HorizontalAlignment="Right">
-                <Icon:PackIconMaterial Kind="HelpCircle"/>
-            </Button>
-            <Button Style="{StaticResource topButton}" Margin="0,10,200,10" Grid.Column="1" Foreground="White" HorizontalAlignment="Right">
-                <Icon:PackIconMaterial Kind="Phone"/>
-            </Button>
-            <TextBlock Text="Hotline 0862267674" FontSize="16" FontWeight="SemiBold" 
-                HorizontalAlignment="Right" Foreground="White" Margin="0,13,50,13" Grid.Column="1"/>
-            <Button x:Name="btnExit" Style="{StaticResource topButton}" Margin="0,10,15,10" Grid.Column="1" Foreground="White" HorizontalAlignment="Right" Click="btnExit_Click">
-                <Icon:PackIconMaterial Kind="Login"/>
-            </Button>
+    <Border Background="#eff2f7" CornerRadius="30">
+        <Grid Margin="0,0,0,0" Height="600">
+            <Image Margin="0,0,0,0" Source="Images/anhnen.jpg" Stretch="UniformToFill" Opacity="0.9"/>
+            <TextBlock Text="THẾ GIỚI VIỆC LÀM" FontSize="48" FontWeight="Bold" Foreground="White" Margin="276,26,276,514" Height="60" FontFamily="Bodoni MT Black"/>
+            <Border x:Name="bdMain" CornerRadius="20" Background="#F1F1F1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="500" Height="400" Margin="296,133,0,0">
+                <Grid x:Name="gridMain">
+                    <TextBlock Text="Login now" FontSize="40" Foreground="Black" FontWeight="Bold" TextAlignment="Center"/>
+                    <Icon:PackIconMaterial Kind="Account" Foreground="#6E7783" Style="{StaticResource menuButtonIcon}" Height="29" Margin="33,89,0,0" Width="24" VerticalAlignment="Top"/>
+                    <TextBox VerticalAlignment="Top" Height="55" Width="370" materialDesign:HintAssist.Hint="Tài khoản" Margin="60,70,24,0" Foreground="#6E7783" FontSize="22"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <Icon:PackIconMaterial Kind="KeyVariant" Foreground="#6E7783" Style="{StaticResource menuButtonIcon}" Height="29" Margin="33,195,0,0" Width="24" VerticalAlignment="Top"/>
+                    <PasswordBox
+                            materialDesign:HintAssist.Hint="  Mật khẩu" Height="55" Width="370" Foreground="#6E7783" FontSize="22" Margin="79,168,51,177"
+                            materialDesign:PasswordBoxAssist.Password="{Binding Password2, Mode=TwoWay}"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            IsEnabled="{Binding ElementName=RevealPasswordFloatingEnabled, Path=IsChecked}"
+                            Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" />
+                    <Button x:Name="btnLogin" Width="150"  Content="Đăng nhập" FontWeight="Bold" FontSize="18" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="171,260,179,107" Click="btnLogin_Click_1" />
+                    <TextBlock Text="Chưa có tài khoản?" Height="20" Foreground="#6E7783" FontSize="16" Width="140" Margin="90,318,240,62"/>
+                    <Button x:Name="btnRegister" Content="Đăng kí ngay" FontSize="22" Foreground="Black" Margin="250,312,88,56" Click="btnRegister_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="Transparent">
+                                    <ContentPresenter/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </Border>
         </Grid>
-        <Grid Grid.Row="1">
-            <Grid Margin="0,0,0,0" Height="600">
-                <Image Margin="0,0,0,0" Source="/Images/anhnencaicay.jpg" Stretch="UniformToFill" Opacity="0.9"/>
-                <TextBlock Text="OFFICIAL" FontSize="48" FontWeight="Bold" Foreground="White" Margin="40,50,750,500" Height="60" Width="300" FontFamily="Bodoni MT Black"/>
-                <TextBlock Text="Thế giới việc làm" FontSize="48" FontWeight="Bold" Foreground="White" Margin="40,130,600,400" Height="60" FontFamily="Bodoni MT Black"/>
-                <Border x:Name="bdMain" CornerRadius="20" Margin="566,88,34,62" Opacity="0.95">
-                    <Border CornerRadius="40" Background="#99000000" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="400">
-                        <StackPanel x:Name="stkpanelDangNhap" Margin="20">
-                            <TextBlock Text="Đăng nhập" FontSize="40" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
-                            <TextBlock Text="Tài khoản:" Foreground="White" FontSize="20"/>
-                            <TextBox Background="#80000000" Opacity="0.7" Margin="0 10 0 10" Height="30"/>
-                            <TextBlock Text="Mật khẩu:" Foreground="White" FontSize="20"/>
-                            <PasswordBox Background="#80000000" Opacity="0.7"  Margin="0 10 0 10" Height="30"/>
-                            <Button x:Name="btnLogin" Content="Login" FontSize="20" Background="#FF4343E2" Foreground="White" Height="35" Width="290" Margin="0,20" Click="btnLogin_Click"/>
-                            <TextBlock Text="Chưa có tài khoản?" Foreground="White" FontSize="16" Width="140"/>
-                            <Button x:Name="btnRegister" Content="REGISTER" FontSize="20" Background="#99000000" Opacity="0.95" Foreground="White" Height="30" Width="100" Margin="0,5" Click="btnRegister_Click"/>
-                        </StackPanel>
-                    </Border>
-                </Border>
-            </Grid>
-        </Grid>
-    </Grid>
+    </Border>
 </Window>
