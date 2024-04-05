@@ -26,11 +26,8 @@ namespace WIPR_Project
             
         }
         DoiTuongDAO doiTuongDAO = new DoiTuongDAO();
-        public string IdBaiVietChiTiet;
-        public string IdDoiTuonggHienTai;
-        public string doiTuongHT;
-        public string idNguoiDangBai;
-
+        public Account userAccount = new Account();
+        public BaiViet baiViet = new BaiViet();
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -41,20 +38,14 @@ namespace WIPR_Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            txtbThue.Text = doiTuongHT == "QlyBaiViet" ? "Thue" : "Apply";
-
-            BaiViet baiViet = doiTuongDAO.TruyXuatBV("Id = " + IdBaiVietChiTiet, doiTuongHT);
-            DateTime dt = Convert.ToDateTime(baiViet.NgaySinh);
-            txbHoTen.Text = baiViet.HoTen;
-            txbNgaySinh.Text = dt.ToString("dd/MM/yyyy");
-            txbGioiTinh.Text = baiViet.GioiTinh;
-            txbSDT.Text = baiViet.SDT;
-            txbEmail.Text = baiViet.Email;
+            txtbThue.Text = userAccount.UserRole == "Tho" ? "Apply" : "Thue";
+            DoiTuong doiTuong = doiTuongDAO.TruyXuatDT(baiViet.IdDoiTuong);
+            DateTime dt = Convert.ToDateTime(doiTuong.NgaySinh);
+            txbHoTen.Text = baiViet.TenDoiTuong;
             txbDichVu.Text = baiViet.DichVu;
-            txbDiaChi.Text = baiViet.DiaChi;
+            txbDiaChi.Text = doiTuong.DiaChi;
             txbMucGia.Text = baiViet.MucGia;
             txbKinhNghiem.Text = baiViet.KinhNghiem;
-            idNguoiDangBai = baiViet.IdDoiTuong;
         }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
@@ -62,20 +53,18 @@ namespace WIPR_Project
             this.Close();
         }
 
-        private void btnThue_Click(object sender, RoutedEventArgs e)
+        private void btnHenLich_Click(object sender, RoutedEventArgs e)
         {
-            DateTime? selecDates = calLich.SelectedDate;
+            /*DateTime? selecDates = calLich.SelectedDate;
             if (selecDates.HasValue == false) selecDates = DateTime.Now;
-            string table = doiTuongHT == "QlyBaiViet" ? "QlyTho" : "QlyNguoiDung";
-            string trangThai = doiTuongHT == "QlyBaiViet" ? "Thue" : "Apply";
-            DoiTuong doiTuong = doiTuongDAO.TruyXuatDT(table, IdDoiTuonggHienTai);
-            doiTuongDAO.GuiLoiMoi(doiTuong, doiTuongDAO.IdTiepTheo("LoiMoi").ToString(), idNguoiDangBai, IdBaiVietChiTiet, trangThai, selecDates.ToString(), txbDichVu.Text);
+            DateTime dt = selecDates;*/
+            WLoiMoi wLoiMoi = new WLoiMoi();
+            wLoiMoi.ShowDialog();
 
-        }
+            int idTho = userAccount.UserRole == "Tho" ? userAccount.Id : baiViet.IdDoiTuong;
+            int idNguoiDung = userAccount.UserRole == "NguoiDung" ? userAccount.Id : baiViet.IdDoiTuong;
+            doiTuongDAO.GuiLoiMoi(doiTuongDAO.IdTiepTheo("RequestUser"), idTho, idNguoiDung, baiViet.Id, userAccount.UserRole, DateTime.Now);
 
-        private void btnCal_Click(object sender, RoutedEventArgs e)
-        {
-            calLich.Visibility = Visibility.Visible;
         }
     }
 }

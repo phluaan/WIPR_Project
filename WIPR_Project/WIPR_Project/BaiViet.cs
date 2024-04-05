@@ -8,28 +8,28 @@ namespace WIPR_Project
 {
     public class BaiViet
     {
-        private string id;
-        private string idDoiTuong;
+        private int id;
+        private int idDoiTuong;
+        private string tenDoiTuong;
         private string dichVu;
         private string kinhNghiem;
         private string mucGia;
-        private string hoTen;
-        private string ngaySinh;
-        private string email;
-        private string sDT;
-        private string gioiTinh;
-        private string diaChi;
-
-
-        public string Id
+        private DateTime ngayDang;
+        private string khuVuc;
+        public int Id
         {
             get { return id; }
             set { id = value; }
         }
-        public string IdDoiTuong
+        public int IdDoiTuong
         {
             get { return idDoiTuong; }
             set { idDoiTuong = value; }
+        }
+        public string TenDoiTuong
+        {
+            get { return tenDoiTuong; }
+            set { tenDoiTuong = value; }
         }
         public string DichVu
         {
@@ -46,61 +46,32 @@ namespace WIPR_Project
             get { return mucGia; }
             set { mucGia = value; }
         }
-        public string HoTen
+
+        public DateTime NgayDang
         {
-            get { return hoTen; }
-            set { hoTen = value; }
+            get { return ngayDang; }
+            set { ngayDang = value; }
         }
-        public string NgaySinh
+        
+        public string KhuVuc
         {
-            get { return ngaySinh; }
-            set { ngaySinh = value; }
-        }
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
-        public string SDT
-        {
-            get { return sDT; }
-            set { sDT = value; }
-        }
-        public string GioiTinh
-        {
-            get { return gioiTinh; }
-            set { gioiTinh = value; }
-        }
-        public string DiaChi
-        {
-            get { return diaChi; }
-            set { diaChi = value; }
+            get { return khuVuc; }
+            set { khuVuc = value; }
         }
         public BaiViet()
         {
 
         }
-        public BaiViet(string id, string idDoiTuong, string dichVu, string kinhNghiem, string mucGia, string hoTen, string ngaySinh, string email, string sDT, string gioiTinh, string diaChi)
+        public BaiViet(int id, int idDoiTuong, string tenDoiTuong, string dichVu, string kinhNghiem, string mucGia, DateTime ngayDang, string khuVuc)
         {
             this.id = id;
             this.idDoiTuong = idDoiTuong;
+            this.tenDoiTuong = tenDoiTuong;
             this.dichVu = dichVu;
             this.kinhNghiem = kinhNghiem;
             this.mucGia = mucGia;
-            this.hoTen = hoTen;
-            this.ngaySinh = ngaySinh;
-            this.email = email;
-            this.sDT = sDT;
-            this.gioiTinh = gioiTinh;
-            this.diaChi = diaChi;
-        }
-        public BaiViet(string id, string idDoiTuong, string dichVu, string kinhNghiem, string mucGia)
-        {
-            this.id = id;
-            this.idDoiTuong = idDoiTuong;
-            this.dichVu = dichVu;
-            this.kinhNghiem = kinhNghiem;
-            this.mucGia = mucGia;
+            this.ngayDang = ngayDang;
+            this.khuVuc = khuVuc;
         }
     }
 }

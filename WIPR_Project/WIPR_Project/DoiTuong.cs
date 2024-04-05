@@ -8,37 +8,31 @@ namespace WIPR_Project
 {
     public class DoiTuong
     {
-        private string id;
-        private string taiKhoan;
-        private string matKhau;
+        private int id;
+        private Account taiKhoan;
         private string hoTen;
-        private string ngaySinh;
+        private DateTime ngaySinh;
         private string email;
         private string sDT;
         private string gioiTinh;
         private string diaChi;
 
-        public string Id
+        public int Id
         {
             get { return id; }
             set { id = value; }
         }
-        public string TaiKhoan
+        public Account TaiKhoan
         {
             get { return taiKhoan; }
             set { taiKhoan = value; }
-        }
-        public string MatKhau
-        {
-            get { return matKhau; }
-            set { matKhau = value; }
         }
         public string HoTen
         {
             get { return hoTen; }
             set { hoTen = value; }
         }
-        public string NgaySinh
+        public DateTime NgaySinh
         {
             get { return ngaySinh; }
             set { ngaySinh = value; }
@@ -69,17 +63,16 @@ namespace WIPR_Project
 
         }
 
-        public DoiTuong(string id, string taiKhoan, string matKhau, string hoTen, string ngaySinh, string email, string sDT, string gioiTinh, string diaChi)
+        public DoiTuong(int id, Account taiKhoan,string hoTen, DateTime ngaySinh, string email, string sDT, string gioiTinh, string diaChi)
         {
             this.id = id;
-            this.taiKhoan = taiKhoan;
-            this.matKhau = matKhau;
             this.hoTen = hoTen;
             this.ngaySinh = ngaySinh;
             this.email = email;
             this.sDT = sDT;
             this.gioiTinh = gioiTinh;
             this.diaChi = diaChi;
+            this.taiKhoan = taiKhoan;
         }
     }
 }

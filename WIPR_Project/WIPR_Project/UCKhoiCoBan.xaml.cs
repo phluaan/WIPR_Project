@@ -24,16 +24,29 @@ namespace WIPR_Project
         {
             InitializeComponent();
         }
-        public string IdBaiVietHienTai;
-        public string IdDoiTuonggHienTai;
-        public string doiTuongHT;
+        public Account userAccount = new Account();
+        public BaiViet baiViet = new BaiViet();
         private void btnXemChiTiet_Click(object sender, RoutedEventArgs e)
         {
             WBaiViet wBaiViet = new WBaiViet();
-            wBaiViet.IdBaiVietChiTiet = IdBaiVietHienTai;
-            wBaiViet.IdDoiTuonggHienTai = IdDoiTuonggHienTai;
-            wBaiViet.doiTuongHT = doiTuongHT;
+            wBaiViet.userAccount = userAccount;
+            wBaiViet.baiViet = baiViet;
             wBaiViet.ShowDialog();
+        }
+
+        public void UpdateUserControl(BaiViet baiViet, Account userAccount)
+        {
+            txbDichVu.Text = baiViet.DichVu;
+            txbKinhNghiem.Text = baiViet.KinhNghiem;
+            txbMucGia.Text = baiViet.MucGia;
+            txbKhuVuc.Text = baiViet.KhuVuc;
+            txbHoTen.Text = baiViet.TenDoiTuong;
+
+            Height = 330;
+            Width = 250;
+            Margin = new Thickness(5);
+            this.baiViet = baiViet;
+            this.userAccount = userAccount;
         }
     }
 }

@@ -26,11 +26,8 @@ namespace WIPR_Project
             InitializeComponent();
         }
         DoiTuongDAO doiTuongDao = new DoiTuongDAO();
+        public Account userAccount = new Account();
 
-        public string idDoiTuongDangNhap;
-        public string doiTuongDangNhap;
-        public string baiDangDoiTuong;
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.cnnStr);
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -41,11 +38,11 @@ namespace WIPR_Project
 
         private void btnDangBai_Click(object sender, RoutedEventArgs e)
         {
-            DoiTuong doiTuong = doiTuongDao.TruyXuatDT(doiTuongDangNhap, idDoiTuongDangNhap);
-            BaiViet baiViet = new BaiViet(doiTuongDao.IdTiepTheo(baiDangDoiTuong).ToString(), idDoiTuongDangNhap, (cbbDichVu.SelectedItem as ComboBoxItem)?.Content?.ToString(),
-                    (cbbKinhNghiem.SelectedItem as ComboBoxItem)?.Content?.ToString(), (cbbMucGia.SelectedItem as ComboBoxItem)?.Content?.ToString(),
-                    doiTuong.HoTen, doiTuong.NgaySinh, doiTuong.Email, doiTuong.SDT, doiTuong.GioiTinh, doiTuong.DiaChi);
-            doiTuongDao.ThemBaiDang(baiViet, baiDangDoiTuong);
+            DoiTuong doiTuong = doiTuongDao.TruyXuatDT(userAccount.IdInforUser);
+            string postfrom = userAccount.UserRole == "Tho" ? "InforPostTho" : "InforPostNguoiDung";
+            BaiViet baiViet = new BaiViet(doiTuongDao.IdTiepTheo(postfrom), userAccount.IdInforUser, doiTuong.HoTen, (cbbDichVu.SelectedItem as ComboBoxItem)?.Content?.ToString(),
+                    (cbbKinhNghiem.SelectedItem as ComboBoxItem)?.Content?.ToString(), (cbbMucGia.SelectedItem as ComboBoxItem)?.Content?.ToString(), DateTime.Now, doiTuong.DiaChi);
+            doiTuongDao.ThemBaiDang(baiViet, doiTuongDao.IdTiepTheo("Posts"), postfrom);
         }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)

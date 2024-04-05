@@ -1,0 +1,45 @@
+﻿<Window x:Class="WIPR_Project.WLoiMoi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:WIPR_Project"
+        mc:Ignorable="d"
+        Title="WLoiMoi" Height="550" Width="650"
+        WindowStartupLocation="CenterScreen" Background="Transparent" 
+        WindowStyle="None" AllowsTransparency="True">
+    <Border Background="White" BorderThickness="1" BorderBrush="Black">
+        <Grid>
+            <TextBlock Text="Gửi lời mời" FontSize="35" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Border Background="#F1F1F1" CornerRadius="15" Width="500" Margin="74,60,74,66">
+                <Grid>
+                    <TextBox x:Name="txtMoTa" Height="116" Width="450" Background="#F1F1F1" Margin="25,20,25,0"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Nhập mô tả lời mời" FontSize="18"
+                            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
+                            MaxLength="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto"/>
+                    <Border Height="245" Width="450" Margin="25,150,25,26" BorderThickness="1" BorderBrush="Black">
+                        <Calendar materialDesign:CalendarAssist.Orientation="Horizontal" materialDesign:CalendarAssist.SelectionColor="#002E5D" materialDesign:CalendarAssist.SelectionForegroundColor="#002E5D" materialDesign:CalendarAssist.HeaderBackground="#002E5D"  Width="445" Margin="1.5,-1.5,1,-3"/>
+                    </Border>
+                </Grid>
+            </Border>
+            <Button x:Name="btnGuiLoiMoi" Style="{StaticResource menuButton}" Background="#002E5D"  Width="NaN" Height="25" Margin="150,500,335,23">
+                <StackPanel Orientation="Horizontal" Width="160">
+                    <Icon:PackIconMaterial Kind="MessageArrowRightOutline" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Gửi lời mời thuê" Width="100"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btThoat" Style="{StaticResource menuButton}" Background="#002E5D"  Width="NaN" Height="25" Margin="350,500,180,23">
+                <StackPanel Orientation="Horizontal" Width="130">
+                    <Icon:PackIconMaterial Kind="ExitToApp" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Thoát" Width="60"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

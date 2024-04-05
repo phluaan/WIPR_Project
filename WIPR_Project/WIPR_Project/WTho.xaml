@@ -11,7 +11,7 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
     </Window.Resources>
-    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" >
+    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             
             <Grid.ColumnDefinitions>
@@ -114,16 +114,16 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <!--Search TextBox-->
 
                 <!--Top Buttons-->
-                <Button Style="{StaticResource topButton}" Margin="800,0,0,0">
+                <Button Style="{StaticResource topButton}" Margin="0,0,0,0" HorizontalAlignment="Right">
                     <Icon:PackIconMaterial Kind="Cog"/>
                 </Button>
-                <Button Style="{StaticResource topButton}" Margin="770,0,0,0">
+                <Button Style="{StaticResource topButton}" Margin="0,0,30,0" HorizontalAlignment="Right">
                     <Icon:PackIconMaterial Kind="Bell"/>
                 </Button>
 
@@ -132,12 +132,13 @@
                 <!--Seprator-->
 
                 <!--Tab Buttons-->
+                
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
                     <Grid Width="300" HorizontalAlignment="Left">
                         <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}" Height="30"/>
                         <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b09bc6" IsHitTestVisible="True"
                                Panel.ZIndex="2" Text="Tìm kiếm tại đây ..." 
-                               Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+                               Visibility="{Binding ElementName=txtSearch, Converter={StaticResource BoolToVis}}"/>
 
                         <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
                                            Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"/>
@@ -148,48 +149,46 @@
                     <ComboBox x:Name="cbbKhuVuc"  Style="{DynamicResource theComboBox}" Height="25"  Margin="5" SelectionChanged="cbbKhuVuc_SelectionChanged">
 
                         <ComboBoxItem Tag="" Content="Khu vuc"/>
-                        <ComboBoxItem Tag="DiaChi = 'Tp. Ho Chi Minh'" Content="Tp. Ho Chi Minh" />
-                        <ComboBoxItem Tag="DiaChi = 'Soc Trang'"  Content="Soc Trang" />
-                        <ComboBoxItem Tag="DiaChi = 'Kon Tum'" Content="Kon Tum" />
-                        <ComboBoxItem Tag="DiaChi = 'China'" Content="China" />
-                        <ComboBoxItem Tag="DiaChi = 'VN'" Content="VN" />
+                        <ComboBoxItem Tag="address = 'Tp. Ho Chi Minh'" Content="Tp. Ho Chi Minh" />
+                        <ComboBoxItem Tag="address = 'Soc Trang'"  Content="Soc Trang" />
+                        <ComboBoxItem Tag="address = 'Kon Tum'" Content="Kon Tum" />
+                        <ComboBoxItem Tag="address = 'China'" Content="China" />
+                        <ComboBoxItem Tag="address = 'VN'" Content="VN" />
                     </ComboBox>
                     <ComboBox x:Name="cbbKinhNghiem" Style="{DynamicResource theComboBox}" Height="25" Margin="5" SelectionChanged="cbbKinhNghiem_SelectionChanged">
                         <ComboBoxItem Tag="" Content="Kinh nghiem"/>
-                        <ComboBoxItem Tag="KinhNghiem = '1 nam'" Content="Duoi 1 nam" />
-                        <ComboBoxItem Tag="KinhNghiem = '1 nam'" Content="1 nam" />
-                        <ComboBoxItem Tag="KinhNghiem = '2 nam'" Content="2 nam" />
-                        <ComboBoxItem Tag="KinhNghiem = '3 nam'" Content="3 nam" />
-                        <ComboBoxItem Tag="KinhNghiem = '4 nam'" Content="4 nam" />
+                        <ComboBoxItem Tag="experience = '1 nam'" Content="Duoi 1 nam" />
+                        <ComboBoxItem Tag="experience = '1 nam'" Content="1 nam" />
+                        <ComboBoxItem Tag="experience = '2 nam'" Content="2 nam" />
+                        <ComboBoxItem Tag="experience = '3 nam'" Content="3 nam" />
+                        <ComboBoxItem Tag="experience = '4 nam'" Content="4 nam" />
                     </ComboBox>
                     <ComboBox x:Name="cbbMucGia" Style="{DynamicResource theComboBox}" Height="25"  Margin="5" SelectionChanged="cbbMucGia_SelectionChanged">
                         <ComboBoxItem Tag="" Content="Muc gia"/>
-                        <ComboBoxItem  Tag="MucGia = 'Duoi 1M'" Content="Duoi 1M" />
-                        <ComboBoxItem  Tag="MucGia = 'Duoi 2M'" Content="Duoi 2M" />
-                        <ComboBoxItem  Tag="MucGia = 'Duoi 3M'" Content="Duoi 3M" />
-                        <ComboBoxItem  Tag="MucGia = 'Duoi 4M'" Content="Duoi 4M" />
-                        <ComboBoxItem  Tag="MucGia = 'Duoi 5M'" Content="Duoi 5M" />
+                        <ComboBoxItem  Tag="price = 'Duoi 1M'" Content="Duoi 1M" />
+                        <ComboBoxItem  Tag="price = 'Duoi 2M'" Content="Duoi 2M" />
+                        <ComboBoxItem  Tag="price = 'Duoi 3M'" Content="Duoi 3M" />
+                        <ComboBoxItem  Tag="price = 'Duoi 4M'" Content="Duoi 4M" />
+                        <ComboBoxItem  Tag="price = 'Duoi 5M'" Content="Duoi 5M" />
                     </ComboBox>
                     <ComboBox x:Name="cbbDichVu" Style="{DynamicResource theComboBox}" Height="25"  Margin="5" SelectionChanged="cbbDichVu_SelectionChanged">
                         <ComboBoxItem Tag="" Content="Dich vu"/>
-                        <ComboBoxItem  Tag="DichVu = 'Tho sua ong nuoc'" Content="Tho sua ong nuoc" />
-                        <ComboBoxItem  Tag="DichVu = 'Gia su'" Content="Gia su" />
-                        <ComboBoxItem  Tag="DichVu = 'Tho sua dien'" Content="Tho sua dien" />
+                        <ComboBoxItem  Tag="job = 'Tho sua ong nuoc'" Content="Tho sua ong nuoc" />
+                        <ComboBoxItem  Tag="job = 'Gia su'" Content="Gia su" />
+                        <ComboBoxItem  Tag="job = 'Tho sua dien'" Content="Tho sua dien" />
                     </ComboBox>
 
                 </WrapPanel>
 
                 <!--Counter Title-->
-                <TextBlock Text="Thông tin thợ" Grid.Row="4" FontSize="18" FontWeight="SemiBold"
-                           Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,12,0,0" Grid.RowSpan="2"/>
                 <Separator Height="1" Grid.Row="4" Background="#dae2ea" Margin="10,5,-10,18"/>
-                <Grid x:Name="gridThongTinChiTiet" Grid.Row="5" Width="830" Height="415">
+                <Grid x:Name="gridThongTinChiTiet" Grid.Row="5" Width="830" Height="470" Margin="0,0,0,0" VerticalAlignment="Bottom" >
                     <ScrollViewer x:Name="tabTimKiemTho">
                         <WrapPanel Name="wpnlThongTin" Margin="0 0 0 0">
 
                         </WrapPanel>
                     </ScrollViewer>
-                    <DataGrid Visibility="Hidden" Style="{DynamicResource DataGridStyle1}" x:Name="dgridLoiMoi" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5"  Height="415">
+                    <DataGrid Visibility="Hidden" Style="{DynamicResource DataGridStyle1}" x:Name="dgridLoiMoi" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" >
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn CanUserReorder="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                                 <DataGridCheckBoxColumn.HeaderTemplate>
@@ -199,16 +198,12 @@
                                 </DataGridCheckBoxColumn.HeaderTemplate>
                             </DataGridCheckBoxColumn>
 
-                            <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding Id}"/>
-                            
-                            <DataGridTextColumn Header="Họ tên" IsReadOnly="True" Width="*" Binding="{Binding HoTen}"/>
+                            <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding id}"/>
+                            <DataGridTextColumn Header="Người gửi" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding name}"/>
+                            <DataGridTextColumn Header="Dịch vụ" IsReadOnly="True" Width="*" Binding="{Binding job}"/>
+                            <DataGridTextColumn Header="Khu vực" IsReadOnly="True" Width="*" Binding="{Binding address}"/>
+                            <DataGridTextColumn Header="Ngày làm việc" IsReadOnly="True" Width="*" Binding="{Binding dateWork}"/>
 
-                            <DataGridTextColumn Header="Ngày sinh" IsReadOnly="True" Width="*" Binding="{Binding NgaySinh, StringFormat={}{0:dd/MM/yyyy}}"/>
-                            <DataGridTextColumn Header="Email" IsReadOnly="True" Width="*" Binding="{Binding Email}"/>
-                            <DataGridTextColumn Header="SĐT" IsReadOnly="True" Width="*" Binding="{Binding SDT}"/>
-                            <DataGridTextColumn Header="Địa chỉ" IsReadOnly="True" Width="*" Binding="{Binding DiaChi}"/>
-                            <DataGridTextColumn Header="Dịch vụ" IsReadOnly="True" Width="*" Binding="{Binding DichVu}"/>
-                            <DataGridTextColumn Header="Ngày làm việc" IsReadOnly="True" Width="*" Binding="{Binding NgayLamViec}"/>
                             <DataGridTemplateColumn Header="Chi tiết" IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -229,7 +224,34 @@
 
                         </DataGrid.Columns>
                     </DataGrid>
+                    <DataGrid Visibility="Hidden" Style="{DynamicResource DataGridStyle1}" x:Name="dgridTienDo" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5"  Height="415">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn CanUserReorder="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                                <DataGridCheckBoxColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                    </DataTemplate>
+                                </DataGridCheckBoxColumn.HeaderTemplate>
+                            </DataGridCheckBoxColumn>
+                            <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Người thuê" IsReadOnly="True" Width="*" Binding="{Binding HoTen}"/>
+                            <DataGridTextColumn Header="Dịch vụ" IsReadOnly="True" Width="*" Binding="{Binding DichVu}"/>
+                            <DataGridTextColumn Header="Ngày làm việc" IsReadOnly="True" Width="*" Binding="{Binding NgaySinh, StringFormat={}{0:dd/MM/yyyy}}"/>
+                            <DataGridTextColumn Header="Tiến độ" IsReadOnly="True" Width="*" Binding="{Binding Email}"/>
+                            <DataGridTemplateColumn Header="Chi tiết" IsReadOnly="True" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="btnChiTietCongViec" Style="{StaticResource gridEditButton}" Height="25" Width="25" Margin="1">
+                                                <Icon:PackIconMaterial Kind="Eye" Style="{StaticResource gridButtonIcon}" Height="12" Width="12" />
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
 
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
 
                 <!--Member datagrid-->

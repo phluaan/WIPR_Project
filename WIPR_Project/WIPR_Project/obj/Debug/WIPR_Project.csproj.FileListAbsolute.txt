@@ -110,3 +110,7 @@ F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WI
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.csproj.CopyComplete
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.exe
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\new test\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WIPR_Project.pdb
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WLoiMoi.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDanhGia.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WLoiMoi.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDanhGia.baml

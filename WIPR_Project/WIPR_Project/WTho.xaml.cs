@@ -25,10 +25,8 @@ namespace WIPR_Project
         public WTho()
         {
             InitializeComponent();
-            ObservableCollection<Tho> ndung = new ObservableCollection<Tho>();
         }
-        public string IdThoHienTai;
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.cnnStr);
+        public Account userAccount = new Account();
         ThoDAO thoDAO = new ThoDAO();
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -37,7 +35,29 @@ namespace WIPR_Project
                 this.DragMove();
             }
         }
-
+        private bool IsMaximized = false;
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                if (IsMaximized)
+                {
+                    this.WindowState = WindowState.Normal;
+                    this.Width = 1080;
+                    this.Height = 720;
+                    gridThongTinChiTiet.Height = 470;
+                    gridThongTinChiTiet.Width = 830;
+                    IsMaximized = false;
+                }
+                else
+                {
+                    this.WindowState = WindowState.Maximized;
+                    gridThongTinChiTiet.Height = 620;
+                    gridThongTinChiTiet.Width = 1150;
+                    IsMaximized = true;
+                }
+            }
+        }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
@@ -46,9 +66,7 @@ namespace WIPR_Project
         private void btnDangBai_Click(object sender, RoutedEventArgs e)
         {
             WDangBai wDangBai = new WDangBai();
-            wDangBai.idDoiTuongDangNhap = IdThoHienTai;
-            wDangBai.doiTuongDangNhap = "QlyTho";
-            wDangBai.baiDangDoiTuong = "QlyBaiViet";
+            wDangBai.userAccount = userAccount;
             wDangBai.ShowDialog();
         }
 
@@ -65,7 +83,6 @@ namespace WIPR_Project
             dgridLoiMoi.Visibility = Visibility.Collapsed;
 
         }
-        private int userControlCount = 0;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cbbDichVu.SelectedIndex = 0;
@@ -73,20 +90,12 @@ namespace WIPR_Project
             cbbKinhNghiem.SelectedIndex = 0;
             cbbMucGia.SelectedIndex = 0;
 
-            //Lời mời tạm thời chưa hướng đối tượng vì cần design gridLoiMoi
-            conn.Open();
-            string query = "SELECT * FROM LoiMoi";
-            SqlCommand command = new SqlCommand(query, conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            dgridLoiMoi.ItemsSource = dataTable.DefaultView;
-            conn.Close();
+            dgridLoiMoi.ItemsSource = thoDAO.TruyXuatLoiMoi(userAccount.IdInforUser, userAccount.UserRole).DefaultView;
         }
 
         private void btnXacNhan_Click(object sender, RoutedEventArgs e)
         {
-            if (dgridLoiMoi.SelectedItem != null)
+            /*if (dgridLoiMoi.SelectedItem != null)
             {
                 var selectedLoiMoi = dgridLoiMoi.SelectedItem as DataRowView;
                 string idNguoiDung = selectedLoiMoi["IdNguoiDung"].ToString();
@@ -100,7 +109,7 @@ namespace WIPR_Project
 
                 //dgridLoiMoi.Items.Clear();
                 //Window_Loaded(sender, e);
-            }
+            }*/
         }
 
         private void btnTuChoi_Click(object sender, RoutedEventArgs e)
@@ -120,7 +129,6 @@ namespace WIPR_Project
                 var selectedLoiMoi = dgridLoiMoi.SelectedItem as DataRowView;
                 string idBaiViet = selectedLoiMoi["IdBaiViet"].ToString();
                 WBaiViet wBaiViet = new WBaiViet();
-                wBaiViet.IdBaiVietChiTiet = idBaiViet;
                 wBaiViet.ShowDialog();
             }
         }
@@ -132,25 +140,14 @@ namespace WIPR_Project
             string mucgia = cbbMucGia.SelectedItem == null ? "" : (cbbMucGia.SelectedItem as ComboBoxItem).Tag.ToString();
             string dichvu = cbbDichVu.SelectedItem == null ? "" : (cbbDichVu.SelectedItem as ComboBoxItem).Tag.ToString();
 
-            List<BaiViet> listBaiViet = thoDAO.TruyXuatDSBaiViet(khuvuc, kinhnghiem, mucgia, dichvu,"QlyYeuCau");
+            List<BaiViet> listBaiViet = thoDAO.TruyXuatDSBaiViet(khuvuc, kinhnghiem, mucgia, dichvu, "InforPostNguoiDung");
+
             if (listBaiViet == null) return;
-            string maid = "";
             foreach (BaiViet baiViet in listBaiViet)
             {
                 UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
-                uCKhoiCoBan.IdBaiVietHienTai = baiViet.Id;
-                uCKhoiCoBan.txbHoTen.Text = baiViet.HoTen;
-                uCKhoiCoBan.txbKhuVuc.Text = baiViet.DiaChi;
-                uCKhoiCoBan.txbDichVu.Text = baiViet.DichVu;
-                uCKhoiCoBan.txbKinhNghiem.Text = baiViet.KinhNghiem;
-                uCKhoiCoBan.txbMucGia.Text = baiViet.MucGia;
+                uCKhoiCoBan.UpdateUserControl(baiViet, userAccount);
 
-                uCKhoiCoBan.Height = 330;
-                uCKhoiCoBan.Width = 250;
-                uCKhoiCoBan.Margin = new Thickness(5);
-                uCKhoiCoBan.IdDoiTuonggHienTai = IdThoHienTai;
-                uCKhoiCoBan.doiTuongHT = "QlyYeuCau";
-                maid += baiViet.Id + " ";
                 wpnlThongTin.Children.Add(uCKhoiCoBan);
             }
         }
@@ -176,7 +173,7 @@ namespace WIPR_Project
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
         {
 
-            try
+            /*try
             {
                 if (Index > 0)
                 {
@@ -195,7 +192,6 @@ namespace WIPR_Project
                 while (reader.Read())
                 {
                     UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
-                    uCKhoiCoBan.IdBaiVietHienTai = reader["Id"].ToString();
                     uCKhoiCoBan.txbHoTen.Text = reader["HoTen"].ToString();
                     uCKhoiCoBan.txbKhuVuc.Text = reader["DiaChi"].ToString();
                     uCKhoiCoBan.txbDichVu.Text = reader["DichVu"].ToString();
@@ -220,12 +216,12 @@ namespace WIPR_Project
             finally
             {
                 conn.Close();
-            }
+            }*/
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
-            try
+           /* try
             {
                 Index += 6;
                 wpnlThongTin.Children.Clear();
@@ -238,7 +234,6 @@ namespace WIPR_Project
                 while (reader.Read())
                 {
                     UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
-                    uCKhoiCoBan.IdBaiVietHienTai = reader["Id"].ToString();
                     uCKhoiCoBan.txbHoTen.Text = reader["HoTen"].ToString();
                     uCKhoiCoBan.txbKhuVuc.Text = reader["DiaChi"].ToString();
                     uCKhoiCoBan.txbDichVu.Text = reader["DichVu"].ToString();
@@ -263,7 +258,7 @@ namespace WIPR_Project
             finally
             {
                 conn.Close();
-            }
+            }*/
         }
     }
 }

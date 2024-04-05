@@ -8,81 +8,45 @@
         mc:Ignorable="d" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" 
         AllowsTransparency="True"
         Title="WBaiViet" Height="720" Width="830" Loaded="Window_Loaded">
-    <Border Background="White" CornerRadius="30" Height="700" MouseDown="Border_MouseDown" BorderBrush="Black" BorderThickness="2">
+    <Border Background="White" CornerRadius="30" Height="700" MouseDown="Border_MouseDown" BorderBrush="Black" BorderThickness="1.5">
         <Grid x:Name="gridBaiviet">
-            <Border Width="156" Padding="3" Background="White" CornerRadius="100"
-                            DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="57,8,0,541">
-                <Ellipse>
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Images/avatar.jpg" Stretch="UniformToFill"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-            </Border>
-            <TextBlock HorizontalAlignment="Left" Margin="415,35,0,0" FontSize="18"  TextWrapping="Wrap" Text="Họ và tên:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbHoTen" HorizontalAlignment="Left" Margin="520,35,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Đỗ Phú Luân" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="70,200,0,0" FontSize="18"  TextWrapping="Wrap" Text="Ngày sinh:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbNgaySinh" HorizontalAlignment="Left" Margin="170,200,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="08/11/2004" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="70,240,0,0" FontSize="18"  TextWrapping="Wrap" Text="Giới tính:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbGioiTinh" HorizontalAlignment="Left" Margin="170,240,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Nam" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="520,200,0,0" FontSize="18"  TextWrapping="Wrap" Text="Địa chỉ:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbDiaChi" HorizontalAlignment="Left" Margin="635,200,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Kon Tum" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="70,280,0,0" FontSize="18"  TextWrapping="Wrap" Text="SĐT:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbSDT" HorizontalAlignment="Left" Margin="170,280,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="0862267674" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="70,326,0,0" FontSize="18"  TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbEmail" HorizontalAlignment="Left" Margin="170,324,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="E22110372@student.hcmute.edu.vn" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="520,160,0,0" FontSize="18"  TextWrapping="Wrap" Text="Dịch vụ:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbDichVu" HorizontalAlignment="Left" Margin="635,160,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Gia sư" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="520,240,0,0" FontSize="18"  TextWrapping="Wrap" Text="Mức lương:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbMucGia" HorizontalAlignment="Left" Margin="635,240,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="0 - 5M" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="520,280,0,0" FontSize="18"  TextWrapping="Wrap" Text="Đánh giá:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbDanhGia" HorizontalAlignment="Left" Margin="643,280,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="4 sao" VerticalAlignment="Top"/>
-            <Button x:Name="btnThue" Style="{StaticResource menuButton}" Background="#002E5D" Margin="558,398,166,273" Width="NaN" Height="25" Click="btnThue_Click">
-                <StackPanel Orientation="Horizontal" Width="96">
-                    <Icon:PackIconMaterial Kind="Send" Style="{StaticResource menuButtonIcon}"/>
-                    <TextBlock Name="txtbThue"  Text="Thuê" Width="34"/>
+            <Button Height="160" Width="185" Style="{StaticResource MaterialDesignFloatingActionButton}" Margin="10,10,620,505">
+                <Image Stretch="UniformToFill" Source="Images/anhmeomeo.jpg"/>
+            </Button>
+
+            <TextBlock x:Name="txbHoTen" HorizontalAlignment="Left" Margin="220,50,0,0" FontSize="26" FontWeight="SemiBold" TextWrapping="Wrap" Text="..........." VerticalAlignment="Top"/>
+            <Icon:PackIconMaterial Kind="MapMarker" Style="{StaticResource menuButtonIcon}" Height="30" Margin="235,110,0,0" Width="21" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbDiaChi" HorizontalAlignment="Left" Margin="270,110,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="........" VerticalAlignment="Top"/>
+            <Rectangle Width="1" Fill="Black" Margin="421,33,404,435"/>
+            <TextBlock HorizontalAlignment="Left" Margin="440,55,0,0" FontSize="25"  TextWrapping="Wrap" Text="Dịch vụ:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbDichVu" HorizontalAlignment="Left" Margin="600,55,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="........." VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="440,165,0,0" FontSize="25"  TextWrapping="Wrap" Text="Mức lương:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbMucGia" HorizontalAlignment="Left" Margin="600,165,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="............" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="440,220,0,0" FontSize="25"  TextWrapping="Wrap" Text="Đánh giá:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbDanhGia" HorizontalAlignment="Left" Margin="600,220,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="............" VerticalAlignment="Top"/>
+            <Button x:Name="btnHenLich" Style="{StaticResource menuButton}" Background="#002E5D" Margin="400,289,200,376" Width="NaN" Height="NaN" Click="btnHenLich_Click">
+                <StackPanel Orientation="Horizontal" Width="227" >
+                    <Icon:PackIconMaterial Kind="CalendarMonth" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Name="txtbThue" FontSize="20" Text="Hẹn lịch thuê thợ" Width="165"/>
                 </StackPanel>
             </Button>
-            <TextBlock HorizontalAlignment="Left" Margin="30,410,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="Nhận xét:" VerticalAlignment="Top"/>
-
-            <Border Background="Wheat" CornerRadius="20" Height="200" Width="750" Margin="40,450,50,50" >
+            <TextBlock HorizontalAlignment="Left" Margin="440,110,0,0" FontSize="25"  TextWrapping="Wrap" Text="Kinh nghiệm:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbKinhNghiem" HorizontalAlignment="Left" Margin="600,110,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text=".........." VerticalAlignment="Top"/>
+            <Button x:Name="btnThoat" Style="{StaticResource menuButton}" Background="#002E5D" Margin="640,289,50,376" Width="NaN" Height="NaN" Click="btnThoat_Click">
+                <StackPanel Orientation="Horizontal" Width="120">
+                    <Icon:PackIconMaterial Kind="ExitRun" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Thoát" FontSize="20" Width="60"/>
+                </StackPanel>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="25,350,0,0" FontSize="25"  
+                       TextWrapping="Wrap" Text="Đánh giá từ người thuê" VerticalAlignment="Top"/>
+            <Border BorderThickness="1" BorderBrush="Black" Width="770" Margin="25,397,25,25">
                 <ScrollViewer>
+                    <WrapPanel>
 
+                    </WrapPanel>
                 </ScrollViewer>
             </Border>
-            <TextBlock HorizontalAlignment="Left" Margin="520,326,0,0" FontSize="18"  TextWrapping="Wrap" Text="Kinh nghiệm" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbKinhNghiem" HorizontalAlignment="Left" Margin="643,323,0,0" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" Text="4 năm" VerticalAlignment="Top"/>
-            <Button x:Name="btnThoat" Style="{StaticResource menuButton}" Background="#002E5D" Margin="675,398,49,273" Width="NaN" Height="25" Click="btnThoat_Click">
-                <StackPanel Orientation="Horizontal" Width="96">
-                    <Icon:PackIconMaterial Kind="ExitRun" Style="{StaticResource menuButtonIcon}"/>
-                    <TextBlock Text="Thoát" Width="34"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="btnCal" Style="{StaticResource menuButton}" Background="#002E5D" Margin="348,368,376,303" Width="NaN" Height="25" Click="btnCal_Click" >
-                <StackPanel Orientation="Horizontal" Width="96">
-                    <Icon:PackIconMaterial Kind="Calendar" Style="{StaticResource menuButtonIcon}"/>
-                    <TextBlock Text="" Width="34"/>
-                </StackPanel>
-            </Button>
-            <Calendar x:Name="calLich" HorizontalAlignment="Left" Margin="335,400,0,0" VerticalAlignment="Top" Height="170" Width="200"
-                      DisplayMode="Decade" IsTodayHighlighted="True" SelectionMode="MultipleRange" Visibility="Hidden">
-                <Calendar.BlackoutDates>
-                    <CalendarDateRange Start="3/1/2024" End="3/7/2024"/>
-                    <CalendarDateRange Start="3/8/2024" End="3/8/2024"/>
-                    <CalendarDateRange Start="3/15/2024" End="3/15/2024"/>
-                    <CalendarDateRange Start="3/22/2024" End="3/22/2024"/>
-                    <CalendarDateRange Start="3/29/2024" End="3/29/2024"/>
-                </Calendar.BlackoutDates>
-                <Calendar.BorderThickness>
-                    <Thickness>3</Thickness>
-                </Calendar.BorderThickness>
-                <Calendar.BorderBrush>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="Blue" Offset="0"/>
-                        <GradientStop Color="Red" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </Calendar.BorderBrush>
-
-            </Calendar>
         </Grid>
     </Border>
 </Window>

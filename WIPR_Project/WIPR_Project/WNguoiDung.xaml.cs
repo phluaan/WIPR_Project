@@ -23,9 +23,8 @@ namespace WIPR_Project
         {
             InitializeComponent();
 
-
         }
-        public string IdNguoiDungHienTai;
+        public Account userAccount = new Account();
         NguoiDungDAO nguoiDungDAO = new NguoiDungDAO();
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -34,10 +33,29 @@ namespace WIPR_Project
                 this.DragMove();
             }
         }
-
         private bool IsMaximized = false;
-        
-
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount ==2)
+            {
+                if (IsMaximized)
+                {
+                    this.WindowState = WindowState.Normal;
+                    this.Width = 1080;
+                    this.Height = 720;
+                    gridThongTinChiTiet.Height = 470;
+                    gridThongTinChiTiet.Width = 830;
+                    IsMaximized = false;
+                }
+                else
+                {
+                    this.WindowState = WindowState.Maximized;
+                    gridThongTinChiTiet.Height = 620;
+                    gridThongTinChiTiet.Width = 1150;
+                    IsMaximized = true;
+                }
+            }
+        }
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -58,33 +76,21 @@ namespace WIPR_Project
         }
         private void Cbb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-                wpnlThongTin.Children.Clear();
-                string khuvuc = cbbKhuVuc.SelectedItem == null ? "" : (cbbKhuVuc.SelectedItem as ComboBoxItem).Tag.ToString();
-                string kinhnghiem = cbbKinhNghiem.SelectedItem == null ? "" : (cbbKinhNghiem.SelectedItem as ComboBoxItem).Tag.ToString();
-                string mucgia = cbbMucGia.SelectedItem == null ? "" : (cbbMucGia.SelectedItem as ComboBoxItem).Tag.ToString();
-                string dichvu = cbbDichVu.SelectedItem == null ? "" : (cbbDichVu.SelectedItem as ComboBoxItem).Tag.ToString();
+            wpnlThongTin.Children.Clear();
+            string khuvuc = cbbKhuVuc.SelectedItem == null ? "" : (cbbKhuVuc.SelectedItem as ComboBoxItem).Tag.ToString();
+            string kinhnghiem = cbbKinhNghiem.SelectedItem == null ? "" : (cbbKinhNghiem.SelectedItem as ComboBoxItem).Tag.ToString();
+            string mucgia = cbbMucGia.SelectedItem == null ? "" : (cbbMucGia.SelectedItem as ComboBoxItem).Tag.ToString();
+            string dichvu = cbbDichVu.SelectedItem == null ? "" : (cbbDichVu.SelectedItem as ComboBoxItem).Tag.ToString();
 
-                List<BaiViet> listBaiViet = nguoiDungDAO.TruyXuatDSBaiViet(khuvuc, kinhnghiem, mucgia, dichvu, "QlyBaiViet");
-                if (listBaiViet == null) return;
-                string maid = "";
-                foreach (BaiViet baiViet in listBaiViet)
-                {
-                    UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
-                    uCKhoiCoBan.IdBaiVietHienTai = baiViet.Id;
-                    uCKhoiCoBan.txbHoTen.Text = baiViet.HoTen;
-                    uCKhoiCoBan.txbKhuVuc.Text = baiViet.DiaChi;
-                    uCKhoiCoBan.txbDichVu.Text = baiViet.DichVu;
-                    uCKhoiCoBan.txbKinhNghiem.Text = baiViet.KinhNghiem;
-                    uCKhoiCoBan.txbMucGia.Text = baiViet.MucGia;
+            List<BaiViet> listBaiViet = nguoiDungDAO.TruyXuatDSBaiViet(khuvuc, kinhnghiem, mucgia, dichvu, "InforPostTho");
+            if (listBaiViet == null) return;
+            foreach (BaiViet baiViet in listBaiViet)
+            {
+                UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
+                uCKhoiCoBan.UpdateUserControl(baiViet, userAccount);
 
-                    uCKhoiCoBan.Height = 330;
-                    uCKhoiCoBan.Width = 250;
-                    uCKhoiCoBan.Margin = new Thickness(5);
-                    uCKhoiCoBan.IdDoiTuonggHienTai = IdNguoiDungHienTai;
-                    uCKhoiCoBan.doiTuongHT = "QlyBaiViet";
-                    maid += baiViet.Id + " ";
-                    wpnlThongTin.Children.Add(uCKhoiCoBan);
-                }
+                wpnlThongTin.Children.Add(uCKhoiCoBan);
+            }
         }
         private void cbbKhuVuc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -107,9 +113,7 @@ namespace WIPR_Project
         private void btnDangBai_Click(object sender, RoutedEventArgs e)
         {
             WDangBai wDangBai = new WDangBai();
-            wDangBai.idDoiTuongDangNhap = IdNguoiDungHienTai;
-            wDangBai.doiTuongDangNhap = "QlyNguoiDung";
-            wDangBai.baiDangDoiTuong = "QlyYeuCau";
+            wDangBai.userAccount = userAccount;
             wDangBai.ShowDialog();
         }
 

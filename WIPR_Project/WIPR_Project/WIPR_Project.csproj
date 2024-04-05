@@ -91,6 +91,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Account.cs" />
     <Compile Include="BaiViet.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="DoiTuong.cs" />
@@ -102,14 +103,26 @@
     <Compile Include="UCKhoiCoBan.xaml.cs">
       <DependentUpon>UCKhoiCoBan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCNhanXet.xaml.cs">
+      <DependentUpon>UCNhanXet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCYeuCau.xaml.cs">
+      <DependentUpon>UCYeuCau.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WBaiViet.xaml.cs">
       <DependentUpon>WBaiViet.xaml</DependentUpon>
     </Compile>
     <Compile Include="WDangBai.xaml.cs">
       <DependentUpon>WDangBai.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WDanhGia.xaml.cs">
+      <DependentUpon>WDanhGia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WDoiThongTin.xaml.cs">
       <DependentUpon>WDoiThongTin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WLoiMoi.xaml.cs">
+      <DependentUpon>WLoiMoi.xaml</DependentUpon>
     </Compile>
     <Compile Include="WNguoiDung.xaml.cs">
       <DependentUpon>WNguoiDung.xaml</DependentUpon>
@@ -121,6 +134,14 @@
       <DependentUpon>WTrangChu.xaml</DependentUpon>
     </Compile>
     <Page Include="UCKhoiCoBan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCNhanXet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCYeuCau.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,7 +157,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WDanhGia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WDoiThongTin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WLoiMoi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,6 +222,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\anhnencaicay.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="background4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\anhmeomeo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\baiviet.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.0.0\build\MaterialDesignThemes.targets')" />

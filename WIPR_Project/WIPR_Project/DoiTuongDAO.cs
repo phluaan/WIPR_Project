@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,23 +13,44 @@ namespace WIPR_Project
     public class DoiTuongDAO
     {
         DBConnection dBConnection = new DBConnection();
-        protected string field;
-        public void ThemBaiDang(BaiViet bviet, string type)
+
+        public Account truyxuatAccount(string userAccount, string password)
         {
-            string id = type == "QlyBaiViet" ? "IdTho" : "IdNguoiDung";
-            string sqlSTR = string.Format("INSERT INTO {11} (Id,{12},DichVu,KinhNghiem,MucGia,HoTen,NgaySinh,Email,SDT,GioiTinh,DiaChi) " +
-                    "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')",
-                    bviet.Id, bviet.IdDoiTuong, bviet.DichVu, bviet.KinhNghiem, bviet.MucGia, bviet.HoTen, bviet.NgaySinh, bviet.Email, bviet.SDT, bviet.GioiTinh, bviet.DiaChi, type, id);
+            string sqlSTR = string.Format($"SELECT * FROM Account WHERE userAccount = '{userAccount}' AND password = '{password}'");
+            return dBConnection.TruyxuatAccount(sqlSTR);
+        }
+        protected string field;
+        public void ThemBaiDang(BaiViet bviet, int idTablePost, string postfrom)
+        {
+            string id = postfrom == "InforPostTho" ? "idTho" : "idNguoiDung";
+            string sqlSTR = string.Format(
+                "INSERT INTO Posts (id,createDate) " +
+                        "VALUES ('{0}', '{1}');" +
+                        "INSERT INTO {2} (id,{3},job,experience,price,idPosts)" +
+                        "VALUES ('{4}','{5}','{6}','{7}','{8}','{9}');",
+                       idTablePost, bviet.NgayDang, postfrom, id, bviet.Id, bviet.IdDoiTuong, bviet.DichVu,
+                       bviet.KinhNghiem, bviet.MucGia, idTablePost);
             dBConnection.ThucThi(sqlSTR);
         }
-        public void GuiLoiMoi(DoiTuong doiTuong, string IdLoiMoi, string IdNguoiDangBai, string IdBaiViet, string TrangThai, string datelamviec, string DichVu)
+        public void GuiLoiMoi(int idtieptheo, int idTho, int idNguoiDung, int idPost, string sendFrom, DateTime dateWork)
         {
-            string idTho = TrangThai == "Thue" ? IdNguoiDangBai : doiTuong.Id;
-            string idnguoidung = TrangThai == "Thue" ? doiTuong.Id : IdNguoiDangBai;
-            string sqlSTR = string.Format("INSERT INTO LoiMoi (Id,IdTho,IdNguoiDung,IdBaiViet,HoTen,NgaySinh,Email,SDT,GioiTinh,DiaChi,TrangThai,NgayLamViec,DichVu) " +
-                    "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}')",
-                    IdLoiMoi, idTho, idnguoidung, IdBaiViet, doiTuong.HoTen, doiTuong.NgaySinh, doiTuong.Email, doiTuong.SDT, doiTuong.GioiTinh, doiTuong.DiaChi, TrangThai, datelamviec, DichVu);
+            string sqlSTR = string.Format("INSERT INTO RequestUser (id,idTho,idNguoiDung,idPost,sendfrom,dateWork) " +
+                    "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",
+                    idtieptheo, idTho, idNguoiDung, idPost, sendFrom, dateWork);
             dBConnection.ThucThi(sqlSTR);
+        }
+        public DataTable TruyXuatLoiMoi(int idInforUser, string userRole)
+        {
+            string tablePost = userRole == "Tho" ? "InforPostTho" : "InforPostNguoiDung";
+            string sendFrom = userRole == "Tho" ? "idNguoiDung" : "idTho";
+            string role = userRole == "Tho" ? "idTho" : "idNguoiDung";
+            string from = userRole == "Tho" ? "NguoiDung" : "Tho";
+            string sqlSTR = string.Format("SELECT * FROM RequestUser RU " +
+                "JOIN Posts P ON RU.idPost = P.id " +
+                "JOIN {0} IP ON IP.idPosts = P.id " +
+                "JOIN InforUser IU ON RU.{1} = IU.id " +
+                "WHERE RU.{3} = '{2}' AND RU.sendFrom = '{4}'",tablePost,sendFrom,idInforUser,role,from);
+            return dBConnection.TruyXuatTable(sqlSTR);
         }
         public void XacNhanThue(string idtieptheo, string idnguoithue, string idtho, string ngaylamviec, string dichvu)
         {
@@ -54,15 +76,20 @@ namespace WIPR_Project
             string sqlSTR = string.Format("DELETE FROM {0} WHERE Id = '{1}'", table, idxoa);
             dBConnection.ThucThi(sqlSTR);
         }
-        public DoiTuong TruyXuatDT(string table, string idtruyxuat)
+        public DoiTuong TruyXuatDT(int id)
         {
-            string sqlSTR = string.Format("SELECT * FROM {0} WHERE Id = {1}",table, idtruyxuat);
+            string sqlSTR = string.Format("SELECT * FROM InforUser IU " +
+                "JOIN Account A ON IU.id = A.idInforUser " +
+                "WHERE IU.id = '{0}'", id);
             return dBConnection.TruyXuatDoiTuong(sqlSTR);
         }
-        public BaiViet TruyXuatBV(string idtruyxuat, string table)
+        public BaiViet TruyXuatBV(int idBaiViet, string table)
         {
-            string id = table == "QlyBaiViet" ? "IdTho" : "IdNguoiDung";
-            string sqlSTR = string.Format("SELECT * FROM {0} WHERE {1}",table, idtruyxuat);
+            string id = table == "InforPostTho" ? "idTho" : "idNguoiDung";
+            string sqlSTR = string.Format("SELECT * FROM {0} IP " +
+                "JOIN Posts P ON IP.idPosts = P.id " +
+                "JOIN InforUser IU ON IP.{2} = IU.id " +
+                "WHERE {1} = '{2}'", table, id, idBaiViet);
             return dBConnection.TruyXuatBaiViet(sqlSTR, id);
         }
         public List<BaiViet> TruyXuatDSBaiViet(string khuvuc, string kinhnghiem, string mucgia, string dichvu, string table)
@@ -70,9 +97,9 @@ namespace WIPR_Project
             string stringSql = "";
             if (khuvuc != "" || kinhnghiem != "" || mucgia != "" || dichvu != "")
             {
+                stringSql = " WHERE ";
                 string[] arrFilter = { khuvuc, kinhnghiem, mucgia, dichvu };
                 arrFilter = arrFilter.Where(s => !string.IsNullOrEmpty(s)).ToArray();
-                stringSql = "WHERE ";
                 if(arrFilter.Length == 1)
                 {
                     stringSql += arrFilter[0];
@@ -83,9 +110,13 @@ namespace WIPR_Project
                     stringSql += result;
                 }
             }
-            string id = table == "QlyBaiViet" ? "IdTho" : "IdNguoiDung";
-            string sqlSTR = string.Format("SELECT * FROM {0} {1}", table, stringSql);
+            string id = table == "InforPostTho" ? "idTho" : "idNguoiDung";
+            string sqlSTR = string.Format("SELECT * FROM {0} IP " +
+                "JOIN Posts P ON IP.idPosts = P.id " +
+                "JOIN InforUser IU ON IP.{2} = IU.id " +
+                "{1}", table, stringSql, id);
             return dBConnection.TruyXuatDSBaiViet(sqlSTR,id);
         }
+
     }
 }

@@ -7,12 +7,42 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
 using System.Windows.Controls;
+using System.Collections;
 
 namespace WIPR_Project
 {
     internal class DBConnection
     {
         SqlConnection conn = new SqlConnection(Properties.Settings.Default.cnnStr);
+        public Account TruyxuatAccount(string sqlSTR)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Account userAccount = new Account(Convert.ToInt32(reader["id"]), reader["userAccount"].ToString(), reader["password"].ToString(), 
+                        reader["userRole"].ToString(), Convert.ToInt32(reader["idInforUser"]));
+                    reader.Close();
+                    return userAccount;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (truyxuatAccount)" + exc);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         public void ThucThi(string sqlSTR)
         {
@@ -60,9 +90,10 @@ namespace WIPR_Project
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    DoiTuong doiTuong = new DoiTuong(reader["Id"].ToString(), reader["TaiKhoan"].ToString(), reader["MatKhau"].ToString(),
-                        reader["HoTen"].ToString(), reader["NgaySinh"].ToString(), reader["Email"].ToString(), reader["SDT"].ToString(),
-                        reader["GioiTinh"].ToString(), reader["DiaChi"].ToString());
+                    Account taiKhoan = new Account(Convert.ToInt32(reader["id"]), reader["userAccount"].ToString(), reader["password"].ToString(), reader["userRole"].ToString(), Convert.ToInt32(reader["idInforUser"]));
+                    DoiTuong doiTuong = new DoiTuong(Convert.ToInt32(reader["id"]), taiKhoan, reader["name"].ToString(), 
+                        Convert.ToDateTime(reader["birthDate"]), reader["email"].ToString(), reader["phone"].ToString(),
+                        reader["gender"].ToString(), reader["address"].ToString());
                     reader.Close();
                     return doiTuong;
                 }
@@ -82,8 +113,32 @@ namespace WIPR_Project
                 conn.Close();
             }
         }
+        public DataTable TruyXuatTable(string sqlSTR)
+        {
+            try
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (ThucThi)" + exc);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
         public BaiViet TruyXuatBaiViet(string sqlSTR, string id)
         {
+            DoiTuongDAO doiTuongDAO = new DoiTuongDAO();
             try
             {
                 conn.Open();
@@ -91,10 +146,10 @@ namespace WIPR_Project
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    BaiViet baiViet = new BaiViet(reader["Id"].ToString(), reader[id].ToString(), reader["DichVu"].ToString(), reader["KinhNghiem"].ToString(),
-                        reader["MucGia"].ToString(), reader["HoTen"].ToString(), reader["NgaySinh"].ToString(), reader["Email"].ToString(), reader["SDT"].ToString(),
-                        reader["GioiTinh"].ToString(), reader["DiaChi"].ToString());
-                    reader.Close();
+                    DoiTuong doiTuong = doiTuongDAO.TruyXuatDT(Convert.ToInt32(reader[id]));
+                    BaiViet baiViet = new BaiViet(Convert.ToInt32(reader["id"]), Convert.ToInt32(reader[id]), doiTuong.HoTen, reader["job"].ToString(), reader["experience"].ToString(),
+                        reader["price"].ToString(), Convert.ToDateTime(reader["createDate"]),
+                        doiTuong.DiaChi);
                     return baiViet;
                 }
                 else
@@ -115,6 +170,8 @@ namespace WIPR_Project
         }
         public List<BaiViet> TruyXuatDSBaiViet(string sqlSTR, string id)
         {
+            DoiTuongDAO doiTuongDAO = new DoiTuongDAO();
+
             try
             {
                 conn.Open();
@@ -123,9 +180,10 @@ namespace WIPR_Project
                 List<BaiViet> baiVietList = new List<BaiViet>();
                 while (reader.Read())
                 {
-                    BaiViet baiViet = new BaiViet(reader["Id"].ToString(), reader[id].ToString(), reader["DichVu"].ToString(), reader["KinhNghiem"].ToString(),
-                        reader["MucGia"].ToString(), reader["HoTen"].ToString(), reader["NgaySinh"].ToString(), reader["Email"].ToString(), reader["SDT"].ToString(),
-                        reader["GioiTinh"].ToString(), reader["DiaChi"].ToString());
+                    DoiTuong doiTuong = doiTuongDAO.TruyXuatDT(Convert.ToInt32(reader[id]));
+                    BaiViet baiViet = new BaiViet(Convert.ToInt32(reader["id"]), Convert.ToInt32(reader[id]), doiTuong.HoTen,reader["job"].ToString(), reader["experience"].ToString(),
+                        reader["price"].ToString(), Convert.ToDateTime(reader["createDate"]),
+                        doiTuong.DiaChi);
                     baiVietList.Add(baiViet);
                 }
                 reader.Close();
