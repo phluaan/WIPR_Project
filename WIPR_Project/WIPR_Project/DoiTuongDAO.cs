@@ -32,12 +32,39 @@ namespace WIPR_Project
                        bviet.KinhNghiem, bviet.MucGia, idTablePost);
             dBConnection.ThucThi(sqlSTR);
         }
-        public void GuiLoiMoi(int idtieptheo, int idTho, int idNguoiDung, int idPost, string sendFrom, DateTime dateWork)
+        public DanhGia TruyXuatDanhGia(int id)
+        {
+            string sqlSTR = string.Format("SELECT * FROM Evaluation " +
+                "WHERE id = '{0}'", id);
+            return dBConnection.TruyXuatDanhGia(sqlSTR);
+        }
+        public void ThemNgayBan(int id, int idUser, string userRole, DateTime busyDate)
+        {
+            string sqlSTR = string.Format(
+                "INSERT INTO busyDate (id,idUser,userRole,userBusyDate) " +
+                        "VALUES ('{0}', '{1}','{2}','{3}');",
+                       id,idUser,userRole,busyDate);
+            dBConnection.ThucThi(sqlSTR);
+        }
+        public void ThemDanhGia(int id, int idTho, int idNguoiDung, decimal sosao, string danhgia)
+        {
+            string sqlSTR = string.Format(
+                "INSERT INTO Evaluation (id,idTho,idNguoiDung,numOfStar,userEvaluation) " +
+                        "VALUES ('{0}', '{1}','{2}','{3}','{4}');",
+                       id, idTho, idNguoiDung, sosao, danhgia);
+            dBConnection.ThucThi(sqlSTR);
+        }
+        public void GuiLoiMoi(LoiMoi loiMoi)
         {
             string sqlSTR = string.Format("INSERT INTO RequestUser (id,idTho,idNguoiDung,idPost,sendfrom,dateWork) " +
                     "VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",
-                    idtieptheo, idTho, idNguoiDung, idPost, sendFrom, dateWork);
+                    loiMoi.Id, loiMoi.IdTho, loiMoi.IdNguoiDung, loiMoi.IdBaiViet, loiMoi.Sendfrom, loiMoi.DateWork);
             dBConnection.ThucThi(sqlSTR);
+        }
+        public List<DateTime> TruyXuatNgayBan(int idUser)
+        {
+            string sqlSTR = string.Format("SELECT userBusyDate FROM busyDate WHERE idUser = '{0}'",idUser);
+            return dBConnection.TruyXuatNgayBan(sqlSTR);
         }
         public DataTable TruyXuatLoiMoi(int idInforUser, string userRole)
         {
@@ -52,11 +79,27 @@ namespace WIPR_Project
                 "WHERE RU.{3} = '{2}' AND RU.sendFrom = '{4}'",tablePost,sendFrom,idInforUser,role,from);
             return dBConnection.TruyXuatTable(sqlSTR);
         }
-        public void XacNhanThue(string idtieptheo, string idnguoithue, string idtho, string ngaylamviec, string dichvu)
+        public DataTable TruyXuatNgayLamViec(int idInforUser, string tiendo, string doituong)
         {
-            string sqlSTR = string.Format("INSERT INTO QlyNgayLamViec (Id,NgayLamViec,IdTho,IdNguoiDung,TienDo,IdDanhGia,DichVu) " +
-                        "VALUES ('{0}', '{1}', '{2}','{3}','{4}','{5}','{6}')",
-                       idtieptheo,ngaylamviec, idtho, idnguoithue, "","",dichvu);
+            string doiTuongHT = doituong == "Tho" ? "idTho" : "idNguoiDung";
+            string doiTuongTruyXuat = doituong == "Tho" ? "idNguoiDung" : "idTho";
+            string sqlSTR = string.Format("SELECT * FROM dateWork DW " +
+                "JOIN InforUser IU ON DW.{0} = IU.id " +
+                "JOIN busyDate BD ON DW.dateWork = BD.id " +
+                "WHERE DW.{1} = '{2}' AND progress = '{3}'", doiTuongTruyXuat, doiTuongHT, idInforUser, tiendo);
+            return dBConnection.TruyXuatTable(sqlSTR);
+        }
+        public void XacNhan(int idNgayLamViec, int idTho, int idNguoiDung, string dichvu, DateTime ngayLamViec, int idNgayBan)
+        {
+            string sqlSTR = string.Format("INSERT INTO busyDate (id,idUser,userRole,userBusyDate) " +
+                        " VALUES ('{0}', '{1}', '{2}','{3}') " +
+                        " INSERT INTO busyDate (id,idUser,userRole,userBusyDate) " +
+                        " VALUES ('{4}', '{5}', '{6}','{3}') " +
+                        " INSERT INTO dateWork (id,idTho,idNguoiDung,idEvaluation,progress,job,dateWork) " +
+                        " VALUES ('{7}', '{1}', '{5}','{8}','{9}','{10}','{0}') ",
+                       idNgayBan, idTho, "Tho", ngayLamViec,
+                       idNgayBan + 1, idNguoiDung, "NguoiDung",
+                       idNgayLamViec, 0,"ChuaBatDau",dichvu);
             dBConnection.ThucThi(sqlSTR);
         }
         public int IdTiepTheo(string table)
@@ -73,7 +116,12 @@ namespace WIPR_Project
         }
         public void Xoa(string table, string idxoa)
         {
-            string sqlSTR = string.Format("DELETE FROM {0} WHERE Id = '{1}'", table, idxoa);
+            string sqlSTR = string.Format("DELETE FROM {0} WHERE id = '{1}'", table, idxoa);
+            dBConnection.ThucThi(sqlSTR);
+        }
+        public void Sua(string table, int idSua, string noidungSua)
+        {
+            string sqlSTR = string.Format("UPDATE {0} SET {1} WHERE id = '{2}'", table, noidungSua, idSua);
             dBConnection.ThucThi(sqlSTR);
         }
         public DoiTuong TruyXuatDT(int id)
@@ -85,12 +133,12 @@ namespace WIPR_Project
         }
         public BaiViet TruyXuatBV(int idBaiViet, string table)
         {
-            string id = table == "InforPostTho" ? "idTho" : "idNguoiDung";
+            string idDoiTuong = table == "InforPostTho" ? "idTho" : "idNguoiDung";
             string sqlSTR = string.Format("SELECT * FROM {0} IP " +
                 "JOIN Posts P ON IP.idPosts = P.id " +
-                "JOIN InforUser IU ON IP.{2} = IU.id " +
-                "WHERE {1} = '{2}'", table, id, idBaiViet);
-            return dBConnection.TruyXuatBaiViet(sqlSTR, id);
+                "JOIN InforUser IU ON IP.{1} = IU.id " +
+                "WHERE IP.idPosts = '{2}'", table, idDoiTuong, idBaiViet);
+            return dBConnection.TruyXuatBaiViet(sqlSTR, idDoiTuong);
         }
         public List<BaiViet> TruyXuatDSBaiViet(string khuvuc, string kinhnghiem, string mucgia, string dichvu, string table)
         {

@@ -81,6 +81,62 @@ namespace WIPR_Project
                 conn.Close();
             }
         }
+        public List<DateTime> TruyXuatNgayBan(string sqlSTR)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<DateTime> dtList = new List<DateTime>();
+                while (reader.Read())
+                {
+                    DateTime dt = Convert.ToDateTime(reader["userBusyDate"]);
+                    dtList.Add(dt);
+                }
+                reader.Close();
+                return dtList;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (TruyXuatNgayBan)" + exc);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public DanhGia TruyXuatDanhGia(string sqlSTR)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    DanhGia dg = new DanhGia(Convert.ToInt32(reader["id"]), Convert.ToInt32(reader["idTho"]), Convert.ToInt32(reader["idNGuoiDung"]),
+                        Convert.ToDecimal(reader["numOfStar"]),reader["userEvaluation"].ToString());
+                    reader.Close();
+                    return dg;
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi truy xuất TruyXuatDanhGia");
+                    return null;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (TruyXuatDanhGia)" + exc);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public DoiTuong TruyXuatDoiTuong(string sqlSTR)
         {
             try

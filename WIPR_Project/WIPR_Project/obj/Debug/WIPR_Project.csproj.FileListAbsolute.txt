@@ -114,3 +114,9 @@ F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Projec
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDanhGia.g.cs
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WLoiMoi.baml
 F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WDanhGia.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCNhanXet.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCYeuCau.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCNhanXet.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\UCYeuCau.baml
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WLichBan.g.cs
+F:\22110372_DoPhuLuan\nam 2\LapTrinhWindow\WIPR_Project\WIPR_Project\WIPR_Project\obj\Debug\WLichBan.baml

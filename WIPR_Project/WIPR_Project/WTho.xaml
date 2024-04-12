@@ -71,13 +71,13 @@
                                 <TextBlock Text="Bài đăng khác"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="btnTienDo" Style="{StaticResource menuButton}">
+                        <Button x:Name="btnTienDo" Style="{StaticResource menuButton}" Click="btnTienDo_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="ProgressCheck" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Tiến độ"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="btnLichLamViec" Style="{StaticResource menuButton}">
+                        <Button x:Name="btnLichLamViec" Style="{StaticResource menuButton}" Click="btnLichLamViec_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Calendar" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Lịch làm việc"/>
@@ -95,7 +95,7 @@
                                 <TextBlock Text="Lời mời"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="btnThoat" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 15 15 20" Click="btnThoat_Click">
+                        <Button x:Name="btnThoat" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Click="btnThoat_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Thoát"/>
@@ -224,7 +224,15 @@
 
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid Visibility="Hidden" Style="{DynamicResource DataGridStyle1}" x:Name="dgridTienDo" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5"  Height="415">
+                    <TabControl x:Name="tabTienDo" Visibility="Hidden" SelectionChanged="tabTienDo_SelectionChanged">
+                        <TabItem Tag="ChuaBatDau" Header="Chưa bắt đầu" >
+                        </TabItem>
+                        <TabItem Tag="DangTienHanh" Header="Đang tiến hành">
+                        </TabItem>
+                        <TabItem Tag="DaHoanThanh" Header="Đã hoàn thành">
+                        </TabItem>
+                    </TabControl>
+                    <DataGrid Visibility="Hidden" Style="{DynamicResource DataGridStyle1}" x:Name="dgridTienDo" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Margin="0,62,0,0">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn CanUserReorder="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                                 <DataGridCheckBoxColumn.HeaderTemplate>
@@ -233,18 +241,16 @@
                                     </DataTemplate>
                                 </DataGridCheckBoxColumn.HeaderTemplate>
                             </DataGridCheckBoxColumn>
-                            <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header="Người thuê" IsReadOnly="True" Width="*" Binding="{Binding HoTen}"/>
-                            <DataGridTextColumn Header="Dịch vụ" IsReadOnly="True" Width="*" Binding="{Binding DichVu}"/>
-                            <DataGridTextColumn Header="Ngày làm việc" IsReadOnly="True" Width="*" Binding="{Binding NgaySinh, StringFormat={}{0:dd/MM/yyyy}}"/>
-                            <DataGridTextColumn Header="Tiến độ" IsReadOnly="True" Width="*" Binding="{Binding Email}"/>
-                            <DataGridTemplateColumn Header="Chi tiết" IsReadOnly="True" Width="auto">
+                            <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding id}"/>
+                            <DataGridTextColumn Header="Người thuê" IsReadOnly="True" Width="*" Binding="{Binding name}"/>
+                            <DataGridTextColumn Header="Dịch vụ" IsReadOnly="True" Width="*" Binding="{Binding job}"/>
+                            <DataGridTextColumn Header="Khu vực" IsReadOnly="True" Width="*" Binding="{Binding address}"/>
+                            <DataGridTextColumn Header="Ngày làm việc" IsReadOnly="True" Width="*" Binding="{Binding userBusyDate, StringFormat={}{0:dd/MM/yyyy}}"/>
+                            <DataGridTemplateColumn Header="Bắt đầu làm" IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button x:Name="btnChiTietCongViec" Style="{StaticResource gridEditButton}" Height="25" Width="25" Margin="1">
-                                                <Icon:PackIconMaterial Kind="Eye" Style="{StaticResource gridButtonIcon}" Height="12" Width="12" />
-                                            </Button>
+                                            <CheckBox x:Name="cbCheck" Content="..." Margin="10 0 0 0" Style="{StaticResource MaterialDesignActionDarkCheckBox}" ToolTip="MaterialDesignActionDarkCheckBox" Checked="cbCheck_Checked"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>

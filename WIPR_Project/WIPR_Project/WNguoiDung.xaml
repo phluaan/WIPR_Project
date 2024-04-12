@@ -41,9 +41,9 @@
                         </Ellipse>
                     </Border>
                     <!--Menu Tiles-->
-                    <TextBlock Text="Huỳnh Minh Mẫn" Foreground="White" FontSize="18" FontWeight="SemiBold"
+                    <TextBlock Name="txbName" Text="Huỳnh Minh Mẫn" Foreground="White" FontSize="18" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
-                    <TextBlock Text="Người dùng" Foreground="White" FontSize="14" FontWeight="SemiBold"
+                    <TextBlock Name="txbRole" Text="Người dùng" Foreground="White" FontSize="14" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center"/>
 
                     <!--Menu Seprator-->
@@ -75,10 +75,22 @@
                                 <TextBlock Text="Đăng bài"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="btnTienDo" Style="{StaticResource menuButton}">
+                        <Button x:Name="btnTienDo" Style="{StaticResource menuButton}" Click="btnTienDo_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="ProgressCheck" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Tiến độ"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnLichLamViec" Style="{StaticResource menuButton}" Click="btnLichLamViec_Click">
+                            <StackPanel Orientation="Horizontal" Width="150">
+                                <Icon:PackIconMaterial Kind="Calendar" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Lịch làm việc"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnLoiMoi" Style="{StaticResource menuButton}" Click="btnLoiMoi_Click">
+                            <StackPanel Orientation="Horizontal" Width="150">
+                                <Icon:PackIconMaterial Kind="Handshake" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Lời mời"/>
                             </StackPanel>
                         </Button>
                         <Button x:Name="btnThoYeuThich" Style="{StaticResource menuButton}">
@@ -88,7 +100,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button x:Name="btnThoat" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 70 15 20" Click="btnThoat_Click">
+                        <Button x:Name="btnThoat" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Click="btnThoat_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Thoát"/>
@@ -174,11 +186,80 @@
                 <!--Counter Title-->
                 <Separator Height="1" Grid.Row="4" Background="#dae2ea" Margin="10,5,-10,18"/>
                 <Grid x:Name="gridThongTinChiTiet" Grid.Row="5" Width="830" Height="470" Margin="0,0,0,0" VerticalAlignment="Bottom" >
-                    <ScrollViewer >
+                    <ScrollViewer x:Name="tabYeuCauNguoiDung">
                         <WrapPanel Name="wpnlThongTin" Margin="0 0 0 0">
 
                         </WrapPanel>
                     </ScrollViewer>
+                    <DataGrid Visibility="Hidden" Style="{DynamicResource DataGridStyle1}" x:Name="dgridLoiMoi" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" >
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn CanUserReorder="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                                <DataGridCheckBoxColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                    </DataTemplate>
+                                </DataGridCheckBoxColumn.HeaderTemplate>
+                            </DataGridCheckBoxColumn>
+
+                            <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding id}"/>
+                            <DataGridTextColumn Header="Người gửi" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding name}"/>
+                            <DataGridTextColumn Header="Dịch vụ" IsReadOnly="True" Width="*" Binding="{Binding job}"/>
+                            <DataGridTextColumn Header="Ngày làm việc" IsReadOnly="True" Width="*" Binding="{Binding dateWork}"/>
+
+                            <DataGridTemplateColumn Header="Chi tiết" IsReadOnly="True" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="btnXacNhan" Style="{StaticResource gridEditButton}" Height="25" Width="25" Margin="1" Click="btnXacNhan_Click" >
+                                                <Icon:PackIconMaterial Kind="Check" Style="{StaticResource gridButtonIcon}" Height="12" Width="12" />
+                                            </Button>
+                                            <Button x:Name="btnTuChoi" Style="{StaticResource gridEditButton}" Height="25" Width="25" Margin="1" Click="btnTuChoi_Click">
+                                                <Icon:PackIconMaterial Kind="AlphaX" Style="{StaticResource gridButtonIcon}" Height="12" Width="12" />
+                                            </Button>
+                                            <Button x:Name="btnChiTiet" Style="{StaticResource gridEditButton}" Height="25" Width="25" Margin="1" Click="btnChiTiet_Click">
+                                                <Icon:PackIconMaterial Kind="Eye" Style="{StaticResource gridButtonIcon}" Height="12" Width="12" />
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TabControl x:Name="tabTienDo" Visibility="Hidden" SelectionChanged="tabTienDo_SelectionChanged">
+                        <TabItem Tag="ChuaBatDau" Header="Chưa bắt đầu" >
+                        </TabItem>
+                        <TabItem Tag="DangTienHanh" Header="Đang tiến hành">
+                        </TabItem>
+                        <TabItem Tag="DaHoanThanh" Header="Đã hoàn thành">
+                        </TabItem>
+                    </TabControl>
+                    <DataGrid Visibility="Hidden" Style="{DynamicResource DataGridStyle1}" x:Name="dgridTienDo" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Margin="0,62,0,0">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn CanUserReorder="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                                <DataGridCheckBoxColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                    </DataTemplate>
+                                </DataGridCheckBoxColumn.HeaderTemplate>
+                            </DataGridCheckBoxColumn>
+                            <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding id}"/>
+                            <DataGridTextColumn Header="Người thuê" IsReadOnly="True" Width="*" Binding="{Binding name}"/>
+                            <DataGridTextColumn Header="Dịch vụ" IsReadOnly="True" Width="*" Binding="{Binding job}"/>
+                            <DataGridTextColumn Header="Khu vực" IsReadOnly="True" Width="*" Binding="{Binding address}"/>
+                            <DataGridTextColumn Header="Ngày làm việc" IsReadOnly="True" Width="*" Binding="{Binding userBusyDate, StringFormat={}{0:dd/MM/yyyy}}"/>
+                            <DataGridTemplateColumn Header="Bắt đầu làm" IsReadOnly="True" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox x:Name="cbCheck" Content="..." Margin="10 0 0 0" Style="{StaticResource MaterialDesignActionDarkCheckBox}" ToolTip="MaterialDesignActionDarkCheckBox" Checked="cbCheck_Checked"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
 
                 <!--Member datagrid-->

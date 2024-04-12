@@ -10,14 +10,20 @@
     <Border Background="White" BorderThickness="2" BorderBrush="Black" >
         <Grid>
             <Image Source="Images/baiviet.jpg"/>
-            <TextBlock x:Name="txbDichVu" Text="Thợ sửa ống nước" FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,110,0,0"/>
-            <TextBlock x:Name="txbKinhNghiem" Margin="70,200,400,115" Text="1 - 2 năm" FontSize="16"/>
-            <TextBlock x:Name="txbKhuVuc" Margin="70,230,400,85" Text="TP. HCM" FontSize="16"/>
-            <TextBlock x:Name="txbKMucGia" Margin="70,265,400,50" Text="500k" FontSize="16"/>
-            <TextBlock x:Name="txbTenNTD" Margin="370,80,20,230" Text="Huỳnh Minh Mẫn" FontSize="16"/>
-            <TextBlock x:Name="txbSDTNTD" Margin="370,110,20,200" Text="0377179132" FontSize="16"/>
-            <TextBlock x:Name="txbEmailNTD" Margin="370,136,20,170" Text="nsndman0404@gmail.com" Height="30" FontSize="16"/>
+            <TextBlock x:Name="txbDichVu" Text=".................." FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,110,0,0"/>
+            <TextBlock x:Name="txbKinhNghiem" Margin="70,200,400,115" Text="..........." FontSize="16"/>
+            <TextBlock x:Name="txbKhuVuc" Margin="70,230,400,85" Text="........" FontSize="16"/>
+            <TextBlock x:Name="txbMucGia" Margin="70,265,400,50" Text=".........." FontSize="16"/>
+            <TextBlock x:Name="txbHoTen" Margin="370,80,20,230" Text="............" FontSize="16"/>
+            <TextBlock x:Name="txbSDT" Margin="370,110,20,200" Text="..........." FontSize="16"/>
+            <TextBlock x:Name="txbEmail" Margin="370,136,20,170" Text="............" Height="30" FontSize="16"/>
             <TextBlock x:Name="txbMoTa" Margin="225,215,55,50" Text="Tìm thợ sửa ống nước yêu cầu 30 năm kinh nghiệm trong nghề, biết móc cống, dọn cỏ, quét lỗ dậu... làm hài lòng khách hàng!" TextWrapping="Wrap" FontSize="16"/>
+            <Button x:Name="btnHenLich" Style="{StaticResource menuButton}" Background="#002E5D" Margin="403,296,76,10" Width="NaN" Height="30" Click="btnHenLich_Click">
+                <StackPanel Orientation="Horizontal" Width="109" >
+                    <Icon:PackIconMaterial Kind="CalendarMonth" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Name="txtbThue" FontSize="14" Text="Hẹn lịch" Width="64"/>
+                </StackPanel>
+            </Button>
         </Grid>
     </Border>
 </UserControl>

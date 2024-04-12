@@ -23,7 +23,7 @@ namespace WIPR_Project
         public WBaiViet()
         {
             InitializeComponent();
-            
+            if (userAccount.UserRole == "Tho") btnHenLich.Visibility = Visibility.Hidden;
         }
         DoiTuongDAO doiTuongDAO = new DoiTuongDAO();
         public Account userAccount = new Account();
@@ -38,9 +38,12 @@ namespace WIPR_Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            txtbThue.Text = userAccount.UserRole == "Tho" ? "Apply" : "Thue";
+            CapNhatBaiViet(sender, e);
+        }
+        private void CapNhatBaiViet(object sender, RoutedEventArgs e)
+        {
             DoiTuong doiTuong = doiTuongDAO.TruyXuatDT(baiViet.IdDoiTuong);
-            DateTime dt = Convert.ToDateTime(doiTuong.NgaySinh);
+            //DateTime dt = Convert.ToDateTime(doiTuong.NgaySinh);
             txbHoTen.Text = baiViet.TenDoiTuong;
             txbDichVu.Text = baiViet.DichVu;
             txbDiaChi.Text = doiTuong.DiaChi;
@@ -55,16 +58,10 @@ namespace WIPR_Project
 
         private void btnHenLich_Click(object sender, RoutedEventArgs e)
         {
-            /*DateTime? selecDates = calLich.SelectedDate;
-            if (selecDates.HasValue == false) selecDates = DateTime.Now;
-            DateTime dt = selecDates;*/
             WLoiMoi wLoiMoi = new WLoiMoi();
+            LoiMoi loiMoi = new LoiMoi(doiTuongDAO.IdTiepTheo("RequestUser"), baiViet.IdDoiTuong, userAccount.Id, baiViet.Id, userAccount.UserRole, DateTime.Now);
+            wLoiMoi.loiMoi = loiMoi;
             wLoiMoi.ShowDialog();
-
-            int idTho = userAccount.UserRole == "Tho" ? userAccount.Id : baiViet.IdDoiTuong;
-            int idNguoiDung = userAccount.UserRole == "NguoiDung" ? userAccount.Id : baiViet.IdDoiTuong;
-            doiTuongDAO.GuiLoiMoi(doiTuongDAO.IdTiepTheo("RequestUser"), idTho, idNguoiDung, baiViet.Id, userAccount.UserRole, DateTime.Now);
-
         }
     }
 }

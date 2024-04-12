@@ -53,7 +53,7 @@ namespace WIPR_Project
                 {
                     this.WindowState = WindowState.Maximized;
                     gridThongTinChiTiet.Height = 620;
-                    gridThongTinChiTiet.Width = 1150;
+                    gridThongTinChiTiet.Width = 1300;
                     IsMaximized = true;
                 }
             }
@@ -72,16 +72,40 @@ namespace WIPR_Project
 
         private void btnLoiMoi_Click(object sender, RoutedEventArgs e)
         {
-
-            tabTimKiemTho.Visibility = Visibility.Collapsed;
+            HiddenTab(sender, e);
             dgridLoiMoi.Visibility = Visibility.Visible;
+            LoadLoiMoi(sender, e);
         }
-
+        private void LoadLoiMoi(object sender, RoutedEventArgs e)
+        {
+            dgridLoiMoi.ItemsSource = thoDAO.TruyXuatLoiMoi(userAccount.IdInforUser, userAccount.UserRole).DefaultView;
+        }
         private void btnTrangChu_Click(object sender, RoutedEventArgs e)
         {
+            HiddenTab(sender, e);
             tabTimKiemTho.Visibility = Visibility.Visible;
-            dgridLoiMoi.Visibility = Visibility.Collapsed;
-
+        }
+        private void btnTienDo_Click(object sender, RoutedEventArgs e)
+        {
+            HiddenTab(sender, e);
+            tabTienDo.Visibility = Visibility.Visible;
+            dgridTienDo.Visibility = Visibility.Visible;
+            tabTienDo.SelectedIndex = 0;
+        }
+        private void tabTienDo_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            LoadTienDo((tabTienDo.SelectedItem as TabItem).Tag.ToString());
+        }
+        private void LoadTienDo(string tiendo)
+        {
+            dgridTienDo.ItemsSource = thoDAO.TruyXuatNgayLamViec(userAccount.IdInforUser, tiendo, userAccount.UserRole).DefaultView;
+        }
+        private void HiddenTab(object sender, RoutedEventArgs e)
+        {
+            tabTimKiemTho.Visibility = Visibility.Hidden;
+            dgridLoiMoi.Visibility = Visibility.Hidden;
+            tabTienDo.Visibility = Visibility.Hidden;
+            dgridTienDo.Visibility = Visibility.Hidden;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -89,27 +113,47 @@ namespace WIPR_Project
             cbbKhuVuc.SelectedIndex = 0;
             cbbKinhNghiem.SelectedIndex = 0;
             cbbMucGia.SelectedIndex = 0;
+        }
+        private void cbCheck_Checked(object sender, RoutedEventArgs e)
+        {
+            if(tabTienDo.SelectedIndex == 2)
+            {
+                WDanhGia wDanhGia = new WDanhGia();
+                var selectedLoiMoi = dgridTienDo.SelectedItem as DataRowView;
+                int idNguoiDung = Convert.ToInt32(selectedLoiMoi["idNguoiDung"]);
+                int idDanhGia = Convert.ToInt32(selectedLoiMoi["idEvaluation"]);
+                wDanhGia.idNguoiDung = idNguoiDung;
+                wDanhGia.idTho = userAccount.IdInforUser;
+                wDanhGia.idDanhGia = idDanhGia;
+                wDanhGia.userRole = userAccount.UserRole;
+                wDanhGia.ShowDialog();
+                return;
+            }
+            if (dgridTienDo.SelectedItem != null)
+            {
+                var selectedLoiMoi = dgridTienDo.SelectedItem as DataRowView;
+                int idNgayLamViec = Convert.ToInt32(selectedLoiMoi["id"]);
+                string tiendo = selectedLoiMoi["progress"].ToString() == "ChuaBatDau" ? "DangTienHanh" : "DaHoanThanh";
+                thoDAO.Sua("dateWork", idNgayLamViec, $" progress = '{tiendo}' ");
 
-            dgridLoiMoi.ItemsSource = thoDAO.TruyXuatLoiMoi(userAccount.IdInforUser, userAccount.UserRole).DefaultView;
+                LoadTienDo((tabTienDo.SelectedItem as TabItem).Tag.ToString());
+            }
         }
 
         private void btnXacNhan_Click(object sender, RoutedEventArgs e)
         {
-            /*if (dgridLoiMoi.SelectedItem != null)
+            if (dgridLoiMoi.SelectedItem != null)
             {
                 var selectedLoiMoi = dgridLoiMoi.SelectedItem as DataRowView;
-                string idNguoiDung = selectedLoiMoi["IdNguoiDung"].ToString();
-                string ngayLamViec = selectedLoiMoi["NgayLamViec"].ToString();
-                string dichvu = selectedLoiMoi["DichVu"].ToString();
-                int idNgayLamViec = thoDAO.IdTiepTheo("QlyNgayLamViec");
-                thoDAO.XacNhanThue(idNgayLamViec.ToString(), idNguoiDung, IdThoHienTai, ngayLamViec, dichvu);
+                int idNguoiDung = Convert.ToInt32(selectedLoiMoi["idNguoiDung"]);
+                DateTime ngayLamViec = Convert.ToDateTime(selectedLoiMoi["dateWork"]);
+                string dichvu = selectedLoiMoi["job"].ToString();
+                int idNgayLamViec = thoDAO.IdTiepTheo("dateWork");
+                int idNgayBan = thoDAO.IdTiepTheo("busyDate");
+                thoDAO.XacNhan(idNgayLamViec, userAccount.IdInforUser, idNguoiDung, dichvu, ngayLamViec, idNgayBan);
 
-                string idloimoi = selectedLoiMoi["Id"].ToString();
-                thoDAO.Xoa("LoiMoi", idloimoi);
-
-                //dgridLoiMoi.Items.Clear();
-                //Window_Loaded(sender, e);
-            }*/
+                btnTuChoi_Click(sender, e);
+            }
         }
 
         private void btnTuChoi_Click(object sender, RoutedEventArgs e)
@@ -117,8 +161,9 @@ namespace WIPR_Project
             if (dgridLoiMoi.SelectedItem != null)
             {
                 var selectedLoiMoi = dgridLoiMoi.SelectedItem as DataRowView;
-                string idloimoi = selectedLoiMoi["Id"].ToString();
-                thoDAO.Xoa("LoiMoi", idloimoi);
+                string idloimoi = selectedLoiMoi["id"].ToString();
+                thoDAO.Xoa("RequestUser", idloimoi);
+                LoadLoiMoi(sender, e);
             }
         }
 
@@ -127,8 +172,12 @@ namespace WIPR_Project
             if (dgridLoiMoi.SelectedItem != null)
             {
                 var selectedLoiMoi = dgridLoiMoi.SelectedItem as DataRowView;
-                string idBaiViet = selectedLoiMoi["IdBaiViet"].ToString();
+                int idBaiViet = Convert.ToInt32(selectedLoiMoi["idPost"]);
+                BaiViet bviet = thoDAO.TruyXuatBV(idBaiViet, "InforPostTho");
+
                 WBaiViet wBaiViet = new WBaiViet();
+                wBaiViet.baiViet = bviet;
+                wBaiViet.userAccount = userAccount;
                 wBaiViet.ShowDialog();
             }
         }
@@ -141,14 +190,13 @@ namespace WIPR_Project
             string dichvu = cbbDichVu.SelectedItem == null ? "" : (cbbDichVu.SelectedItem as ComboBoxItem).Tag.ToString();
 
             List<BaiViet> listBaiViet = thoDAO.TruyXuatDSBaiViet(khuvuc, kinhnghiem, mucgia, dichvu, "InforPostNguoiDung");
-
             if (listBaiViet == null) return;
             foreach (BaiViet baiViet in listBaiViet)
             {
-                UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
-                uCKhoiCoBan.UpdateUserControl(baiViet, userAccount);
+                UCYeuCau uCYeuCau = new UCYeuCau();
+                uCYeuCau.UpdateUserControl(baiViet, userAccount);
 
-                wpnlThongTin.Children.Add(uCKhoiCoBan);
+                wpnlThongTin.Children.Add(uCYeuCau);
             }
         }
         private void cbbKhuVuc_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -169,7 +217,7 @@ namespace WIPR_Project
             Cbb_SelectionChanged(sender, e);
         }
 
-        private int Index = 0;
+
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
         {
 
@@ -259,6 +307,12 @@ namespace WIPR_Project
             {
                 conn.Close();
             }*/
+        }
+
+        private void btnLichLamViec_Click(object sender, RoutedEventArgs e)
+        {
+            WLichBan wLichBan = new WLichBan();
+            wLichBan.ShowDialog();
         }
     }
 }

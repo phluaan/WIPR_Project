@@ -93,9 +93,11 @@
     </ApplicationDefinition>
     <Compile Include="Account.cs" />
     <Compile Include="BaiViet.cs" />
+    <Compile Include="DanhGia.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="DoiTuong.cs" />
     <Compile Include="DoiTuongDAO.cs" />
+    <Compile Include="LoiMoi.cs" />
     <Compile Include="NguoiDung.cs" />
     <Compile Include="NguoiDungDAO.cs" />
     <Compile Include="Tho.cs" />
@@ -120,6 +122,9 @@
     </Compile>
     <Compile Include="WDoiThongTin.xaml.cs">
       <DependentUpon>WDoiThongTin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WLichBan.xaml.cs">
+      <DependentUpon>WLichBan.xaml</DependentUpon>
     </Compile>
     <Compile Include="WLoiMoi.xaml.cs">
       <DependentUpon>WLoiMoi.xaml</DependentUpon>
@@ -162,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WDoiThongTin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WLichBan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

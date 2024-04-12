@@ -1,0 +1,41 @@
+﻿<Window x:Class="WIPR_Project.WLichBan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:WIPR_Project"
+        mc:Ignorable="d"
+        Title="WLichBan" Height="450" Width="600" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Loaded="WLichBan_Loaded">
+    <Border BorderBrush="Black" BorderThickness="1" Background="#F1F1F1">
+        <Grid>
+            <TextBlock Text="Lịch làm việc" FontSize="35" FontWeight="Bold" HorizontalAlignment="Center" Height="47" VerticalAlignment="Top"/>
+            <Border Width="500" BorderBrush="Black" BorderThickness="1.5" Height="350">
+                <Calendar x:Name="calLichBan" Margin="0,0,0,-4.5" SelectionMode="MultipleRange" 
+                            materialDesign:CalendarAssist.Orientation="Horizontal" 
+                            materialDesign:CalendarAssist.SelectionColor="#002E5D" 
+                            materialDesign:CalendarAssist.SelectionForegroundColor="#002E5D" 
+                            materialDesign:CalendarAssist.HeaderBackground="#002E5D">
+                    
+                </Calendar>
+            </Border>
+            <Button x:Name="btDatLichBan" Style="{StaticResource menuButton}" Background="#002E5D" Height="25" Width="150" Margin="210,350,230,70" Click="btDatLichBan_Click" >
+                <StackPanel Orientation="Horizontal" Width="130">
+                    <Icon:PackIconMaterial Kind="CalendarPlus" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Đặt lịch bận" Width="70"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btXoaLichBan" Style="{StaticResource menuButton}" Background="#002E5D"  Width="150" Height="25" Margin="380,350,70,70" Click="btXoaLichBan_Click">
+                <StackPanel Orientation="Horizontal" Width="130">
+                    <Icon:PackIconMaterial Kind="CalendarRemove" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Xóa lịch bận" Width="70"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btnThoat" Margin="0" Style="{StaticResource topButton}" Width="25" Height="25" Click="btnThoat_Click" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Icon:PackIconMaterial Kind="ExitToApp" Width="15" Height="15" Foreground="Black"/>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

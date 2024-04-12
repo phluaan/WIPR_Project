@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="WLoiMoi" Height="550" Width="650"
         WindowStartupLocation="CenterScreen" Background="Transparent" 
-        WindowStyle="None" AllowsTransparency="True">
+        WindowStyle="None" AllowsTransparency="True" Loaded="WLoiMoi_Loaded">
     <Border Background="White" BorderThickness="1" BorderBrush="Black">
         <Grid>
             <TextBlock Text="Gửi lời mời" FontSize="35" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
@@ -24,17 +24,19 @@
                             TextWrapping="Wrap"
                             VerticalScrollBarVisibility="Auto"/>
                     <Border Height="245" Width="450" Margin="25,150,25,26" BorderThickness="1" BorderBrush="Black">
-                        <Calendar materialDesign:CalendarAssist.Orientation="Horizontal" materialDesign:CalendarAssist.SelectionColor="#002E5D" materialDesign:CalendarAssist.SelectionForegroundColor="#002E5D" materialDesign:CalendarAssist.HeaderBackground="#002E5D"  Width="445" Margin="1.5,-1.5,1,-3"/>
+                        <Calendar Name="calLoiMoi" materialDesign:CalendarAssist.Orientation="Horizontal" materialDesign:CalendarAssist.SelectionForegroundColor="#002E5D" materialDesign:CalendarAssist.SelectionColor="#002E5D"   materialDesign:CalendarAssist.HeaderBackground="#002E5D"  Width="445" Margin="1.5,-1.5,1,-3">
+                            
+                        </Calendar>
                     </Border>
                 </Grid>
             </Border>
-            <Button x:Name="btnGuiLoiMoi" Style="{StaticResource menuButton}" Background="#002E5D"  Width="NaN" Height="25" Margin="150,500,335,23">
+            <Button x:Name="btnGuiLoiMoi" Style="{StaticResource menuButton}" Background="#002E5D"  Width="NaN" Height="25" Margin="150,500,335,23" Click="btnGuiLoiMoi_Click">
                 <StackPanel Orientation="Horizontal" Width="160">
                     <Icon:PackIconMaterial Kind="MessageArrowRightOutline" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Text="Gửi lời mời thuê" Width="100"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btThoat" Style="{StaticResource menuButton}" Background="#002E5D"  Width="NaN" Height="25" Margin="350,500,180,23">
+            <Button x:Name="btThoat" Style="{StaticResource menuButton}" Background="#002E5D"  Width="NaN" Height="25" Margin="350,500,180,23" Click="btThoat_Click">
                 <StackPanel Orientation="Horizontal" Width="130">
                     <Icon:PackIconMaterial Kind="ExitToApp" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Text="Thoát" Width="60"/>
