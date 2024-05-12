@@ -7,13 +7,13 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:WIPR_Project"
         mc:Ignorable="d"
-        Title="WLoiMoi" Height="330" Width="650"
+        Title="WLoiMoi" Height="450" Width="650"
         WindowStartupLocation="CenterScreen" Background="Transparent" 
         WindowStyle="None" AllowsTransparency="True" Loaded="WDanhGia_Loaded">
     <Border Background="White" BorderThickness="1" BorderBrush="Black">
         <Grid>
             <TextBlock Text="Đánh giá công việc" FontSize="35" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <Border Background="#F1F1F1" CornerRadius="15" Height="200" Width="500" Margin="74,74,74,54">
+            <Border Background="#F1F1F1" CornerRadius="15" Width="500" Margin="74,72,74,76">
                 <Grid>
                     <TextBox x:Name="txtDanhGia" Height="116" Width="450" Background="#F1F1F1" Margin="25,70,25,0"
                             VerticalAlignment="Top"
@@ -23,19 +23,26 @@
                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
                             TextWrapping="Wrap"
                             VerticalScrollBarVisibility="Auto"/>
-                    <TextBlock Text="Mức độ hài lòng:" Height="25" Width="130" FontSize="16" Margin="90,20,280,155"/>
+                    <TextBlock Text="Mức độ hài lòng:" Height="25" Width="130" FontSize="16" Margin="90,20,280,255"/>
                     <materialDesign:RatingBar  x:Name="rBarSoSao" Height="30" Width="200"
-                                              IsPreviewValueEnabled="True" Max="5" Min="0" ValueIncrements="0.25" Value="5" Margin="255,20,45,150" />
+                                              IsPreviewValueEnabled="True" Max="5" Min="0" ValueIncrements="0.25" Value="5" Margin="255,20,45,255" />
+                    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="20,193,20,10">
+
+                    </Border>
+                    <WrapPanel x:Name="wrapImage" Margin="30,200,30,20"/>
                 </Grid>
             </Border>
-            <Button Visibility="Hidden" x:Name="btnGuiDanhGia" Style="{StaticResource menuButton}" Background="#002E5D"   Width="NaN" Height="25" Margin="245,279,245,24" Click="btnGuiDanhGia_Click">
-                <StackPanel Orientation="Horizontal" Width="160">
+            <Button Visibility="Hidden" x:Name="btnGuiDanhGia" Style="{StaticResource menuButton}" Background="#002E5D"   Width="NaN" Height="25" Margin="245,355,245,10" Click="btnGuiDanhGia_Click">
+                <StackPanel Orientation="Horizontal" Width="147">
                     <Icon:PackIconMaterial Kind="MessageArrowRightOutline" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Text="Gửi đánh giá" Width="100"/>
                 </StackPanel>
             </Button>
             <Button Name="btnThoat" Margin="0" Style="{StaticResource topButton}" Width="25" Height="25" Click="btnThoat_Click" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Icon:PackIconMaterial Kind="ExitToApp" Width="15" Height="15" Foreground="Black"/>
+            </Button>
+            <Button x:Name="btnImagePlus" Style="{StaticResource topButton}" HorizontalAlignment="Right" Margin="0,215,20,70" Width="39" Click="btnImagePlus_Click">
+                <Icon:PackIconMaterial Kind="ImagePlus" Height="28" Width="30" RenderTransformOrigin="0.616,0.697"/>
             </Button>
         </Grid>
     </Border>

@@ -1,0 +1,108 @@
+﻿<Window x:Class="WIPR_Project.WChinhSuaBaiViet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:WIPR_Project"
+        mc:Ignorable="d"
+        Title="WDangBai" Height="430" Width="650" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
+    <Border MouseDown="Grid_MouseDown" BorderThickness="1.5" CornerRadius="10" Background="White" BorderBrush="Black">
+        <Grid>
+            <TextBlock Text="Chỉnh sửa bài viết" FontSize="28" FontWeight="Bold" Foreground="#002E5D" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,5"/>
+            <Border BorderThickness="3" CornerRadius="15" Background="#F1F1F1" Height="330" Width="570">
+                <Grid>
+                    <ComboBox x:Name="cbbDichVu"
+                        Width="200" Height="55" BorderBrush="Black" BorderThickness="1"
+                        materialDesign:HintAssist.Hint="Dịch vụ" FontSize="16" 
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        ItemsSource="{Binding ShortStringList}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="50,22,314,0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="Thợ sửa ống nước" />
+                        <ComboBoxItem Content="Gia sư" />
+                        <ComboBoxItem Content="Thợ sửa điện" />
+                        <ComboBoxItem Content="Bảo trì thiết bị" />
+                        <ComboBox.SelectedItem>
+                            <Binding
+                                Mode="TwoWay"
+                                Path="SelectedValidationOutlined"
+                                UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+
+                    <ComboBox x:Name="cbbMucGia"
+                        Width="200" Height="55" BorderBrush="Black" BorderThickness="1"
+                        materialDesign:HintAssist.Hint="Mức Giá"  FontSize="16"
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        ItemsSource="{Binding ShortStringList}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="314,22,50,0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="Dưới 200.000" />
+                        <ComboBoxItem Content="200.000 - 500.000" />
+                        <ComboBoxItem Content="500.000 - 1.000.000" />
+                        <ComboBoxItem Content="1.000.000 - 1.500.000" />
+                        <ComboBoxItem Content="1.500.000 - 2.000.000" />
+                        <ComboBoxItem Content="2.000.000 - 2.500.000" />
+                        <ComboBoxItem Content="2.500.000 - 3.000.000" />
+                        <ComboBoxItem Content="Trên 3.000.000" />
+                        <ComboBox.SelectedItem>
+                            <Binding
+                                Mode="TwoWay"
+                                Path="SelectedValidationOutlined"
+                                UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+
+                    <ComboBox x:Name="cbbKinhNghiem" BorderBrush="Black" BorderThickness="1"
+                        Width="200" Height="55"
+                        materialDesign:HintAssist.Hint="Kinh nghiệm" FontSize="16" 
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        ItemsSource="{Binding ShortStringList}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="50,99,314,0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="Dưới 1 năm" />
+                        <ComboBoxItem Content="1 - 2 năm" />
+                        <ComboBoxItem Content="2 - 3 năm" />
+                        <ComboBoxItem Content="3 - 4 năm" />
+                        <ComboBoxItem Content="4 - 5 năm" />
+                        <ComboBoxItem Content="Trên 5 năm" />
+                        <ComboBox.SelectedItem>
+                            <Binding
+                                Mode="TwoWay"
+                                Path="SelectedValidationOutlined"
+                                UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+
+                    <StackPanel Margin="30,162,30,20">
+                        <CheckBox Visibility="Hidden"
+                            x:Name="MaterialDesignOutlinedTextBoxTextCountComboBox" Background="#002E5D"
+                            Content="Hiển thị số lượng kí tự" 
+                            IsChecked="True"/>
+                        <TextBox x:Name="txtChiTiet"
+                            Height="115" BorderBrush="Black" BorderThickness="1"
+                            materialDesign:HintAssist.Hint="Nhập mô tả công việc"
+                            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
+                            MaxLength="400"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Button x:Name="btnChinhSua" Style="{StaticResource menuButton}" Background="#002E5D" Click="btnChinhSua_Click"  Width="150" Height="25" Margin="248,380,249,22">
+                <StackPanel Orientation="Horizontal" Width="140">
+                    <Icon:PackIconMaterial Kind="Pencil" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="chỉnh sửa" Width="100"/>
+                </StackPanel>
+            </Button>
+
+            <Button Name="btnThoat" Margin="0" Style="{StaticResource topButton}" Width="25" Height="25" Click="btnThoat_Click" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Icon:PackIconMaterial Kind="ExitToApp" Width="15" Height="15" Foreground="Black"/>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

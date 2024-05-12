@@ -20,10 +20,10 @@
                         materialDesign:TextFieldAssist.HasClearButton="True"
                         ItemsSource="{Binding ShortStringList}"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="50,22,314,0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="Thợ sửa ống nước" />
                         <ComboBoxItem Content="Gia sư" />
-                        <ComboBoxItem Content="Tho sua ong nuoc" />
-                        <ComboBoxItem Content="Tho sua dien" />
-                        <ComboBoxItem Content="Bao tri thiet bi" />
+                        <ComboBoxItem Content="Thợ sửa điện" />
+                        <ComboBoxItem Content="Bảo trì thiết bị" />
                         <ComboBox.SelectedItem>
                             <Binding
                                 Mode="TwoWay"
@@ -39,11 +39,14 @@
                         materialDesign:TextFieldAssist.HasClearButton="True"
                         ItemsSource="{Binding ShortStringList}"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="314,22,50,0" VerticalAlignment="Top">
-                        <ComboBoxItem Content="Dưới 500k" />
-                        <ComboBoxItem Content="500k - 1 Triệu" />
-                        <ComboBoxItem Content="1 Triệu - 2 Triệu" />
-                        <ComboBoxItem Content="5 Triệu - 5 Triệu" />
-                        <ComboBoxItem Content="5 Triệu - 10 Triệu" />
+                        <ComboBoxItem Content="Dưới 200.000" />
+                        <ComboBoxItem Content="200.000 - 500.000" />
+                        <ComboBoxItem Content="500.000 - 1.000.000" />
+                        <ComboBoxItem Content="1.000.000 - 1.500.000" />
+                        <ComboBoxItem Content="1.500.000 - 2.000.000" />
+                        <ComboBoxItem Content="2.000.000 - 2.500.000" />
+                        <ComboBoxItem Content="2.500.000 - 3.000.000" />
+                        <ComboBoxItem Content="Trên 3.000.000" />
                         <ComboBox.SelectedItem>
                             <Binding
                                 Mode="TwoWay"
@@ -60,10 +63,10 @@
                         ItemsSource="{Binding ShortStringList}"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="50,99,314,0" VerticalAlignment="Top">
                         <ComboBoxItem Content="Dưới 1 năm" />
-                        <ComboBoxItem Content="1 năm - 2 năm" />
-                        <ComboBoxItem Content="2 năm - 3 năm" />
-                        <ComboBoxItem Content="3 năm - 4 năm" />
-                        <ComboBoxItem Content="4 năm - 5 năm" />
+                        <ComboBoxItem Content="1 - 2 năm" />
+                        <ComboBoxItem Content="2 - 3 năm" />
+                        <ComboBoxItem Content="3 - 4 năm" />
+                        <ComboBoxItem Content="4 - 5 năm" />
                         <ComboBoxItem Content="Trên 5 năm" />
                         <ComboBox.SelectedItem>
                             <Binding
@@ -73,16 +76,13 @@
                             </Binding>
                         </ComboBox.SelectedItem>
                     </ComboBox>
-                    <DatePicker x:Name="dpNgayLamViec"
-                        materialDesign:HintAssist.Hint="Ngày làm việc"  FontSize=" 16" 
-                        Style="{StaticResource MaterialDesignOutlinedDatePicker}" Margin="314,99,50,3" VerticalAlignment="Top" />
 
                     <StackPanel Margin="30,162,30,20">
                         <CheckBox Visibility="Hidden"
                             x:Name="MaterialDesignOutlinedTextBoxTextCountComboBox" Background="#002E5D"
                             Content="Hiển thị số lượng kí tự" 
                             IsChecked="True"/>
-                        <TextBox x:Name="txtMoTa"
+                        <TextBox x:Name="txtChiTiet"
                             Height="115" BorderBrush="Black" BorderThickness="1"
                             materialDesign:HintAssist.Hint="Nhập mô tả công việc"
                             materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"

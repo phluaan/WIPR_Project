@@ -21,16 +21,10 @@
                     
                 </Calendar>
             </Border>
-            <Button x:Name="btDatLichBan" Style="{StaticResource menuButton}" Background="#002E5D" Height="25" Width="150" Margin="210,350,230,70" Click="btDatLichBan_Click" >
+            <Button x:Name="btDatLichBan" Style="{StaticResource menuButton}" Background="#002E5D" Height="25" Width="150" Margin="378,354,70,69" Click="btDatLichBan_Click" >
                 <StackPanel Orientation="Horizontal" Width="130">
                     <Icon:PackIconMaterial Kind="CalendarPlus" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Text="Đặt lịch bận" Width="70"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="btXoaLichBan" Style="{StaticResource menuButton}" Background="#002E5D"  Width="150" Height="25" Margin="380,350,70,70" Click="btXoaLichBan_Click">
-                <StackPanel Orientation="Horizontal" Width="130">
-                    <Icon:PackIconMaterial Kind="CalendarRemove" Style="{StaticResource menuButtonIcon}"/>
-                    <TextBlock Text="Xóa lịch bận" Width="70"/>
                 </StackPanel>
             </Button>
             <Button Name="btnThoat" Margin="0" Style="{StaticResource topButton}" Width="25" Height="25" Click="btnThoat_Click" HorizontalAlignment="Right" VerticalAlignment="Top">

@@ -11,8 +11,8 @@
         WindowStyle="None" AllowsTransparency="True">
     <Border Background="#eff2f7" CornerRadius="30">
         <Grid Margin="0,0,0,0" Height="600">
-            <Image  Stretch="UniformToFill" Opacity="0.9" Grid.RowSpan="2" Source="/background4.jpg"/>
-            <TextBlock Text="THẾ GIỚI VIỆC LÀM" FontSize="48" FontWeight="Bold" Foreground="White" Margin="276,30,276,74" FontFamily="Bodoni MT Black"/>
+            <Image  Stretch="UniformToFill" Opacity="0.9" Grid.RowSpan="2" Source="Images/background4.jpg"/>
+            <TextBlock Text="THẾ GIỚI VIỆC LÀM" FontSize="48" FontWeight="Bold" Foreground="White" Margin="275,30,275,515" FontFamily="Bodoni MT Black"/>
             <Border x:Name="bdMain" Visibility="Visible" CornerRadius="20" Background="#99000000" VerticalAlignment="Top" HorizontalAlignment="Left" Width="500" Height="400" Margin="296,133,0,0" Grid.RowSpan="2">
                 <Grid x:Name="gridMain">
                     <TextBlock Text="Đăng nhập" FontSize="40" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
@@ -28,6 +28,9 @@
                             Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" />
                     <Rectangle Height="2" Fill="White" Width="430" Margin="20,227,30,171" StrokeThickness="0"/>
                     <Button x:Name="btnLogin" Width="150"  Content="Đăng nhập" FontWeight="Bold" FontSize="18" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="171,260,179,107" Click="btnLogin_Click" />
+                    <Button Name="btnThoat" Margin="0" Style="{StaticResource topButton}" Width="25" Height="25" Click="btnThoat_Click" HorizontalAlignment="Right" VerticalAlignment="Top">
+                        <Icon:PackIconMaterial Kind="ExitToApp" Width="15" Height="15" Foreground="White"/>
+                    </Button>
                     <TextBlock Text="Chưa có tài khoản?" Height="20" Foreground="White" FontSize="16" Width="140" Margin="90,318,240,62"/>
                     <Button x:Name="btnDangKyTK" Content="Đăng ký ngay" FontSize="25" Foreground="Blue" Margin="250,295,88,42" Click="btnDangKyTK_Click">
                         <Button.Template>
@@ -64,7 +67,7 @@
                         Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" />
                     <Rectangle Height="2" Fill="White" Width="430" Margin="20,260,30,70" StrokeThickness="0"/>
 
-                    <Button x:Name="btnDangKy" Width="150"  Content="Đăng ký" FontWeight="Bold" FontSize="18" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="80,332,250,36" Click="btnDangKy_Click" />
+                    <Button x:Name="btnTiepTheo" Width="150"  Content="Tiếp theo" FontWeight="Bold" FontSize="18" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="80,332,250,36" Click="btnTiepTheo_Click" />
                     <Icon:PackIconMaterial Kind="LockReset" Foreground="White" Style="{StaticResource menuButtonIcon}" Height="29" Margin="33,265,0,0" Width="24" VerticalAlignment="Top"/>
 
                     <Button x:Name="btnQuayLai" Width="150"  Content="Quay lại" FontWeight="Bold" FontSize="18" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="260,332,71,36" Click="btnQuayLai_Click" />
@@ -78,18 +81,82 @@
                             materialDesign:ButtonProgressAssist.IsIndeterminate="True"
                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Style="{StaticResource MaterialDesignOutlinedButton}" Margin="40,131,262,199" Click="btnTho_Click_1"/>
+                            Style="{StaticResource MaterialDesignOutlinedButton}" Margin="40,131,262,199" Click="btnTho_Click"/>
                     <Button x:Name="btnNguoiDung" Content="Người dùng" Foreground="White" Height="70" FontSize="30" BorderThickness="2" BorderBrush="White"
                             materialDesign:ButtonProgressAssist.IsIndeterminate="True"
                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Style="{StaticResource MaterialDesignOutlinedButton}" Margin="262,131,40,199" Click="btnNguoiDung_Click_2" />
+                            Style="{StaticResource MaterialDesignOutlinedButton}" Margin="262,131,40,199" Click="btnNguoiDung_Click" />
                     <Button x:Name="btnLCQuayLai" Width="150"  Content="Quay lại" FontWeight="Bold" FontSize="18" 
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                             Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
                             Margin="175,280,175,37" Click="btnLCQuayLai_Click" />
                 </Grid>
             </Border>
+
+            <Border x:Name="bdThongTin" Visibility="Hidden" CornerRadius="20" Background="#CCFFFFFF" VerticalAlignment="Top" HorizontalAlignment="Center" Width="532" Height="456" Margin="0,100,0,0">
+                <Grid>
+                    <TextBox x:Name="txtHoVaTen" FontSize="18" VerticalAlignment="Top" Height="50" materialDesign:HintAssist.Hint="Họ và tên"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="30,30,280,0" />
+                    <TextBox x:Name="txtSDT" FontSize="18" VerticalAlignment="Top" Height="50" materialDesign:HintAssist.Hint="Số điện thoại"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="280,30,30,0" />
+                    <TextBox x:Name="txtEmail" FontSize="18" VerticalAlignment="Top" Height="50" materialDesign:HintAssist.Hint="Email" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="30,110,30,0" />
+                    <ComboBox x:Name="cbbDiaChi" Height="55" BorderBrush="Black" BorderThickness="1"
+                        materialDesign:HintAssist.Hint="Khu Vực" FontSize="16"
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        ItemsSource="{Binding ShortStringList}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="30,200,280,0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="Quận 1" />
+                        <ComboBoxItem Content="Quận 2" />
+                        <ComboBoxItem Content="Quận 3" />
+                        <ComboBoxItem Content="Quận 4" />
+                        <ComboBoxItem Content="Quận 5" />
+                        <ComboBoxItem Content="Quận 6" />
+                        <ComboBoxItem Content="Quận 7" />
+                        <ComboBoxItem Content="Quận 8" />
+                        <ComboBoxItem Content="Quận 9" />
+                        <ComboBoxItem Content="Quận 10" />
+                        <ComboBoxItem Content="Quận 11" />
+                        <ComboBoxItem Content="Quận 12" />
+                        <ComboBoxItem Content="Quận Bình Thạnh" />
+                        <ComboBoxItem Content="Quận Thủ Đức" />
+                        <ComboBoxItem Content="Quận Gò Vấp" />
+                        <ComboBoxItem Content="Quận Bình Tân" />
+                        <ComboBoxItem Content="Quận Tân Bình" />
+                        <ComboBoxItem Content="Quận Phú Nhuận" />
+                        <ComboBoxItem Content="Quận Tân Phú" />
+                        <ComboBox.SelectedItem>
+                            <Binding Mode="TwoWay" Path="SelectedValidationOutlined" UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+
+                    <ComboBox x:Name="cbbGioiTinh" Height="55" BorderBrush="Black" BorderThickness="1"
+                            materialDesign:HintAssist.Hint="Giới Tính" FontSize="16" 
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            ItemsSource="{Binding ShortStringList}"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="280,200,30,0" VerticalAlignment="Top">
+                        <ComboBoxItem Content="Nam" />
+                        <ComboBoxItem Content="Nữ" />
+                        <ComboBox.SelectedItem>
+                            <Binding Mode="TwoWay" Path="SelectedValidationOutlined" UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </ComboBox.SelectedItem>
+                    </ComboBox>
+                    <DatePicker x:Name="dpNgaySinh" materialDesign:HintAssist.Hint="Ngày sinh" FontSize=" 16" Margin="30,290,280,0"
+                            Style="{StaticResource MaterialDesignOutlinedDatePicker}" VerticalAlignment="Top" />
+                    <Button x:Name="btnQL" Width="150"  Content="Quay lại" FontWeight="Bold" FontSize="18" 
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                        Margin="280,370,100,25" Click="btnQL_Click" />
+                    <Button x:Name="btnDKTK" Width="150"  Content="Đăng ký" FontWeight="Bold" FontSize="18" 
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                        Margin="100,370,280,25" Click="btnDKTK_Click" />
+                </Grid>
+            </Border>
+            <local:UCKhoiCoBan HorizontalAlignment="Left" Margin="1221,226,0,0" VerticalAlignment="Top"/>
         </Grid>
     </Border>
 </Window>

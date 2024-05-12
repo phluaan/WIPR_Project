@@ -24,5 +24,13 @@ namespace WIPR_Project
         {
             InitializeComponent();
         }
+        DoiTuongDAO doiTuongDAO = new DoiTuongDAO();
+        public void UpdateUserControl(DanhGia dg)
+        {
+            DoiTuong dt = doiTuongDAO.TruyXuatDT(dg.IdNguoiDung);
+            txbNhanXet.Text = dg.UserEvaluation;
+            txbDanhGia.Text = dg.NumOfStar.ToString("0.#");
+            txbName.Text = dt.HoTen;
+        }
     }
 }

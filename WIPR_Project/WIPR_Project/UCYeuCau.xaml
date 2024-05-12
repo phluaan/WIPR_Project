@@ -9,19 +9,24 @@
              d:DesignHeight="340" d:DesignWidth="600">
     <Border Background="White" BorderThickness="2" BorderBrush="Black" >
         <Grid>
-            <Image Source="Images/baiviet.jpg"/>
-            <TextBlock x:Name="txbDichVu" Text=".................." FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,110,0,0"/>
-            <TextBlock x:Name="txbKinhNghiem" Margin="70,200,400,115" Text="..........." FontSize="16"/>
-            <TextBlock x:Name="txbKhuVuc" Margin="70,230,400,85" Text="........" FontSize="16"/>
-            <TextBlock x:Name="txbMucGia" Margin="70,265,400,50" Text=".........." FontSize="16"/>
-            <TextBlock x:Name="txbHoTen" Margin="370,80,20,230" Text="............" FontSize="16"/>
-            <TextBlock x:Name="txbSDT" Margin="370,110,20,200" Text="..........." FontSize="16"/>
-            <TextBlock x:Name="txbEmail" Margin="370,136,20,170" Text="............" Height="30" FontSize="16"/>
-            <TextBlock x:Name="txbMoTa" Margin="225,215,55,50" Text="Tìm thợ sửa ống nước yêu cầu 30 năm kinh nghiệm trong nghề, biết móc cống, dọn cỏ, quét lỗ dậu... làm hài lòng khách hàng!" TextWrapping="Wrap" FontSize="16"/>
-            <Button x:Name="btnHenLich" Style="{StaticResource menuButton}" Background="#002E5D" Margin="403,296,76,10" Width="NaN" Height="30" Click="btnHenLich_Click">
+            <Image Source="Images/nenUCYeuCau.jpg" />
+            <TextBlock x:Name="txbDichVu" Text="Tho sua ong nuoc" FontSize="28" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,5,0,0"/>
+            <TextBlock x:Name="txbKinhNghiem" Margin="88,85,0,0" Text="2 nam - 3 nam" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="txbKhuVuc" Margin="88,115,0,0" Text="TP. HCM" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="txbMucGia" Margin="88,145,0,0" Text="500k" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="txbHoTen" Margin="370,80,20,230" Text="Huynh Minh Man" FontSize="16"/>
+            <TextBlock x:Name="txbSDT" Margin="370,110,20,200" Text="0377179132" FontSize="16"/>
+            <TextBlock x:Name="txbMoTa" Margin="45,240,45,40" Text="Tốt!" TextWrapping="Wrap" FontSize="16"/>
+            <Button x:Name="btnHenLich" Style="{StaticResource menuButton}" Background="#002E5D" Margin="250,308,226,4" Width="NaN" Height="NaN" Click="btnHenLich_Click">
                 <StackPanel Orientation="Horizontal" Width="109" >
-                    <Icon:PackIconMaterial Kind="CalendarMonth" Style="{StaticResource menuButtonIcon}"/>
-                    <TextBlock Name="txtbThue" FontSize="14" Text="Hẹn lịch" Width="64"/>
+                    <Icon:PackIconMaterial Kind="CalendarMonth" Style="{StaticResource menuButtonIcon}" RenderTransformOrigin="0.116,0.679"/>
+                    <TextBlock x:Name="txtbThue" FontSize="14" Text="Hẹn lịch" Width="63"/>
+                </StackPanel>
+            </Button>
+            <Button Visibility="Hidden" x:Name="btnChinhSua" Style="{StaticResource menuButton}" Background="#002E5D" Margin="404,307,58,5" Width="NaN" Height="NaN" Click="btnChinhSua_Click">
+                <StackPanel Orientation="Horizontal" Width="131" >
+                    <Icon:PackIconMaterial Kind="BriefcaseEdit" Style="{StaticResource menuButtonIcon}" RenderTransformOrigin="0.116,0.679"/>
+                    <TextBlock x:Name="txtChinhSua" FontSize="14" Text="Chỉnh sửa" Width="63"/>
                 </StackPanel>
             </Button>
         </Grid>

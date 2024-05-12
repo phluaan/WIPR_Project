@@ -31,14 +31,14 @@ namespace WIPR_Project
         {
             this.Close();
         }
-        
+
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             Account userAccount = doiTuongDAO.truyxuatAccount(txbTaiKhoan.Text, pswMatKhau.Password);
-            if(userAccount == null) MessageBox.Show("Tài khoản hoặc mật khẩu không hợp lệ");
+            if (userAccount == null) MessageBox.Show("Tài khoản hoặc mật khẩu không hợp lệ");
             else
             {
-                if(userAccount.UserRole == "Tho")
+                if (userAccount.UserRole == "Tho")
                 {
                     WTho wTho = new WTho();
                     wTho.userAccount = userAccount;
@@ -63,9 +63,25 @@ namespace WIPR_Project
             this.Close();
         }
 
-        private void btnDangKy_Click(object sender, RoutedEventArgs e)
+        private void btnTiepTheo_Click(object sender, RoutedEventArgs e)
         {
-
+            Account userAccount = doiTuongDAO.truyxuatAccount(txbTaiKhoanDK.Text, pswMatKhauDK.Password);
+            if (userAccount == null)
+            {
+                if (pswMatKhauDK.Password != pswNhapLaiMatKhauDK.Password)
+                {
+                    MessageBox.Show("Mật khẩu nhập lại không hợp lệ, hãy thử lại!");
+                }
+                else if (pswMatKhauDK.Password == pswNhapLaiMatKhauDK.Password)
+                {
+                    bdDangKi.Visibility = Visibility.Collapsed;
+                    bdThongTin.Visibility = Visibility.Visible;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản đã tồn tại!");
+            }
         }
 
         private void btnDangKyTK_Click(object sender, RoutedEventArgs e)
@@ -84,15 +100,17 @@ namespace WIPR_Project
             pswMatKhauDK.Password = string.Empty;
             pswNhapLaiMatKhauDK.Password = string.Empty;
         }
-
-        private void btnTho_Click_1(object sender, RoutedEventArgs e)
+        string Loai = "Tho";
+        private void btnTho_Click(object sender, RoutedEventArgs e)
         {
+            Loai = "Tho";
             bdLuaChon.Visibility = Visibility.Collapsed;
             bdDangKi.Visibility = Visibility.Visible;
         }
 
-        private void btnNguoiDung_Click_2(object sender, RoutedEventArgs e)
+        private void btnNguoiDung_Click(object sender, RoutedEventArgs e)
         {
+            Loai = "NguoiDung";
             bdLuaChon.Visibility = Visibility.Collapsed;
             bdDangKi.Visibility = Visibility.Visible;
         }
@@ -103,5 +121,40 @@ namespace WIPR_Project
             bdMain.Visibility = Visibility.Visible;
         }
 
+        private void btnDKTK_Click(object sender, RoutedEventArgs e)
+        {
+            string khuvuc = cbbDiaChi.SelectedItem == null ? "" : (cbbDiaChi.SelectedItem as ComboBoxItem).Content.ToString();
+            string gioiTinh = cbbGioiTinh.SelectedItem == null ? "" : (cbbGioiTinh.SelectedItem as ComboBoxItem).Content.ToString();
+            DateTime? ngaySinh;
+            if (dpNgaySinh.SelectedDate.HasValue)
+            {
+                ngaySinh = dpNgaySinh.SelectedDate.Value;
+            }
+            else
+            {
+                ngaySinh = null;
+            }
+
+            if (CheckNull(txtHoVaTen.Text, txtSDT.Text, txtEmail.Text, khuvuc, gioiTinh, ngaySinh))
+            {
+                doiTuongDAO.ThemTaiKhoan(doiTuongDAO.IdTiepTheo("InforUser"), txtHoVaTen.Text, ngaySinh, txtEmail.Text, txtSDT.Text, gioiTinh, khuvuc,
+                                          doiTuongDAO.IdTiepTheo("Account"), txbTaiKhoanDK.Text, pswMatKhauDK.Password, Loai);
+            }
+        }
+        private bool CheckNull(string name, string SDT, string email, string khuVuc, string gioiTinh, DateTime? ngaySinh)
+        {
+            if (name == "" || SDT == "" || email == "" || khuVuc == "" || gioiTinh == "" || ngaySinh == null)
+            {
+                MessageBox.Show("Thông tin không được để trống!");
+                return false;
+            }
+            return true;
+        }
+
+        private void btnQL_Click(object sender, RoutedEventArgs e)
+        {
+            bdThongTin.Visibility = Visibility.Collapsed;
+            bdDangKi.Visibility = Visibility.Visible;
+        }
     }
 }

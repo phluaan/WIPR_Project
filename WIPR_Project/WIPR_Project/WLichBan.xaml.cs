@@ -50,19 +50,11 @@ namespace WIPR_Project
             btnThoat_Click(sender, e);
         }
 
-        private void btXoaLichBan_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

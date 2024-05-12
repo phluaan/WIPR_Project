@@ -6,7 +6,7 @@
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:local="clr-namespace:WIPR_Project"
              mc:Ignorable="d" 
-             d:DesignHeight="120" d:DesignWidth="740"
+             d:DesignHeight="120" d:DesignWidth="500"
              Background="Transparent">
     <Border Background="White" CornerRadius="15">
         <Grid>
@@ -14,15 +14,15 @@
                     DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="15,8,0,32">
                 <Ellipse>
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="Images/anhmeomeo.jpg" Stretch="UniformToFill"/>
+                        <ImageBrush ImageSource="Images/avatar.jpg" Stretch="UniformToFill"/>
                     </Ellipse.Fill>
                 </Ellipse>
             </Border>
-            <Border Width="600" Margin="105,8,35,8" CornerRadius="20" Background="#F1F1F1">
+            <Border Margin="105,8,50,8" CornerRadius="20" Background="#F1F1F1">
                 <Grid>
-                    <TextBlock x:Name="txbName" Margin="20,-25,380,45" Height="25" Width="200" Text="............." FontSize="18" FontWeight="Bold"/>
-                    <TextBlock x:Name="txbDanhGia" Margin="220,-25,340,45" Height="25" Width="30" Text=".........." FontSize="18" FontWeight="Bold" />
-                    <Icon:PackIconMaterial Margin="260,5,0,0" Kind="Star" Foreground="#F4B218" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Top" Height="20" Width="19"/>
+                    <TextBlock x:Name="txbName" Margin="20,4,90,74" Height="25" Text="............." FontSize="18" FontWeight="Bold"/>
+                    <TextBlock x:Name="txbDanhGia" Margin="267,5,48,74" Height="25" Width="30" Text=".........." FontSize="18" FontWeight="Bold" />
+                    <Icon:PackIconMaterial Margin="316,4,0,0" Kind="Star" Foreground="#F4B218" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Top" Height="20" Width="19"/>
                     <TextBlock x:Name="txbNhanXet" Margin="20,30,20,10" TextWrapping="Wrap" Text="................" FontSize="16"/>
                 </Grid>
             </Border>

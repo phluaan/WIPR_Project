@@ -7,46 +7,60 @@
         xmlns:local="clr-namespace:WIPR_Project"
         mc:Ignorable="d" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" 
         AllowsTransparency="True"
-        Title="WBaiViet" Height="720" Width="830" Loaded="Window_Loaded">
+        Title="WBaiViet" Height="720" Width="1080" Loaded="Window_Loaded">
     <Border Background="White" CornerRadius="30" Height="700" MouseDown="Border_MouseDown" BorderBrush="Black" BorderThickness="1.5">
         <Grid x:Name="gridBaiviet">
-            <Button Height="160" Width="185" Style="{StaticResource MaterialDesignFloatingActionButton}" Margin="10,10,620,505">
-                <Image Stretch="UniformToFill" Source="Images/anhmeomeo.jpg"/>
-            </Button>
-
-            <TextBlock x:Name="txbHoTen" HorizontalAlignment="Left" Margin="220,50,0,0" FontSize="26" FontWeight="SemiBold" TextWrapping="Wrap" Text="..........." VerticalAlignment="Top"/>
-            <Icon:PackIconMaterial Kind="MapMarker" Style="{StaticResource menuButtonIcon}" Height="30" Margin="235,110,0,0" Width="21" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbDiaChi" HorizontalAlignment="Left" Margin="270,110,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="........" VerticalAlignment="Top"/>
-            <Rectangle Width="1" Fill="Black" Margin="421,33,404,435"/>
-            <TextBlock HorizontalAlignment="Left" Margin="440,55,0,0" FontSize="25"  TextWrapping="Wrap" Text="Dịch vụ:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbDichVu" HorizontalAlignment="Left" Margin="600,55,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="........." VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="440,165,0,0" FontSize="25"  TextWrapping="Wrap" Text="Mức lương:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbMucGia" HorizontalAlignment="Left" Margin="600,165,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="............" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="440,220,0,0" FontSize="25"  TextWrapping="Wrap" Text="Đánh giá:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbDanhGia" HorizontalAlignment="Left" Margin="600,220,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="............" VerticalAlignment="Top"/>
-            <Button x:Name="btnHenLich" Style="{StaticResource menuButton}" Background="#002E5D" Margin="400,289,200,376" Width="NaN" Height="NaN" Click="btnHenLich_Click">
-                <StackPanel Orientation="Horizontal" Width="227" >
+            <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
+                            DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
+                <Ellipse Margin="124,-254,-228,168">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Images/AVT.jpg" Stretch="UniformToFill"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Border>
+            <TextBlock x:Name="txbHoTen" HorizontalAlignment="Left" Margin="130,202,0,0" FontSize="30" FontWeight="SemiBold" TextWrapping="Wrap" Text="Huynh Minh Man" VerticalAlignment="Top"/>
+            <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}" Height="30" Margin="35,210,0,0" Width="30" VerticalAlignment="Top"/>
+            <Icon:PackIconMaterial Kind="MapMarker" Style="{StaticResource menuButtonIcon}" Height="30" Margin="40,255,0,0" Width="21" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbDiaChi" HorizontalAlignment="Left" Margin="190,250,0,0" FontSize="30" FontWeight="SemiBold" TextWrapping="Wrap" Text="TP. HCM" VerticalAlignment="Top"/>
+            <Rectangle Width="1" Fill="Black" Margin="480,35,595,35"/>
+            <TextBlock HorizontalAlignment="Left" Margin="40,350,0,0" FontSize="25"  TextWrapping="Wrap" Text="Dịch vụ:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbDichVu" HorizontalAlignment="Left" Margin="210,350,0,0" FontSize="30" FontWeight="SemiBold" TextWrapping="Wrap" Text="Tho sua ong nuoc" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="40,490,0,0" FontSize="25"  TextWrapping="Wrap" Text="Mức lương:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbMucGia" HorizontalAlignment="Left" Margin="210,490,0,0" FontSize="30" FontWeight="SemiBold" TextWrapping="Wrap" Text="500k" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="40,560,0,0" FontSize="25"  TextWrapping="Wrap" Text="Đánh giá:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbDanhGia" HorizontalAlignment="Left" Margin="210,560,0,0" FontSize="30" FontWeight="SemiBold" TextWrapping="Wrap" Text="4.5" VerticalAlignment="Top"/>
+            <Icon:PackIconMaterial Kind="Star" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Top"  Height="40" Width="40" Foreground="#F4B218" Margin="270,560,0,0"/>
+            <Button x:Name="btnHenLich" Style="{StaticResource menuButton}" Background="#002E5D" Margin="25,640,830,20" Width="NaN" Height="NaN" Click="btnHenLich_Click">
+                <StackPanel Orientation="Horizontal" Width="214" >
                     <Icon:PackIconMaterial Kind="CalendarMonth" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Name="txtbThue" FontSize="20" Text="Hẹn lịch thuê thợ" Width="165"/>
                 </StackPanel>
             </Button>
-            <TextBlock HorizontalAlignment="Left" Margin="440,110,0,0" FontSize="25"  TextWrapping="Wrap" Text="Kinh nghiệm:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="txbKinhNghiem" HorizontalAlignment="Left" Margin="600,110,0,0" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text=".........." VerticalAlignment="Top"/>
-            <Button x:Name="btnThoat" Style="{StaticResource menuButton}" Background="#002E5D" Margin="640,289,50,376" Width="NaN" Height="NaN" Click="btnThoat_Click">
+            <Button x:Name="btnChinhSua" Visibility="Hidden" Style="{StaticResource menuButton}" Background="#002E5D" Margin="60,640,862,20" Width="NaN" Height="NaN" Click="btnChinhSua_Click">
+                <StackPanel Orientation="Horizontal" Width="151" >
+                    <Icon:PackIconMaterial Kind="BriefcaseEdit" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Name="txtbChinhSua" FontSize="20" Text="Chỉnh sửa" Width="100"/>
+                </StackPanel>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="40,420,0,0" FontSize="25"  TextWrapping="Wrap" Text="Kinh nghiệm:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="txbKinhNghiem" HorizontalAlignment="Left" Margin="210,415,0,0" FontSize="30" FontWeight="SemiBold" TextWrapping="Wrap" Text="2 nam - 3 nam" VerticalAlignment="Top"/>
+            <Button x:Name="btnThoat" Style="{StaticResource menuButton}" Background="#002E5D" Margin="280,640,670,20" Width="NaN" Height="NaN" Click="btnThoat_Click">
                 <StackPanel Orientation="Horizontal" Width="120">
                     <Icon:PackIconMaterial Kind="ExitRun" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Text="Thoát" FontSize="20" Width="60"/>
                 </StackPanel>
             </Button>
-            <TextBlock HorizontalAlignment="Left" Margin="25,350,0,0" FontSize="25"  
+            <TextBlock x:Name="txbNgayDang" HorizontalAlignment="Left" Margin="340,290,0,0" FontSize="25"  TextWrapping="Wrap" Text="04/04/2004" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="520,35,0,0" FontSize="30"  
                        TextWrapping="Wrap" Text="Đánh giá từ người thuê" VerticalAlignment="Top"/>
-            <Border BorderThickness="1" BorderBrush="Black" Width="770" Margin="25,397,25,25">
+            <Border BorderThickness="1" BorderBrush="Black" Margin="520,90,50,40">
                 <ScrollViewer>
-                    <WrapPanel>
+                    <WrapPanel Name="wpnlDanhGia" Width="506" Height="560">
 
                     </WrapPanel>
                 </ScrollViewer>
             </Border>
+            <Rectangle Fill="Black" Height="1" Margin="30,325,630,370" Opacity="0.7" />
         </Grid>
     </Border>
 </Window>

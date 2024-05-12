@@ -44,6 +44,33 @@ namespace WIPR_Project
             }
         }
 
+        public int TruyXuatYeuThich(string sqlSTR)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return Convert.ToInt32(reader["id"]);
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (truyxuatYeuThich)" + exc);
+                return -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public void ThucThi(string sqlSTR)
         {
             try
@@ -63,13 +90,13 @@ namespace WIPR_Project
                 conn.Close();
             }
         }
-        public object GetNextId(string getMaxIdQuery)
+        public object Get(string sqlSTR)
         {
             try
             {
                 conn.Open();
-                SqlCommand getMaxId = new SqlCommand(getMaxIdQuery, conn);
-                return getMaxId.ExecuteScalar();
+                SqlCommand get = new SqlCommand(sqlSTR, conn);
+                return get.ExecuteScalar();
             }
             catch (Exception exc)
             {
@@ -117,7 +144,7 @@ namespace WIPR_Project
                 if (reader.Read())
                 {
                     DanhGia dg = new DanhGia(Convert.ToInt32(reader["id"]), Convert.ToInt32(reader["idTho"]), Convert.ToInt32(reader["idNGuoiDung"]),
-                        Convert.ToDecimal(reader["numOfStar"]),reader["userEvaluation"].ToString());
+                        Convert.ToDecimal(reader["numOfStar"]),reader["userEvaluation"].ToString(), reader["job"].ToString());
                     reader.Close();
                     return dg;
                 }
@@ -130,6 +157,33 @@ namespace WIPR_Project
             catch (Exception exc)
             {
                 MessageBox.Show("that bai (TruyXuatDanhGia)" + exc);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public List<DanhGia> TruyXuatDSDanhGia(string sqlSTR)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sqlSTR, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<DanhGia> list = new List<DanhGia>();
+                while (reader.Read())
+                {
+                    DanhGia dg = new DanhGia(Convert.ToInt32(reader["id"]), Convert.ToInt32(reader["idTho"]), Convert.ToInt32(reader["idNGuoiDung"]),
+                        Convert.ToDecimal(reader["numOfStar"]), reader["userEvaluation"].ToString(), reader["job"].ToString());
+                    list.Add(dg);
+                }
+                reader.Close();
+                return list;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("that bai (DuLieuDGTruyXuat)" + exc);
                 return null;
             }
             finally
@@ -204,13 +258,11 @@ namespace WIPR_Project
                 {
                     DoiTuong doiTuong = doiTuongDAO.TruyXuatDT(Convert.ToInt32(reader[id]));
                     BaiViet baiViet = new BaiViet(Convert.ToInt32(reader["id"]), Convert.ToInt32(reader[id]), doiTuong.HoTen, reader["job"].ToString(), reader["experience"].ToString(),
-                        reader["price"].ToString(), Convert.ToDateTime(reader["createDate"]),
-                        doiTuong.DiaChi);
+                        reader["price"].ToString(), Convert.ToDateTime(reader["createDate"]), doiTuong.DiaChi, reader["note"].ToString());
                     return baiViet;
                 }
                 else
                 {
-                    //MessageBox.Show("Lỗi truy xuất idBaiViet");
                     return null;
                 }
             }
@@ -238,8 +290,7 @@ namespace WIPR_Project
                 {
                     DoiTuong doiTuong = doiTuongDAO.TruyXuatDT(Convert.ToInt32(reader[id]));
                     BaiViet baiViet = new BaiViet(Convert.ToInt32(reader["id"]), Convert.ToInt32(reader[id]), doiTuong.HoTen,reader["job"].ToString(), reader["experience"].ToString(),
-                        reader["price"].ToString(), Convert.ToDateTime(reader["createDate"]),
-                        doiTuong.DiaChi);
+                        reader["price"].ToString(), Convert.ToDateTime(reader["createDate"]), doiTuong.DiaChi, reader["note"].ToString());
                     baiVietList.Add(baiViet);
                 }
                 reader.Close();

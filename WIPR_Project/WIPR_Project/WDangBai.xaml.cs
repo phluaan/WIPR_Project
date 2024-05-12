@@ -38,12 +38,23 @@ namespace WIPR_Project
 
         private void btnDangBai_Click(object sender, RoutedEventArgs e)
         {
+            if (!checkNull())
+            {
+                MessageBox.Show("Vui lòng chọn đầy đủ thông tin!");
+                return;
+            } 
             DoiTuong doiTuong = doiTuongDao.TruyXuatDT(userAccount.IdInforUser);
             string postfrom = userAccount.UserRole == "Tho" ? "InforPostTho" : "InforPostNguoiDung";
             BaiViet baiViet = new BaiViet(doiTuongDao.IdTiepTheo(postfrom), userAccount.IdInforUser, doiTuong.HoTen, (cbbDichVu.SelectedItem as ComboBoxItem)?.Content?.ToString(),
-                    (cbbKinhNghiem.SelectedItem as ComboBoxItem)?.Content?.ToString(), (cbbMucGia.SelectedItem as ComboBoxItem)?.Content?.ToString(), DateTime.Now, doiTuong.DiaChi);
+                    (cbbKinhNghiem.SelectedItem as ComboBoxItem)?.Content?.ToString(), (cbbMucGia.SelectedItem as ComboBoxItem)?.Content?.ToString(), DateTime.Now, doiTuong.DiaChi, txtChiTiet.Text);
             doiTuongDao.ThemBaiDang(baiViet, doiTuongDao.IdTiepTheo("Posts"), postfrom);
         }
+        private bool checkNull()
+        {
+            if(cbbDichVu.SelectedValue == null || cbbDichVu.SelectedValue == null || cbbDichVu.SelectedValue == null)
+                return false;
+            return true;
+        } 
 
         private void btnThoat_Click(object sender, RoutedEventArgs e)
         {

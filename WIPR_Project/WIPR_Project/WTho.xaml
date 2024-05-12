@@ -38,12 +38,12 @@
                             DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
                         <Ellipse>
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="/Images/avatar.jpg" Stretch="UniformToFill"/>
+                                <ImageBrush ImageSource="/Images/AVT.jpg" Stretch="UniformToFill"/>
                             </Ellipse.Fill>
                         </Ellipse>
                     </Border>
                     <!--Menu Tiles-->
-                    <TextBlock Text="Đỗ Phú Luân" Foreground="White" FontSize="18" FontWeight="SemiBold"
+                    <TextBlock x:Name="txbName" Text="..." Foreground="White" FontSize="18" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
                     <TextBlock Text="Thợ" Foreground="White" FontSize="14" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center"/>
@@ -59,16 +59,16 @@
                                 <TextBlock Text="Trang chủ"/>
                             </StackPanel>
                         </Button>
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Name="btnTrangCaNhan" Style="{StaticResource menuButton}" Click="btnTrangCaNhan_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Trang cá nhân"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="btnBaiDangKhac" Style="{StaticResource menuButton}">
+                        <Button x:Name="btnThongKe" Style="{StaticResource menuButton}" Click="btnThongKe_Click">
                             <StackPanel Orientation="Horizontal" Width="150">
                                 <Icon:PackIconMaterial Kind="Magnify" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Bài đăng khác"/>
+                                <TextBlock Text="Thống kê"/>
                             </StackPanel>
                         </Button>
                         <Button x:Name="btnTienDo" Style="{StaticResource menuButton}" Click="btnTienDo_Click">
@@ -132,61 +132,79 @@
                 <!--Seprator-->
 
                 <!--Tab Buttons-->
-                
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                    <Grid Width="300" HorizontalAlignment="Left">
-                        <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}" Height="30"/>
-                        <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b09bc6" IsHitTestVisible="True"
-                               Panel.ZIndex="2" Text="Tìm kiếm tại đây ..." 
-                               Visibility="{Binding ElementName=txtSearch, Converter={StaticResource BoolToVis}}"/>
-
-                        <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
-                                           Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"/>
-                    </Grid>
-
-                </StackPanel>
-                <WrapPanel Grid.Row="3">
+                <WrapPanel Name="wpnlTimKiem" Grid.Row="3">
                     <ComboBox x:Name="cbbKhuVuc"  Style="{DynamicResource theComboBox}" Height="25"  Margin="5" SelectionChanged="cbbKhuVuc_SelectionChanged">
-
-                        <ComboBoxItem Tag="" Content="Khu vuc"/>
-                        <ComboBoxItem Tag="address = 'Tp. Ho Chi Minh'" Content="Tp. Ho Chi Minh" />
-                        <ComboBoxItem Tag="address = 'Soc Trang'"  Content="Soc Trang" />
-                        <ComboBoxItem Tag="address = 'Kon Tum'" Content="Kon Tum" />
-                        <ComboBoxItem Tag="address = 'China'" Content="China" />
-                        <ComboBoxItem Tag="address = 'VN'" Content="VN" />
+                        <ComboBoxItem Tag="" Content="Khu vực"/>
+                        <ComboBoxItem Tag="address = N'Quận 1'" Content="Quận 1" />
+                        <ComboBoxItem Tag="address = N'Quận 2'" Content="Quận 2" />
+                        <ComboBoxItem Tag="address = N'Quận 3'" Content="Quận 3" />
+                        <ComboBoxItem Tag="address = N'Quận 4'" Content="Quận 4" />
+                        <ComboBoxItem Tag="address = N'Quận 5'" Content="Quận 5" />
+                        <ComboBoxItem Tag="address = N'Quận 6'" Content="Quận 6" />
+                        <ComboBoxItem Tag="address = N'Quận 7'" Content="Quận 7" />
+                        <ComboBoxItem Tag="address = N'Quận 8'" Content="Quận 8" />
+                        <ComboBoxItem Tag="address = N'Quận 9'" Content="Quận 9" />
+                        <ComboBoxItem Tag="address = N'Quận 10'" Content="Quận 10" />
+                        <ComboBoxItem Tag="address = N'Quận 11'" Content="Quận 11" />
+                        <ComboBoxItem Tag="address = N'Quận 12'" Content="Quận 12" />
+                        <ComboBoxItem Tag="address = N'Quận Bình Thạnh'" Content="Quận Bình Thạnh" />
+                        <ComboBoxItem Tag="address = N'Quận Thủ Đức'" Content="Quận Thủ Đức" />
+                        <ComboBoxItem Tag="address = N'Quận Gò Vấp'" Content="Quận Gò Vấp" />
+                        <ComboBoxItem Tag="address = N'Quận Bình Tân'" Content="Quận Bình Tân" />
+                        <ComboBoxItem Tag="address = N'Quận Tân Bình'" Content="Quận Tân Bình" />
+                        <ComboBoxItem Tag="address = N'Quận Phú Nhuận'" Content="Quận Phú Nhuận" />
+                        <ComboBoxItem Tag="address = N'Quận Tân Phú'" Content="Quận Tân Phú" />
                     </ComboBox>
                     <ComboBox x:Name="cbbKinhNghiem" Style="{DynamicResource theComboBox}" Height="25" Margin="5" SelectionChanged="cbbKinhNghiem_SelectionChanged">
-                        <ComboBoxItem Tag="" Content="Kinh nghiem"/>
-                        <ComboBoxItem Tag="experience = '1 nam'" Content="Duoi 1 nam" />
-                        <ComboBoxItem Tag="experience = '1 nam'" Content="1 nam" />
-                        <ComboBoxItem Tag="experience = '2 nam'" Content="2 nam" />
-                        <ComboBoxItem Tag="experience = '3 nam'" Content="3 nam" />
-                        <ComboBoxItem Tag="experience = '4 nam'" Content="4 nam" />
+                        <ComboBoxItem Tag="" Content="Kinh nghiệm"/>
+                        <ComboBoxItem Tag="experience = N'Dưới 1 năm'" Content="Dưới 1 năm" />
+                        <ComboBoxItem Tag="experience = N'1 - 2 năm'" Content="1 - 2 năm" />
+                        <ComboBoxItem Tag="experience = N'2 - 3 năm'" Content="2 - 3 năm" />
+                        <ComboBoxItem Tag="experience = N'3 - 4 năm'" Content="3 - 4 năm" />
+                        <ComboBoxItem Tag="experience = N'4 - 5 năm'" Content="4 - 5 năm" />
+                        <ComboBoxItem Tag="experience = N'Trên 5 năm'" Content="Trên 5 năm" />
                     </ComboBox>
                     <ComboBox x:Name="cbbMucGia" Style="{DynamicResource theComboBox}" Height="25"  Margin="5" SelectionChanged="cbbMucGia_SelectionChanged">
-                        <ComboBoxItem Tag="" Content="Muc gia"/>
-                        <ComboBoxItem  Tag="price = 'Duoi 1M'" Content="Duoi 1M" />
-                        <ComboBoxItem  Tag="price = 'Duoi 2M'" Content="Duoi 2M" />
-                        <ComboBoxItem  Tag="price = 'Duoi 3M'" Content="Duoi 3M" />
-                        <ComboBoxItem  Tag="price = 'Duoi 4M'" Content="Duoi 4M" />
-                        <ComboBoxItem  Tag="price = 'Duoi 5M'" Content="Duoi 5M" />
+                        <ComboBoxItem Tag="" Content="Mức giá"/>
+                        <ComboBoxItem  Tag="price = N'Dưới 200.000'" Content="Dưới 200.000" />
+                        <ComboBoxItem  Tag="price = N'200.000 - 500.000'" Content="200.000 - 500.000" />
+                        <ComboBoxItem  Tag="price = N'500.000 - 1.000.000'" Content="500.000 - 1.000.000" />
+                        <ComboBoxItem  Tag="price = N'1.000.000 - 1.500.000'" Content="1.000.000 - 1.500.000" />
+                        <ComboBoxItem  Tag="price = N'1.500.000 - 2.000.000'" Content="1.500.000 - 2.000.000" />
+                        <ComboBoxItem  Tag="price = N'2.000.000 - 2.500.000'" Content="2.000.000 - 2.500.000" />
+                        <ComboBoxItem  Tag="price = N'2.500.000 - 3.000.000'" Content="2.500.000 - 3.000.000" />
+                        <ComboBoxItem  Tag="price = N'Trên 3.000.000'" Content="Trên 3.000.000" />
                     </ComboBox>
                     <ComboBox x:Name="cbbDichVu" Style="{DynamicResource theComboBox}" Height="25"  Margin="5" SelectionChanged="cbbDichVu_SelectionChanged">
-                        <ComboBoxItem Tag="" Content="Dich vu"/>
-                        <ComboBoxItem  Tag="job = 'Tho sua ong nuoc'" Content="Tho sua ong nuoc" />
-                        <ComboBoxItem  Tag="job = 'Gia su'" Content="Gia su" />
-                        <ComboBoxItem  Tag="job = 'Tho sua dien'" Content="Tho sua dien" />
+                        <ComboBoxItem Tag="" Content="Dịch vụ"/>
+                        <ComboBoxItem  Tag="job = N'Thợ sửa ống nước'" Content="Thợ sửa ống nước" />
+                        <ComboBoxItem  Tag="job = N'Gia sư'" Content="Gia sư" />
+                        <ComboBoxItem  Tag="job = N'Thợ sửa điện'" Content="Thợ sửa điện" />
+                        <ComboBoxItem  Tag="job = N'Bảo trì thiết bị'" Content="Bảo trì thiết bị" />
                     </ComboBox>
 
                 </WrapPanel>
 
                 <!--Counter Title-->
                 <Separator Height="1" Grid.Row="4" Background="#dae2ea" Margin="10,5,-10,18"/>
-                <Grid x:Name="gridThongTinChiTiet" Grid.Row="5" Width="830" Height="470" Margin="0,0,0,0" VerticalAlignment="Bottom" >
+                <Grid x:Name="gridThongTinChiTiet" Grid.Row="5" Width="830" Height="530" Margin="0,0,0,0" VerticalAlignment="Bottom" >
                     <ScrollViewer x:Name="tabTimKiemTho">
                         <WrapPanel Name="wpnlThongTin" Margin="0 0 0 0">
 
                         </WrapPanel>
+                    </ScrollViewer>
+
+                    <ScrollViewer x:Name="srvTK" Visibility="Hidden">
+                        <Grid>
+                            <WrapPanel Name="wpnlTKDG" Margin="0,0,0,310" Height="340" Width="770">
+
+                            </WrapPanel>
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Height="300" Width="auto" Margin="0,340,0,0" >
+                                <WrapPanel x:Name="wpnlTKLT">
+
+                                </WrapPanel>
+                            </ScrollViewer>
+                        </Grid>
                     </ScrollViewer>
                     <DataGrid Visibility="Hidden" Style="{DynamicResource DataGridStyle1}" x:Name="dgridLoiMoi" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" >
                         <DataGrid.Columns>
@@ -245,6 +263,7 @@
                             <DataGridTextColumn Header="Người thuê" IsReadOnly="True" Width="*" Binding="{Binding name}"/>
                             <DataGridTextColumn Header="Dịch vụ" IsReadOnly="True" Width="*" Binding="{Binding job}"/>
                             <DataGridTextColumn Header="Khu vực" IsReadOnly="True" Width="*" Binding="{Binding address}"/>
+                            <DataGridTextColumn Header="Mức giá" IsReadOnly="True" Width="*" Binding="{Binding price}"/>
                             <DataGridTextColumn Header="Ngày làm việc" IsReadOnly="True" Width="*" Binding="{Binding userBusyDate, StringFormat={}{0:dd/MM/yyyy}}"/>
                             <DataGridTemplateColumn Header="Bắt đầu làm" IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -263,26 +282,17 @@
                 <!--Member datagrid-->
 
                 <!--Pagination Section-->
-                <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
+                <Border Name="bdStage" Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
                         CornerRadius="5" Padding="5" Background="White" Margin="0 10 10 10">
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="btnPrevious" Style="{StaticResource pagingButton}" Click="btnPrevious_Click">
+                        <Button x:Name="btnPrevious" Style="{StaticResource pagingButton}">
                             <Icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}"/>
                         </Button>
                         <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
                         <Button Style="{StaticResource pagingButton}" Content="1" Background="#004B96" Foreground="#ffffff"/>
-                        <Button Style="{StaticResource pagingButton}" Content="2"/>
-                        <Button Style="{StaticResource pagingButton}" Content="3"/>
-
-                        <TextBlock Text="..." Foreground="#6c7682" VerticalAlignment="Center" FontSize="15" Margin="10 0"/>
-
-                        <Button Style="{StaticResource pagingButton}" Content="7"/>
-                        <Button Style="{StaticResource pagingButton}" Content="8"/>
-                        <Button Style="{StaticResource pagingButton}" Content="9"/>
-
                         <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
 
-                        <Button x:Name="btnNext" Style="{StaticResource pagingButton}" Click="btnNext_Click">
+                        <Button x:Name="btnNext" Style="{StaticResource pagingButton}">
                             <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource pagingButtonIcon}"/>
                         </Button>
                     </StackPanel>

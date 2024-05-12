@@ -10,7 +10,7 @@ namespace WIPR_Project
     {
         public ThoDAO()
         {
-            field = "QLyTho";
+            
         }
     }
 }

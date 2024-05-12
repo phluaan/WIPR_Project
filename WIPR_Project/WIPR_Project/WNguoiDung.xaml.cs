@@ -14,18 +14,26 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections.ObjectModel;
+using System.Data.Common;
+
 namespace WIPR_Project
 {
     public partial class WNguoiDung : Window
     {
-        SqlConnection conn = new SqlConnection(Properties.Settings.Default.cnnStr);
         public WNguoiDung()
         {
             InitializeComponent();
-
+            
         }
         public Account userAccount = new Account();
         NguoiDungDAO nguoiDungDAO = new NguoiDungDAO();
+        List<UCKhoiCoBan> listUCKhoiCoBan = new List<UCKhoiCoBan>();
+        List<UCYeuCau> listUCYeuCau = new List<UCYeuCau>();
+        private void LoadThongTinGiaoDien(int id)
+        {
+            DoiTuong doiTuong = nguoiDungDAO.TruyXuatDT(id);
+            txbName.Text = doiTuong.HoTen;
+        }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(e.ChangedButton == MouseButton.Left)
@@ -43,15 +51,15 @@ namespace WIPR_Project
                     this.WindowState = WindowState.Normal;
                     this.Width = 1080;
                     this.Height = 720;
-                    gridThongTinChiTiet.Height = 470;
+                    gridThongTinChiTiet.Height = 530;
                     gridThongTinChiTiet.Width = 830;
                     IsMaximized = false;
                 }
                 else
                 {
                     this.WindowState = WindowState.Maximized;
-                    gridThongTinChiTiet.Height = 620;
-                    gridThongTinChiTiet.Width = 1150;
+                    gridThongTinChiTiet.Height = 670;
+                    gridThongTinChiTiet.Width = 1300;
                     IsMaximized = true;
                 }
             }
@@ -69,7 +77,9 @@ namespace WIPR_Project
         private void btnTrangChu_Click(object sender, RoutedEventArgs e)
         {
             HiddenTab(sender, e);
+            wpnlTimKiem.Visibility = Visibility.Visible;
             tabYeuCauNguoiDung.Visibility = Visibility.Visible;
+            UploadUCKhoiCoBan();
         }
         private void btnTienDo_Click(object sender, RoutedEventArgs e)
         {
@@ -115,15 +125,6 @@ namespace WIPR_Project
                 wDanhGia.ShowDialog();
                 return;
             }
-            if (dgridTienDo.SelectedItem != null)
-            {
-                var selectedLoiMoi = dgridTienDo.SelectedItem as DataRowView;
-                int idNgayLamViec = Convert.ToInt32(selectedLoiMoi["id"]);
-                string tiendo = selectedLoiMoi["progress"].ToString() == "ChuaBatDau" ? "DangTienHanh" : "DaHoanThanh";
-                nguoiDungDAO.Sua("dateWork", idNgayLamViec, $" progress = '{tiendo}' ");
-
-                LoadTienDo((tabTienDo.SelectedItem as TabItem).Tag.ToString());
-            }
         }
 
         private void btnXacNhan_Click(object sender, RoutedEventArgs e)
@@ -136,7 +137,8 @@ namespace WIPR_Project
                 string dichvu = selectedLoiMoi["job"].ToString();
                 int idNgayLamViec = nguoiDungDAO.IdTiepTheo("dateWork");
                 int idNgayBan = nguoiDungDAO.IdTiepTheo("busyDate");
-                nguoiDungDAO.XacNhan(idNgayLamViec, userAccount.IdInforUser, idNguoiDung, dichvu, ngayLamViec, idNgayBan);
+                string mucgia = selectedLoiMoi["price"].ToString();
+                nguoiDungDAO.XacNhan(idNgayLamViec, userAccount.IdInforUser, idNguoiDung, dichvu, ngayLamViec, idNgayBan, mucgia);
 
                 btnTuChoi_Click(sender, e);
             }
@@ -167,10 +169,6 @@ namespace WIPR_Project
                 wBaiViet.ShowDialog();
             }
         }
-        private void btnTools_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void WNguoiDung_Loaded(object sender, RoutedEventArgs e)
         {
@@ -178,23 +176,46 @@ namespace WIPR_Project
             cbbKhuVuc.SelectedIndex = 0;
             cbbKinhNghiem.SelectedIndex = 0;
             cbbMucGia.SelectedIndex = 0;
+
+            LoadThongTinGiaoDien(userAccount.IdInforUser);
         }
         private void Cbb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            wpnlThongTin.Children.Clear();
+            listUCKhoiCoBan.Clear();
             string khuvuc = cbbKhuVuc.SelectedItem == null ? "" : (cbbKhuVuc.SelectedItem as ComboBoxItem).Tag.ToString();
             string kinhnghiem = cbbKinhNghiem.SelectedItem == null ? "" : (cbbKinhNghiem.SelectedItem as ComboBoxItem).Tag.ToString();
             string mucgia = cbbMucGia.SelectedItem == null ? "" : (cbbMucGia.SelectedItem as ComboBoxItem).Tag.ToString();
             string dichvu = cbbDichVu.SelectedItem == null ? "" : (cbbDichVu.SelectedItem as ComboBoxItem).Tag.ToString();
 
-            List<BaiViet> listBaiViet = nguoiDungDAO.TruyXuatDSBaiViet(khuvuc, kinhnghiem, mucgia, dichvu, "InforPostTho");
-            if (listBaiViet == null) return;
-            foreach (BaiViet baiViet in listBaiViet)
+            List<BaiViet> ListBaiViet = nguoiDungDAO.TruyXuatDSBaiViet(khuvuc, kinhnghiem, mucgia, dichvu, "InforPostTho");
+            if (ListBaiViet == null) return;
+            foreach (BaiViet baiViet in ListBaiViet)
             {
                 UCKhoiCoBan uCKhoiCoBan = new UCKhoiCoBan();
                 uCKhoiCoBan.UpdateUserControl(baiViet, userAccount);
 
-                wpnlThongTin.Children.Add(uCKhoiCoBan);
+                listUCKhoiCoBan.Add(uCKhoiCoBan);
+            }
+            cbbSapXep_SelectionChanged(sender, e);
+        }
+        private void cbbSapXep_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbbSapXep.SelectedIndex == 1)
+            {
+                listUCKhoiCoBan.Sort((x, y) => y.luotThue.CompareTo(x.luotThue));
+            }
+            else if (cbbSapXep.SelectedIndex == 2)
+            {
+                listUCKhoiCoBan.Sort((x, y) => y.danhGiaTB.CompareTo(x.danhGiaTB));
+            }
+            UploadUCKhoiCoBan();
+        }
+        private void UploadUCKhoiCoBan()
+        {
+            wpnlThongTin.Children.Clear();
+            foreach (UCKhoiCoBan uc in listUCKhoiCoBan)
+            {
+                wpnlThongTin.Children.Add(uc);
             }
         }
         private void cbbKhuVuc_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -221,20 +242,44 @@ namespace WIPR_Project
             wDangBai.userAccount = userAccount;
             wDangBai.ShowDialog();
         }
-
-        private void btnNext_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnPrevious_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void btnLichLamViec_Click(object sender, RoutedEventArgs e)
         {
             WLichBan wLichBan = new WLichBan();
             wLichBan.ShowDialog();
+        }
+
+        private void btnTranngCaNhan_Click(object sender, RoutedEventArgs e)
+        {
+            wpnlTimKiem.Visibility = Visibility.Hidden;
+            listUCYeuCau.Clear();
+            List<BaiViet> ListBaiViet = nguoiDungDAO.TruyXuatBaiVietCaNhan(userAccount.IdInforUser, "InforPostNguoiDung");
+            if (ListBaiViet == null) return;
+            foreach (BaiViet baiViet in ListBaiViet)
+            {
+                UCYeuCau uCYeuCau = new UCYeuCau();
+                uCYeuCau.UpdateUserControl(baiViet, userAccount);
+
+                listUCYeuCau.Add(uCYeuCau);
+            }
+            UploadUCYeuCau();
+        }
+        private void UploadUCYeuCau()
+        {
+            wpnlThongTin.Children.Clear();
+            foreach (UCYeuCau uc in listUCYeuCau)
+            {
+                wpnlThongTin.Children.Add(uc);
+            }
+        }
+
+        private void btnThoYeuThich_Click(object sender, RoutedEventArgs e)
+        {
+            wpnlThongTin.Children.Clear();
+            foreach (UCKhoiCoBan uc in listUCKhoiCoBan)
+            {
+                if(uc.IDYeuThich != -1)
+                    wpnlThongTin.Children.Add(uc);
+            }
         }
     }
 }

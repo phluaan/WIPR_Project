@@ -34,12 +34,21 @@ namespace WIPR_Project
             txbMucGia.Text = baiViet.MucGia;
             txbKhuVuc.Text = baiViet.KhuVuc;
             txbHoTen.Text = baiViet.TenDoiTuong;
+            DoiTuong dt = thoDAO.TruyXuatDT(baiViet.IdDoiTuong);
+            txbSDT.Text = dt.SDT;
+            txbMoTa.Text = baiViet.ChiTiet;
 
             Height = 340;
             Width = 600;
             Margin = new Thickness(15);
             this.baiViet = baiViet;
             this.userAccount = userAccount;
+
+            if(userAccount.UserRole == "NguoiDung")
+            {
+                btnChinhSua.Visibility = Visibility.Visible;
+                btnHenLich.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btnHenLich_Click(object sender, RoutedEventArgs e)
@@ -48,6 +57,14 @@ namespace WIPR_Project
             LoiMoi loiMoi = new LoiMoi(thoDAO.IdTiepTheo("RequestUser"), userAccount.Id, baiViet.IdDoiTuong, baiViet.Id, userAccount.UserRole, DateTime.Now);
             wLoiMoi.loiMoi = loiMoi;
             wLoiMoi.ShowDialog();
+        }
+
+        private void btnChinhSua_Click(object sender, RoutedEventArgs e)
+        {
+            WChinhSuaBaiViet wChinhSuaBaiViet = new WChinhSuaBaiViet();
+            wChinhSuaBaiViet.baiViet = baiViet;
+            wChinhSuaBaiViet.userAccount = userAccount;
+            wChinhSuaBaiViet.ShowDialog();
         }
     }
 }
